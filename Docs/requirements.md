@@ -8,15 +8,18 @@ BetterWe is a React Native application built to run on iOS and Android systems. 
 
 1.2  __CSCI Component Breakdown__ -- CSCI BetterWe is composed of the following CSCs:
 
-1.2.1 __GUI Client CSC__
+1.2.1 __GUI Client CSC__ -- The GUI Client will be a home screen displaying all of the user's groups. From there, the user can navigate to Chat pages, Goal Managers, and Group Finders.
 
 1.2.1.1 __Client Login/Registration Screen CSU__ -- If the user is not logged in, they will be greeted with this screen to either log in to their account or create an account.
 
-1.2.1.2 __Client Activities List Panel CSU__ -- This panel is where the user sees the activities that they are participating in.
+1.2.1.2 __Client Activities List Panel CSU__ -- This panel is where the user sees the groups that they are participating in.
 
 1.2.1.2.1 __ActivityBanner module__ -- Each activity will have an icon or text associated with it so the user can easily identify their different groups.
 
 1.2.1.3 __Client Current Activity Screen CSU__ -- This screen is where all of the actions happens. The user can talk to their group members and take advantage of accountability features.
+
+A Simple Mockup of our current CSCI is shown below.
+![Intergace](images/components-concept-001.png)
 
 1.3  __Functional Requirements by CSC__
 
