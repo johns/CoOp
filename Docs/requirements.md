@@ -22,21 +22,17 @@ BetterWe is a React Native application built to run on iOS and Android systems. 
 
 1.3.1  __Graphical User Interface__
 
-1.3.1.1  The GUI subsystem shall display a window for the main application.
+1.3.1.1  The GUI subsystem shall display the current Goal page on startup if the user is in at least one group and they are already logged in.
 
-1.3.1.2  The GUI subsystem shall display a window to provide details of operation (a help window).
+1.3.1.2  The GUI subsystem shall display the login window in startup if the user has not logged in yet.
 
-1.3.1.3  The GUI subsystem shall react to mouse clicks on displayed buttons.
+1.3.1.3  The GUI subsystem shall react to touch clicks.
 
 1.3.1.4  The GUI subsystem shall include a menu bar at the top of the main window.
 
-1.3.1.5  The GUI subsystem shall provide the facility such that the operations which are available via graphical
-           button clicks are also available via menu selections using the keyboard.
+1.3.1.6  The GUI subsystem shall provide a messaging system similar to what the user is familiar with.
 
-1.3.1.6  The GUI subsystem shall provide text entry fields into which the user may type values.
-
-1.3.1.7  The GUI subsystem shall provide error checking on the text entry fields such that the user is
-           provided immediate feedback in case of erroneous entry.
+1.3.1.7  The GUI subsystem shall provide error checking on the text entry fields.
 
 1.4  __Performance Requirements by CSC__
 
