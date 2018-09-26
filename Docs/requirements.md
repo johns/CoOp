@@ -35,7 +35,7 @@ BetterWe is a React Native application built to run on iOS and Android systems. 
 
 1.4.2 __Creating a New Activity__ -- When creating an activity, the user will be able to select the accountability features that they want to use for their activity. It is also important to be able to invite friends to your group from your contacts.
 
-1.4.3 __Selecting an Goal Banner__ -- To select an goal that has already been made, the user will click on the banner for that goal. The banner will be text with the title of the goal and/or a picture of the user's choosing.
+1.4.3 __Selecting an Activity Banner__ -- To select an activity that has already been made, the user will click on the banner for that activity. The banner will be text with the title of the activity and/or a picture of the user's choosing.
 
 1.4.4 __Locating Features to Use in Group Chat Environment__ -- At the base of the app is group messaging and communication. When on this page for an activity, the user will have to be able to easily locate the accountability features. They could be presented in a side bar or a bar like that of emoji options when you are typing.
 
