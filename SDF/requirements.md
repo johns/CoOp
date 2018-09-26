@@ -37,16 +37,29 @@ CSCI BetterWe is composed of the following CSCs:
 
 1.4  Performance Requirements by CSC
 
-1.4.1  Performance Requirement 1
+1.4.1  Logging in or Registering -- Logging in and registering for a BetterWe account should be integrated into Facebook or Google for a seamless login. The user should log in once and not have to worry about logging in ever again. The user should only see the registration/login menu if they are not logged in on that device.
 
-                          .
-                          .
-                          .
+1.4.2 Creating a New Activity -- When creating an activity, the user will be able to select the accountability features that they want to use for their activity. It is also important to be able to invite friends to your group from your contacts.
 
-1.4.n  Performance Requirement n
+1.4.3 Selecting an Activity Banner -- To select an activity that has already been made, the user will click on the banner for that activity. The banner will be text with the title of the activity and/or a picture of the user's choosing.
+
+1.4.4 Locating Features to Use in Group Chat Environment -- At the base of the app is group messaging and communication. When on this page for an activity, the user will have to be able to easily locate the accountability features. They could be presented in a side bar or a bar like that of emoji options when you are typing.
 
 1.5  Project Environment Requirements
 
 1.5.1  Development Environment Requirements
+
+1.5.1.1 Android Development
+
+1.5.1.1.1 Android Studio for Android Phone Emulator
+
+1.5.1.1.2 Mac, Windows, or Linux System
+
+1.5.1.2 iPhone Development
+
+1.5.1.2.1 Xcode
+
+1.5.1.2.2 An iPhone
+
 
 1.5.2  Execution Environment Requirements
