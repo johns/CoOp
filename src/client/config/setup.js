@@ -6,6 +6,7 @@ import {
 export default class Setup extends Component {
   render() {
     return (
+      // Build here
       <Text>
       Test
       </Text>
