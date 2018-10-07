@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import {
     Text,
 } from 'react-native'
+import Home from "../screens/Home/Home";
 
 export default class Setup extends Component {
   render() {
     return (
-      // Build here
-      <Text>
-      Test
-      </Text>
+      // Import what you're currently working on and change name here.
+      <Home />
     );
   }
 }
