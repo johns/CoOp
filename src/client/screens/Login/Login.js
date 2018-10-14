@@ -2,13 +2,16 @@ import React, { Component } from "react";
 import {
     Text,
 } from 'react-native'
+import Button from "../../components/UI/Button/Button";
 
-export default class Home extends Component {
+export default class Login extends Component {
   render() {
     return (
       <Text>
-      Test Home
+      Test Login
       </Text>
+
+      // <Button />
     );
   }
 }
