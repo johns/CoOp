@@ -7,11 +7,11 @@ import Button from "../../components/UI/Button/Button";
 export default class Login extends Component {
   render() {
     return (
-      <Text>
-      Test Login
-      </Text>
+      // <Text>
+      // Test Login
+      // </Text>
 
-      // <Button />
+      <Button />
     );
   }
 }
