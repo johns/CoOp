@@ -4,6 +4,7 @@ import { StatusBar } from 'react-native';
 export default StyleSheet.create({
   container: {
     position: 'absolute',
+    // flexDirection:"row",
     left: 0,
     right: 0,
     top: 0,
@@ -15,7 +16,9 @@ export default StyleSheet.create({
     paddingHorizontal: 20,
   },
   icon: {
-    fontSize: 20,
-    // fontWeight: 'bold',
+
+  },
+  logo: {
+    alignSelf: 'center'
   }
 });

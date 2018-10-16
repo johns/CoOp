@@ -11,6 +11,7 @@ export default class Header extends Component {
   render() {
     return (
       <View style={styles.container}>
+      {/* <Image resizeMode="contain" style={styles.logo} source={require('./mudkip.png')} /> */}
         <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
           <Image resizeMode="contain" style={styles.icon} source={require('./gear.png')} />
         </TouchableOpacity>
