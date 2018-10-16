@@ -11,7 +11,7 @@ export default class Login extends Component {
       // Test Login
       // </Text>
 
-      <Button />
+      <Button text = "Login" />
     );
   }
 }

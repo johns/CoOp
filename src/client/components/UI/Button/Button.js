@@ -12,7 +12,7 @@ export default class Button extends Component {
       // </Text>
       <View style={styles.container}>
         <TouchableOpacity style={styles.button}>
-          <Text>"this is the default button text"</Text>
+          <Text style={styles.buttonText}>{this.props.text}</Text>
         </TouchableOpacity>
       </View>
     );

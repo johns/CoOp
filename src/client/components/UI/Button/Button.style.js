@@ -4,11 +4,15 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    paddingHorizontal: 10
+    paddingHorizontal: 75
   },
   button: {
     alignItems: 'center',
     backgroundColor: '#70e74e',
-    padding: 10
+    padding: 20
+  },
+  buttonText: {
+    fontSize: 20,
+    // fontWeight: 'bold',
   }
 });
