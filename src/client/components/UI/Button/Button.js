@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity, StyleSheet, View } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet, View, Button } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './Button.style.js';
 
-export default class Button extends Component {
+export default class CustomButton extends Component {
   render() {
     return (
       <View style={styles.container}>

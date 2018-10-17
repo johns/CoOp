@@ -4,12 +4,14 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    paddingHorizontal: 75
+    paddingHorizontal: 75,
+    margin: 30
   },
   button: {
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#70e74e',
-    padding: 20
+    padding: 25
   },
   buttonText: {
     fontSize: 20,
