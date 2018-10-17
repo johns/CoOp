@@ -10,24 +10,35 @@ import { StyleSheet } from "react-native";
 
 
 const styles = StyleSheet.create ({
-   headingCentral: {
+  headingCentral: {
       marginTop: 60,
       textAlign: 'center',
       fontWeight: 'bold',
       fontSize: 32
    },
-   userInput: {
-     marginTop: 20,
-     marginBottom: 20,
-     marginLeft: 40,
-     height: 40,
-     borderColor: 'gray',
-     borderWidth: 1,
-     marginRight: 40,
+  userInput: {
+    marginTop: 20,
+    marginBottom: 20,
+    marginLeft: 40,
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginRight: 40,
    },
+
+  buttonBox: {
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
    goButton: {
-     alignItems: 'center',
-     marginTop: 10,
+     paddingLeft: 20,
+     paddingRight: 20,
+     flex: 1,
    },
 
 });
@@ -66,12 +77,21 @@ export default class CreateAccount extends Component {
           value={this.state.password}
           secureTextEntry
         />
-        <View style={styles.goButton}>
-          <Button
-            title="CREATE"
-            color="#70e74e"
-            accessibilityLabel="Create Account"
-          />
+        <View style={styles.buttonBox}>
+          <View style={styles.goButton}>
+            <Button
+              title="BACK TO LOGIN"
+              color="#94ad9a"
+              accessibilityLabel="Back to Login"
+            />
+          </View>
+          <View style={styles.goButton}>
+            <Button
+              title="CREATE"
+              color="#70e74e"
+              accessibilityLabel="Create Account"
+            />
+          </View>
 
         </View>
       </View>
