@@ -4,18 +4,13 @@ import {
     Text,
     Button,
     TextInput,
+    KeyboardAvoidingView,
 } from 'react-native';
 import HeadingCentral from '../../containers/Header/Header';
 import { StyleSheet } from "react-native";
 
 
 const styles = StyleSheet.create ({
-  headingCentral: {
-      marginTop: 60,
-      textAlign: 'center',
-      fontWeight: 'bold',
-      fontSize: 32
-   },
   userInput: {
     marginTop: 20,
     marginBottom: 20,
@@ -51,12 +46,13 @@ export default class CreateAccount extends Component {
       email: '',
       username: '',
       password: '',
+      passwordConfirm: '',
       };
   }
 
   render() {
     return (
-      <View>
+      <KeyboardAvoidingView behavior="padding" enabled>
         <HeadingCentral color="#70e74e"> Create an Account </HeadingCentral>
         <TextInput
           placeholder='Email'
@@ -77,6 +73,13 @@ export default class CreateAccount extends Component {
           value={this.state.password}
           secureTextEntry
         />
+        <TextInput
+          placeholder='Confirm Password'
+          style={styles.userInput}
+          onChangeText={(passwordConfirm) => this.setState({passwordConfirm})}
+          value={this.state.password}
+          secureTextEntry
+        />
         <View style={styles.buttonBox}>
           <View style={styles.goButton}>
             <Button
@@ -94,7 +97,7 @@ export default class CreateAccount extends Component {
           </View>
 
         </View>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
