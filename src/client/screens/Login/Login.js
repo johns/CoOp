@@ -18,9 +18,10 @@ export default class Login extends Component {
     return (
       <View>
         <Header
-          leftComponent={{ icon: 'menu', color: '#fff' }}
-          centerComponent={{ text: 'Login Screen', style: { color: '#fff' } }}
-          rightComponent={{ icon: 'home', color: '#fff' }}
+          leftComponent={{ icon: 'menu', color: '#000000' }}
+          centerComponent={{ text: 'Login Screen', style: { color: '#000000' } }}
+          rightComponent={{ icon: 'home', color: '#000000' }}
+          backgroundColor = '#70e74e'
         />
         <View style={styles.container}>
           <TextInput
