@@ -32,9 +32,14 @@
 
 1.4.  A preliminary idea of the schema of the database including table descriptions and potential columns
 
+<<<<<<< HEAD
 >  Each task will have its information broken up into tables. The first will be called users for all the users participating in each task. Potential columns for this table will be the username, photo, and other relevant user data. Another table will be made called statistics which will track all the progress being made by the group members. This will inlude info about what the goals are
  and if weekly or daily goals are kept.
 
+=======
+>  The activity/task database will have a tasks table which contains a description of the task and a unique ID. The participants table will hold all of the participants of tasks with their user info and what task they are a part of. The user table will hold info on all of the users using BetterWe. A room table will be used to keep information on the task environment including a picture, name ID and theme. Finally, the message table will keep track of the messages that participants in each task are sending to each other. Attributes in this table include the message contents, room ID, task ID, and user IDs.
+ 
+>>>>>>> 2ed2cb2a0cb07bc54dcf37b3f060ca9354fd7870
 1.5.  A complete preliminary Entity-Relationship Diagram [ERD] for the database [NOT hand-drawn, PLEASE!]
 
->  TODO
+>  ![ERD](taskERD.png)
