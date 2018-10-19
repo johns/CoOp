@@ -25,4 +25,4 @@
  
 1.5.  A complete preliminary Entity-Relationship Diagram [ERD] for the database [NOT hand-drawn, PLEASE!]
 
->  TODO
+>  ![ERD](taskERD.png)
