@@ -8,15 +8,27 @@
 
 1.1.  Project description, database engine used, potential users, maybe some other stuff
 
->  TODO
+>  BetterWe is an app created for groups who want to accomplish a common goal. Whether
+>  That is losing weight, or cutting out fast food from their diet, groups will have
+>  the ability to discuss with their groups in chat rooms, and navigate the app to
+>  set new goals and set incentives. For our project, we are using postgreSQL for
+>  the main database of our app. Our users are everyday app users, a very broad customer
+>  base.
 
 1.2.  Data description, generally what type of data will be stored
 
->  TODO
+>  Our app will store user data as well as the data for the messages in every group.
+>  Each 'user' will have an ID, email address, Full name, Password, and a picture
+>  associated with their user prsofile. We will also store our messaging rooms, which
+>  we will call our 'tasks'.
 
 1.3.  At least five examples of the type of data your database will provide _to the user_
 
->  TODO
+>  1. A user's information
+>  2. a task's participants
+>  3. Messages in a group task
+>  4. the information about the chat room itself
+>  5. The information about the task itself
 
 1.4.  A preliminary idea of the schema of the database including table descriptions and potential columns
 
