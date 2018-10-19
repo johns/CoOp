@@ -1,6 +1,6 @@
 ##  Preliminary Database Design Document
 
-#####  Name 1, name 2
+#####  James Byrne, Sam Savini
 #####  Introduction to Database Systems
 #####  October 18th, 2018
 
@@ -20,8 +20,9 @@
 
 1.4.  A preliminary idea of the schema of the database including table descriptions and potential columns
 
->  TODO
-
+>  Each task will have its information broken up into tables. The first will be called users for all the users participating in each task. Potential columns for this table will be the username, photo, and other relevant user data. Another table will be made called statistics which will track all the progress being made by the group members. This will inlude info about what the goals are
+ and if weekly or daily goals are kept. 
+ 
 1.5.  A complete preliminary Entity-Relationship Diagram [ERD] for the database [NOT hand-drawn, PLEASE!]
 
 >  TODO
