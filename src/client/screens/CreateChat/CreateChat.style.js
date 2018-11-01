@@ -37,14 +37,38 @@ export default StyleSheet.create({
       fontSize: 32
    },
   userInput: {
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 10,
+    marginBottom: 10,
     marginLeft: 40,
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
     marginRight: 40,
    },
+
+   uploadImageButton: {
+     marginTop: 10,
+     marginBottom: 10,
+     marginLeft: 40,
+     height: 10,
+     width: 20,
+     borderColor: 'gray',
+     borderWidth: 1,
+     marginRight: 40,
+     color: '#841584',
+     // paddingLeft: 20,
+     // paddingRight: 20,
+     // flex: 1,
+    },
+
+   inputTitle: {
+     fontSize: 16,
+     color: '#3e3f3c',
+     marginTop: 20,
+     // marginBottom: 20,
+     marginLeft: 40,
+     // marginRight: 40,
+    },
 
   buttonBox: {
     marginLeft: 20,
