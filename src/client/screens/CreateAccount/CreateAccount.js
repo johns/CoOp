@@ -95,7 +95,6 @@ export default class CreateAccount extends Component {
               accessibilityLabel="Create Account"
             />
           </View>
-
         </View>
       </KeyboardAvoidingView>
     );
