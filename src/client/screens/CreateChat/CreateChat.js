@@ -7,7 +7,7 @@ export default class CreateChat extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { usernameText: 'Username', passwordText: 'Password' };
+    this.state = { groupNameText: 'Group Name' };
   }
 
   render() {
@@ -16,8 +16,14 @@ export default class CreateChat extends Component {
         <Header
           leftComponent={{ icon: 'keyboard-arrow-left', color: '#000000' }}
           centerComponent={{ text: 'Create Chat', style: { color: '#000000' } }}
-          rightComponent={{ icon: 'add', color: '#000000' }}
+          rightComponent={{ icon: 'home', color: '#000000' }}
           backgroundColor = '#70e74e'
+        />
+
+        <TextInput
+          style={styles.userInput}
+          onChangeText={(groupNameText) => this.setState({groupNameText})}
+          value= {this.state.groupNameText}
         />
       </View>
     );
