@@ -9,9 +9,9 @@ export default class CustomHeader extends Component {
     return (
       <View>
         <Header
-          leftComponent={{ icon: 'keyboard-arrow-left', color: '#000000' }}
-          centerComponent={{ text: 'Create Chat', style: { color: '#000000' } }}
-          rightComponent={{ icon: 'home', color: '#000000' }}
+          leftComponent={{ icon: this.props.leftIcon, color: '#000000' }}
+          centerComponent={{ text: this.props.centerText, style: { color: '#000000' } }}
+          rightComponent={{ icon: this.props.rightIcon, color: '#000000' }}
           backgroundColor = '#70e74e'
         />
       </View>

@@ -14,7 +14,7 @@ export default class CreateChat extends Component {
   render() {
     return (
       <View style={styles.mainView}>
-        <CustomHeader />
+        <CustomHeader text = 'Create Chat' leftIcon = 'keyboard-arrow-left' rightIcon = 'home'/>
 
         <View>
           <Text style = {styles.inputTitle}> Group Name </Text>
