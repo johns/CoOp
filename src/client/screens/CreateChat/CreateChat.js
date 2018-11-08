@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Text, AppRegistry, TextInput, View, Button } from 'react-native'
+import { Text, AppRegistry, TextInput, View, Button, Image } from 'react-native'
 import { Header } from 'react-native-elements'
 import styles from './CreateChat.style.js';
+import CustomHeader from "../../components/UI/Header/Header";
 
 export default class CreateChat extends Component {
 
@@ -12,38 +13,43 @@ export default class CreateChat extends Component {
 
   render() {
     return (
-      <View>
-        <Header
-          leftComponent={{ icon: 'keyboard-arrow-left', color: '#000000' }}
-          centerComponent={{ text: 'Create Chat', style: { color: '#000000' } }}
-          rightComponent={{ icon: 'home', color: '#000000' }}
-          backgroundColor = '#70e74e'
-        />
+      <View style={styles.mainView}>
+        <CustomHeader />
 
-        <Text style = {styles.inputTitle}> Group Name </Text>
+        <View>
+          <Text style = {styles.inputTitle}> Group Name </Text>
 
-        <TextInput
-          style={styles.userInput}
-          onChangeText={(groupNameText) => this.setState({groupNameText})}
-          value= {this.state.groupNameText}
-        />
+          <TextInput
+            style={styles.userInput}
+            onChangeText={(groupNameText) => this.setState({groupNameText})}
+            value= {this.state.groupNameText}
+          />
+        </View>
 
-        <Text style = {styles.inputTitle}> Activity Type </Text>
+        <View>
+          <Text style = {styles.inputTitle}> Activity Type </Text>
 
-        <TextInput
-          style={styles.userInput}
-          onChangeText={(activityTypeText) => this.setState({activityTypeText})}
-          value= {this.state.activityTypeText}
-        />
+          <TextInput
+            style={styles.userInput}
+            onChangeText={(activityTypeText) => this.setState({activityTypeText})}
+            value= {this.state.activityTypeText}
+          />
+        </View>
 
-        <Button
-          style={styles.uploadImageButton}
-          containerViewStyle={{width: '50%', marginLeft: 0}}
-          onPress={() => alert('Select an image form storage.')}
-          title="uploadImage"
-          accessibilityLabel="This is an upoad image button"
-        />
+        <View style = {styles.uploadImageContainer}>
+          <Button
+            color="#3e3f3c"
+            style={styles.uploadImageButton}
+            onPress={() => alert('Select an image form storage.')}
+            title="uploadImage"
+            accessibilityLabel="This is an upload image button"
+          />
 
+          <Image
+            style={styles.uploadedImage}
+            source={{uri: 'https://cdn.bulbagarden.net/upload/6/60/258Mudkip.png'}}
+          />
+        </View>
       </View>
     );
   }

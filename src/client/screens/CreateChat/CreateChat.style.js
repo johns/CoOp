@@ -47,18 +47,41 @@ export default StyleSheet.create({
    },
 
    uploadImageButton: {
-     marginTop: 10,
-     marginBottom: 10,
-     marginLeft: 40,
-     height: 10,
-     width: 20,
-     borderColor: 'gray',
+     // marginTop: 10,
+     // marginBottom: 10,
+     // marginLeft: 40,
+     // height: 10,
+     // width: 20,
+     // borderColor: 'gray',
      borderWidth: 1,
-     marginRight: 40,
-     color: '#841584',
+     // marginRight: 40,
+     // color: '#841584',
+     backgroundColor: '#94ad9a',
      // paddingLeft: 20,
      // paddingRight: 20,
      // flex: 1,
+    },
+
+    uploadImageContainer: {
+      width: '40%',
+      flex: 1,
+      flexDirection: 'column',
+      alignSelf:'center',
+      marginTop: 20,
+      marginBottom: 20,
+    },
+
+    mainView: {
+      flex: 1,
+      flexDirection: 'column',
+      // justifyContent: 'space-between',
+    },
+
+    uploadedImage: {
+      width: 100,
+      height: 100,
+      marginTop: 20,
+      alignSelf: 'center',
     },
 
    inputTitle: {
