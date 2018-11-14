@@ -21,9 +21,11 @@ __What follows is an example of Requirements Specification structure__
 6.3.1  __Class Descriptions__ --
 
 6.3.1.1  __Detailed Class Description 1__ --
+
                   .
                   .
                   .
+                  
 6.3.1.n  __Detailed Class Description n__ --
 
 6.3.2  __Detailed Interface Descriptions__ --
