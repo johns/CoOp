@@ -4,13 +4,13 @@ import {
 } from 'react-native'
 
 import { colors } from "../lib/colors";
-import ChatRoom from "../screens/ChatRoom/ChatRoom";
+import CreateAccount from "../screens/CreateAccount/CreateAccount";
 
 export default class Setup extends Component {
   render() {
     return (
 
-      <ChatRoom />
+      <CreateAccount />
     );
   }
 }
