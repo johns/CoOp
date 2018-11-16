@@ -6,7 +6,7 @@ import {
     TextInput,
     Image,
 } from 'react-native';
-import HeadingCentral from '../../containers/Header/Header';
+import CustomHeader from '../../components/UI/Header/Header';
 import ChatBubble from '../../components/UI/ChatBubble/ChatBubble';
 
 import { StyleSheet } from "react-native";
@@ -75,6 +75,7 @@ export default class ChatRoom extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <CustomHeader text = 'Create Chat' leftIcon = 'keyboard-arrow-left' rightIcon = 'info'/>
         <View style={styles.chatArea}>
           <ChatBubble content="AIIGHT" user={"YEP"} isSelf={false}></ChatBubble>
 

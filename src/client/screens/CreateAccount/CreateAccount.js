@@ -6,7 +6,7 @@ import {
     TextInput,
     KeyboardAvoidingView,
 } from 'react-native';
-import HeadingCentral from '../../containers/Header/Header';
+import CustomHeader from '../../components/UI/Header/Header';
 import { StyleSheet } from "react-native";
 
 
@@ -53,7 +53,8 @@ export default class CreateAccount extends Component {
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" enabled>
-        <HeadingCentral color="#70e74e"> Create an Account </HeadingCentral>
+        <CustomHeader text = 'Create Account' leftIcon = 'keyboard-arrow-left' />
+
         <TextInput
           placeholder='Email'
           style={styles.userInput}
