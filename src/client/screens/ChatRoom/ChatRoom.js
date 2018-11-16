@@ -68,6 +68,7 @@ export default class ChatRoom extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      chatName: '[FILLER CHATNAME]',
       message: '',
     };
   }
@@ -75,7 +76,7 @@ export default class ChatRoom extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <CustomHeader text = 'Create Chat' leftIcon = 'keyboard-arrow-left' rightIcon = 'info'/>
+        <CustomHeader text = {this.state.chatName} leftIcon = 'keyboard-arrow-left' rightIcon = 'info'/>
         <View style={styles.chatArea}>
           <ChatBubble content="AIIGHT" user={"YEP"} isSelf={false}></ChatBubble>
 

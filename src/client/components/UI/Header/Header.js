@@ -19,7 +19,7 @@ export default class CustomHeader extends Component {
         rightIcon,
     } = this.props;
 
-    let middleText = { text: text, style: { color: '#ffffff' } }
+    let middleText = { text: text, style: { color: '#ffffff', fontSize: 18, fontWeight: 'bold'} }
 
     if (logo) {
       middleText = (

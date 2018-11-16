@@ -14,7 +14,7 @@ export default class Setup extends Component {
   render() {
     return (
 
-      <Home />
+      <ChatRoom />
     );
   }
 }
