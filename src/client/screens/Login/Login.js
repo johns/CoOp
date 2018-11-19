@@ -3,6 +3,8 @@ import { Text, AppRegistry, TextInput, View } from 'react-native'
 import { Header } from 'react-native-elements'
 import CustomButton from "../../components/UI/Button/Button";
 import CustomHeader from '../../components/UI/Header/Header';
+import Logo from '../../components/Logo/Logo';
+
 
 import styles from './Login.style.js';
 
@@ -19,8 +21,8 @@ export default class Login extends Component {
   render() {
     return (
       <View>
-      <CustomHeader logo={true} />
-
+        <CustomHeader text="Better We" />
+        <Logo primary={true} />
         <View style={styles.container}>
           <TextInput
             style={styles.userInput}

@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   containter: {
+    position: 'relative',
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
