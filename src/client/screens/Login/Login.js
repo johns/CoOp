@@ -6,22 +6,20 @@ import CustomHeader from '../../components/UI/Header/Header';
 import Logo from '../../components/Logo/Logo';
 import styles from './Login.style.js';
 import { StyleSheet } from "react-native";
+import { getNavigationBase } from "../../config/routes"
 
 
 export default class Login extends Component {
-  static navigationOptions = {
-    title: 'BetterWe',
-    headerStyle: { backgroundColor: '#70e74e' },
-    headerTitleStyle: { color: 'white' },
-  }
-  settingsPress() {
-    alert('The settings button has been pressed');
-  }
-
   constructor(props) {
     super(props);
     this.state = { usernameText: '', passwordText: '' };
   }
+
+
+  settingsPress() {
+    alert('The settings button has been pressed');
+  }
+
 
   render() {
     const {navigate} = this.props.navigation;
@@ -46,7 +44,7 @@ export default class Login extends Component {
           />
           <CustomButton text = 'Login' />
 
-          <Text style={styles.createAccountLink} onPress={() => alert('Going to account creation screen.')}>
+          <Text style={styles.createAccountLink} onPress={() => navigate('CreateAccount')}>
             Create an account
           </Text>
         </View>

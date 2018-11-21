@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import CustomHeader from '../../components/UI/Header/Header';
 import { StyleSheet } from "react-native";
+import { getNavigationBase } from "../../config/routes"
 
 
 const styles = StyleSheet.create ({
@@ -53,8 +54,6 @@ export default class CreateAccount extends Component {
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" enabled>
-        <CustomHeader text = 'Create Account' leftIcon = 'keyboard-arrow-left' />
-
         <TextInput
           placeholder='Email'
           style={styles.userInput}

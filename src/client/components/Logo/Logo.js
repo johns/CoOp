@@ -17,7 +17,7 @@ export default class Logo extends Component {
     return (
       <View style={{flex: 1, alignItems:'center', flexDirection:'column', paddingBottom: 200}}>
         <Image
-          source={require(`../../assets/logoWhite.png`)}
+          source={require(`../../assets/logoGreen.png`)}
           style={{
             width: 200,
             height: 200,

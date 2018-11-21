@@ -2,11 +2,14 @@ import React, {Component} from "react";
 import { AppRegistry } from "react-native";
 import Setup from "./src/client/config/setup";
 import {
-    Text,
+    Text, Button
 } from 'react-native';
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import Home from "./src/client/screens/Home/Home";
 import Login from "./src/client/screens/Login/Login";
+import CreateAccount from "./src/client/screens/CreateAccount/CreateAccount";
+import CreateChat from "./src/client/screens/CreateChat/CreateChat";
+import ChatRoom from "./src/client/screens/ChatRoom/ChatRoom";
 
 // static navigationOptions = {
 // headerTitle: <LogoTitle />,
@@ -22,13 +25,55 @@ import Login from "./src/client/screens/Login/Login";
 
 const RootStack = createStackNavigator(
   {
-    Home: Home,
-    Login: Login
+    Home: {
+      screen: Home,
+      navigationOptions: ({navigation}) => ({
+        title: 'BetterWe',
+        headerVisible: true,
+        headerRight: (
+          <Button
+            onPress={() => navigation.navigate('CreateChat')}
+            title="Create Chat"
+            color="#000"
+          />
+        ),
+      }),
+    },
+    Login: {
+      screen: Login,
+      navigationOptions: () => ({
+        title: 'BetterWe',
+        headerVisible: true,
+      }),
+    },
+    CreateAccount: {
+      screen: CreateAccount,
+      navigationOptions: () => ({
+        title: 'Create An Account',
+        headerVisible: true,
+      }),
+    },
+    CreateChat: {
+      screen: CreateChat,
+      navigationOptions: () => ({
+        title: 'Create New Chat',
+        headerVisible: true,
+      }),
+    },
+    ChatRoom: {
+      screen: ChatRoom,
+      navigationOptions: () => ({
+        title: '[ROOM NAME]',
+        headerVisible: true,
+      }),
+    },
   },
   {
-    initialRouteName: "Login"
+    initialRouteName: "Home",
   }
-);
+)
+
+
 
 const AppContainer = createAppContainer(RootStack);
 
