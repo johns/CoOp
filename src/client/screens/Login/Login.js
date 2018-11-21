@@ -1,14 +1,19 @@
 import React, { Component } from "react";
-import { Text, AppRegistry, TextInput, View } from 'react-native'
+import { Text, AppRegistry, Button, TextInput, View } from 'react-native'
 import { Header } from 'react-native-elements'
 import CustomButton from "../../components/UI/Button/Button";
 import CustomHeader from '../../components/UI/Header/Header';
 import Logo from '../../components/Logo/Logo';
-
-
 import styles from './Login.style.js';
+import { StyleSheet } from "react-native";
+
 
 export default class Login extends Component {
+  static navigationOptions = {
+    title: 'BetterWe',
+    headerStyle: { backgroundColor: '#70e74e' },
+    headerTitleStyle: { color: 'white' },
+  }
   settingsPress() {
     alert('The settings button has been pressed');
   }
@@ -19,9 +24,9 @@ export default class Login extends Component {
   }
 
   render() {
+    const {navigate} = this.props.navigation;
     return (
       <View>
-        <CustomHeader text="Better We" />
         <Logo primary={true} />
         <View style={styles.container}>
           <TextInput

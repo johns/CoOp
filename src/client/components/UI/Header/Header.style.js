@@ -5,7 +5,7 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     paddingHorizontal: 75,
-    margin: 30
+    margin: 30,
   },
   button: {
     alignItems: 'center',

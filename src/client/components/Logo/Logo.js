@@ -5,17 +5,19 @@ import styles from './Logo.style.js';
 
 export default class Logo extends Component {
   static propTypes = {
-      primary: PropTypes.boolean,
+      primary: PropTypes.bool,
   }
   render() {
     const {
       primary,
     } = this.props;
 
+    // let srcPath = primary ? 'Green' : 'White';
+
     return (
       <View style={{flex: 1, alignItems:'center', flexDirection:'column', paddingBottom: 200}}>
         <Image
-          source={require('../../assets/logoGreen.png')}
+          source={require(`../../assets/logoWhite.png`)}
           style={{
             width: 200,
             height: 200,
