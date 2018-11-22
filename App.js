@@ -5,7 +5,7 @@ import {
     Text, Button
 } from 'react-native';
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/AntDesign/';
 import Home from "./src/client/screens/Home/Home";
 import Login from "./src/client/screens/Login/Login";
 import CreateAccount from "./src/client/screens/CreateAccount/CreateAccount";
@@ -33,17 +33,17 @@ const RootStack = createStackNavigator(
         headerVisible: true,
         headerRight: (
           <Icon
-            name="add"
+            name="plus"
             size={30}
             color="#70e74e"
             onPress={() => navigation.navigate('CreateChat')}
           /> ),
           headerLeft: (
             <Icon
-              name="settings"
+              name="setting"
               size={30}
               color="#70e74e"
-              onPress={() => navigation.navigate('Login')}
+              onPress={() =>  alert("Account Settings Incomplete")}
             /> )
       }),
     },
@@ -61,7 +61,7 @@ const RootStack = createStackNavigator(
         headerVisible: true,
         headerLeft: (
           <Icon
-            name="arrow-back"
+            name="arrowleft"
             size={30}
             color="#70e74e"
             onPress={() => navigation.navigate('Login')}
@@ -75,7 +75,7 @@ const RootStack = createStackNavigator(
         headerVisible: true,
         headerLeft: (
           <Icon
-            name="arrow-back"
+            name="arrowleft"
             size={30}
             color="#70e74e"
             onPress={() => navigation.navigate('Home')}
@@ -84,9 +84,23 @@ const RootStack = createStackNavigator(
     },
     ChatRoom: {
       screen: ChatRoom,
-      navigationOptions: () => ({
+      navigationOptions: ({navigation}) => ({
         title: '[ROOM NAME]',
         headerVisible: true,
+        headerLeft: (
+          <Icon
+            name="arrowleft"
+            size={30}
+            color="#70e74e"
+            onPress={() => navigation.navigate('Home')}
+          /> ),
+        headerRight: (
+          <Icon
+            name="infocirlceo"
+            size={30}
+            color="#70e74e"
+            onPress={() => alert("Chat Info Incomplete")}
+          /> )
       }),
     },
   },
