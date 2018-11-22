@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import colors from '../../lib/colors';
 
 export default StyleSheet.create({
   containter: {
@@ -23,7 +24,7 @@ export default StyleSheet.create({
   },
   createAccountLink: {
     fontSize: 20,
-    color: '#3e3f3c',
+    color: colors.darkGray,
     textAlign: 'center',
     marginTop: 20,
     marginBottom: 20,

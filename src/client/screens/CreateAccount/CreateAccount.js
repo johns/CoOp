@@ -9,38 +9,7 @@ import { Button } from 'react-native-elements'
 import CustomHeader from '../../components/UI/Header/Header';
 import { StyleSheet } from "react-native";
 import { getNavigationBase } from "../../config/routes"
-
-
-const styles = StyleSheet.create ({
-  userInput: {
-    marginTop: 20,
-    marginBottom: 20,
-    marginLeft: 40,
-    paddingLeft: 10,
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginRight: 40,
-   },
-
-  buttonBox: {
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-   goButton: {
-     paddingLeft: 20,
-     paddingRight: 20,
-     backgroundColor: "#70e74e"
-
-   },
-
-});
-
+import styles from './CreateAccount.style.js';
 
 export default class CreateAccount extends Component {
   constructor(props) {
