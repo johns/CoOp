@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 import { Button } from 'react-native-elements'
 import CustomHeader from '../../components/UI/Header/Header';
-import { StyleSheet } from "react-native";
 import { getNavigationBase } from "../../config/routes"
 import styles from './CreateAccount.style.js';
 

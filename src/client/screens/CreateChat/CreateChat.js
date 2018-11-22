@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Text, AppRegistry, TextInput, View, Button, Image } from 'react-native'
-import { Header } from 'react-native-elements'
+import { Text, AppRegistry, TextInput, View, Image } from 'react-native'
+import { Header, Button } from 'react-native-elements'
 import styles from './CreateChat.style.js';
 import CustomHeader from "../../components/UI/Header/Header";
 
@@ -12,10 +12,9 @@ export default class CreateChat extends Component {
   }
 
   render() {
+    const {navigate} = this.props.navigation;
     return (
       <View style={styles.mainView}>
-        <CustomHeader text = 'Create Chat' leftIcon = 'keyboard-arrow-left' />
-
         <View>
           <Text style = {styles.inputTitle}> Group Name </Text>
 
@@ -36,20 +35,13 @@ export default class CreateChat extends Component {
           />
         </View>
 
-        <View style = {styles.uploadImageContainer}>
-          <Button
-            color="#3e3f3c"
-            style={styles.uploadImageButton}
-            onPress={() => alert('Select an image form storage.')}
-            title="uploadImage"
-            accessibilityLabel="This is an upload image button"
-          />
+        <Button
+          buttonStyle={styles.createButton}
+          onPress={navigate.bind(this, 'ChatRoom')}
+          title="Create Group"
+          accessibilityLabel="This is an upload image button"
+        />
 
-          <Image
-            style={styles.uploadedImage}
-            source={{uri: 'https://cdn.bulbagarden.net/upload/-6/60/258Mudkip.png'}}
-          />
-        </View>
       </View>
     );
   }

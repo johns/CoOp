@@ -9,10 +9,6 @@ import {
 import CustomHeader from '../../components/UI/Header/Header';
 import styles from './ChatRoom.style.js';
 import ChatBubble from '../../components/UI/ChatBubble/ChatBubble';
-import { StyleSheet } from "react-native";
-
-
-
 
 export default class ChatRoom extends Component {
   constructor(props) {
@@ -26,7 +22,6 @@ export default class ChatRoom extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <CustomHeader text = {this.state.chatName} leftIcon = 'keyboard-arrow-left' rightIcon = 'info'/>
         <View style={styles.chatArea}>
           <ChatBubble content="AIIGHT" user={"YEP"} isSelf={false}></ChatBubble>
 

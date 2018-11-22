@@ -11,6 +11,8 @@ import Login from "./src/client/screens/Login/Login";
 import CreateAccount from "./src/client/screens/CreateAccount/CreateAccount";
 import CreateChat from "./src/client/screens/CreateChat/CreateChat";
 import ChatRoom from "./src/client/screens/ChatRoom/ChatRoom";
+import colors from './src/client/lib/colors/';
+
 
 // static navigationOptions = {
 // headerTitle: <LogoTitle />,
@@ -35,14 +37,14 @@ const RootStack = createStackNavigator(
           <Icon
             name="plus"
             size={30}
-            color="#70e74e"
+            color={colors.primaryGreen}
             onPress={() => navigation.navigate('CreateChat')}
           /> ),
           headerLeft: (
             <Icon
               name="setting"
               size={30}
-              color="#70e74e"
+              color={colors.primaryGreen}
               onPress={() =>  alert("Account Settings Incomplete")}
             /> )
       }),
@@ -63,7 +65,7 @@ const RootStack = createStackNavigator(
           <Icon
             name="arrowleft"
             size={30}
-            color="#70e74e"
+            color={colors.primaryGreen}
             onPress={() => navigation.navigate('Login')}
           /> )
       }),
@@ -77,7 +79,7 @@ const RootStack = createStackNavigator(
           <Icon
             name="arrowleft"
             size={30}
-            color="#70e74e"
+            color={colors.primaryGreen}
             onPress={() => navigation.navigate('Home')}
           /> )
       }),
@@ -91,21 +93,21 @@ const RootStack = createStackNavigator(
           <Icon
             name="arrowleft"
             size={30}
-            color="#70e74e"
+            color={colors.primaryGreen}
             onPress={() => navigation.navigate('Home')}
           /> ),
         headerRight: (
           <Icon
             name="infocirlceo"
             size={30}
-            color="#70e74e"
+            color={colors.primaryGreen}
             onPress={() => alert("Chat Info Incomplete")}
           /> )
       }),
     },
   },
   {
-    initialRouteName: "Login",
+    initialRouteName: "Home",
   }
 )
 
