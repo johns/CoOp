@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import { StyleSheet } from "react-native";
 import PropTypes from "prop-types";
-import { View, Text, Button } from 'react-native';
+import { View, TouchableOpacity, Text, Button } from 'react-native';
 import styles from './GroupBox.style.js';
+import { withNavigation } from 'react-navigation';
 
-export default class GroupBox extends Component {
+class GroupBox extends Component {
   static propTypes = {
       groupName: PropTypes.string.isRequired,
       messageTime: PropTypes.string,
       description: PropTypes.string,
   }
   render () {
+
     const {
       groupName,
       messageTime,
@@ -18,7 +20,10 @@ export default class GroupBox extends Component {
     } = this.props;
 
     return (
-      <View style={styles.buttonBox}>
+      <TouchableOpacity
+        style={styles.buttonBox}
+        onPress={() => { this.props.navigation.navigate('ChatRoom')}}
+      >
         <View style={styles.groupHeader}>
           <Text style={styles.groupName}>
             {groupName}
@@ -34,7 +39,9 @@ export default class GroupBox extends Component {
           </Text>
         </View>
 
-      </View>
+      </TouchableOpacity>
     );
   }
 }
+
+export default withNavigation(GroupBox);
