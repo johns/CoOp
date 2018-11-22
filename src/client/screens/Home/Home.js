@@ -39,7 +39,6 @@ export default class Home extends Component {
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" enabled>
-        <CustomHeader leftIcon="settings" logo={true} rightIcon="add"  />
 
         <View style={styles.buttonBox}>
           <View style={styles.goButton}>

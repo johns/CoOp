@@ -5,6 +5,7 @@ import {
     Text, Button
 } from 'react-native';
 import { createStackNavigator, createAppContainer } from "react-navigation";
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import Home from "./src/client/screens/Home/Home";
 import Login from "./src/client/screens/Login/Login";
 import CreateAccount from "./src/client/screens/CreateAccount/CreateAccount";
@@ -31,12 +32,19 @@ const RootStack = createStackNavigator(
         title: 'BetterWe',
         headerVisible: true,
         headerRight: (
-          <Button
+          <Icon
+            name="add"
+            size={30}
+            color="#70e74e"
             onPress={() => navigation.navigate('CreateChat')}
-            title="Create Chat"
-            color="#000"
-          />
-        ),
+          /> ),
+          headerLeft: (
+            <Icon
+              name="settings"
+              size={30}
+              color="#70e74e"
+              onPress={() => navigation.navigate('Login')}
+            /> )
       }),
     },
     Login: {
@@ -48,16 +56,30 @@ const RootStack = createStackNavigator(
     },
     CreateAccount: {
       screen: CreateAccount,
-      navigationOptions: () => ({
+      navigationOptions: ({navigation}) => ({
         title: 'Create An Account',
         headerVisible: true,
+        headerLeft: (
+          <Icon
+            name="arrow-back"
+            size={30}
+            color="#70e74e"
+            onPress={() => navigation.navigate('Login')}
+          /> )
       }),
     },
     CreateChat: {
       screen: CreateChat,
-      navigationOptions: () => ({
+      navigationOptions: ({navigation}) => ({
         title: 'Create New Chat',
         headerVisible: true,
+        headerLeft: (
+          <Icon
+            name="arrow-back"
+            size={30}
+            color="#70e74e"
+            onPress={() => navigation.navigate('Home')}
+          /> )
       }),
     },
     ChatRoom: {
@@ -69,7 +91,7 @@ const RootStack = createStackNavigator(
     },
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Login",
   }
 )
 
