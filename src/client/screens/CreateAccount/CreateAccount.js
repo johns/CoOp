@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import {
     View,
     Text,
-    Button,
     TextInput,
     KeyboardAvoidingView,
 } from 'react-native';
+import { Button } from 'react-native-elements'
 import CustomHeader from '../../components/UI/Header/Header';
 import { StyleSheet } from "react-native";
 import { getNavigationBase } from "../../config/routes"
@@ -16,6 +16,7 @@ const styles = StyleSheet.create ({
     marginTop: 20,
     marginBottom: 20,
     marginLeft: 40,
+    paddingLeft: 10,
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
@@ -34,7 +35,8 @@ const styles = StyleSheet.create ({
    goButton: {
      paddingLeft: 20,
      paddingRight: 20,
-     flex: 1,
+     backgroundColor: "#70e74e"
+
    },
 
 });
@@ -52,6 +54,8 @@ export default class CreateAccount extends Component {
   }
 
   render() {
+    const {navigate} = this.props.navigation;
+
     return (
       <KeyboardAvoidingView behavior="padding" enabled>
         <TextInput
@@ -81,20 +85,13 @@ export default class CreateAccount extends Component {
           secureTextEntry
         />
         <View style={styles.buttonBox}>
-          <View style={styles.goButton}>
             <Button
-              title="BACK TO LOGIN"
-              color="#94ad9a"
-              accessibilityLabel="Back to Login"
-            />
-          </View>
-          <View style={styles.goButton}>
-            <Button
+              buttonStyle={styles.goButton}
               title="CREATE"
-              color="#70e74e"
+              color="white"
+              onPress={navigate.bind(this, 'Home')}
               accessibilityLabel="Create Account"
             />
-          </View>
         </View>
       </KeyboardAvoidingView>
     );

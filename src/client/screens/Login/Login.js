@@ -42,9 +42,12 @@ export default class Login extends Component {
             placeholder= "Password"
 
           />
-          <CustomButton text = 'Login' />
 
-          <Text style={styles.createAccountLink} onPress={() => navigate('CreateAccount')}>
+          <Text style={styles.loginLink} onPress={navigate.bind(this, 'Home')}>
+            Login
+          </Text>
+
+          <Text style={styles.createAccountLink} onPress={navigate.bind(this, 'CreateAccount')}>
             Create an account
           </Text>
         </View>
