@@ -14,7 +14,7 @@ export default class CreateChat extends Component {
   render() {
     return (
       <View style={styles.mainView}>
-        <CustomHeader text = 'Create Chat' leftIcon = 'keyboard-arrow-left' rightIcon = 'home'/>
+        <CustomHeader text = 'Create Chat' leftIcon = 'keyboard-arrow-left' />
 
         <View>
           <Text style = {styles.inputTitle}> Group Name </Text>
@@ -47,7 +47,7 @@ export default class CreateChat extends Component {
 
           <Image
             style={styles.uploadedImage}
-            source={{uri: 'https://cdn.bulbagarden.net/upload/6/60/258Mudkip.png'}}
+            source={{uri: 'https://cdn.bulbagarden.net/upload/-6/60/258Mudkip.png'}}
           />
         </View>
       </View>
