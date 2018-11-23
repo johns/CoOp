@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {
     View,
+    ScrollView,
     Text,
     Button,
     TextInput,
@@ -22,11 +23,10 @@ export default class ChatRoom extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.chatArea}>
+        <ScrollView style={styles.chatArea}>
           <ChatBubble content="AIIGHT" user={"YEP"} isSelf={false}></ChatBubble>
-
           <ChatBubble content="HELP" user={"SAM"} isSelf={true}></ChatBubble>
-        </View>
+        </ScrollView>
         <View style={styles.chatBar}>
           <View style={styles.goalsIcon}>
             <Image

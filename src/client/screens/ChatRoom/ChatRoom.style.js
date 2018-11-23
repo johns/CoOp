@@ -3,7 +3,7 @@ import colors from '../../lib/colors';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: colors.lightGreen,
+    backgroundColor: colors.lightGray,
     flex: 1,
   },
   chatArea: {
@@ -17,7 +17,7 @@ export default StyleSheet.create({
      height: 60,
      flexDirection: 'row',
      borderTopWidth: 1,
-     borderTopColor: colors.black,
+     borderTopColor: colors.darkGray,
      flex: 1,
      position: 'absolute',
      bottom: 0,

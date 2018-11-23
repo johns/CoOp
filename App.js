@@ -42,7 +42,7 @@ const RootStack = createStackNavigator(
           /> ),
           headerLeft: (
             <Icon
-              name="setting"
+              name="user"
               size={30}
               color={colors.primaryGreen}
               onPress={() =>  alert("Account Settings Incomplete")}
@@ -107,7 +107,7 @@ const RootStack = createStackNavigator(
     },
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Login",
   }
 )
 

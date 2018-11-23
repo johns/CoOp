@@ -14,17 +14,7 @@ export default class Home extends Component {
   render() {
     return (
       <ScrollView>
-        <GroupBox groupName="Fuckers" messageTime="3:40pm" description="Weight loss" />
-        <GroupBox groupName="Fuckers" messageTime="3:40pm" description="Weight loss" />
-        <GroupBox groupName="Fuckers" messageTime="3:40pm" description="Weight loss" />
-        <GroupBox groupName="Fuckers" messageTime="3:40pm" description="Weight loss" />
-        <GroupBox groupName="Fuckers" messageTime="3:40pm" description="Weight loss" />
-        <GroupBox groupName="Fuckers" messageTime="3:40pm" description="Weight loss" />
-        <GroupBox groupName="Fuckers" messageTime="3:40pm" description="Weight loss" />
-        <GroupBox groupName="Fuckers" messageTime="3:40pm" description="Weight loss" />
-        <GroupBox groupName="Fuckers" messageTime="3:40pm" description="Weight loss" />
-        <GroupBox groupName="Fuckers" messageTime="3:40pm" description="Weight loss" />
-        <GroupBox groupName="Fuckers" messageTime="3:40pm" description="Weight loss" />
+        <GroupBox groupName="Test" messageTime="3:40pm" description="desc" />
       </ScrollView>
     );
   }
