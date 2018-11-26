@@ -1,7 +1,9 @@
 import { StyleSheet } from 'react-native';
+import colors from '../../lib/colors';
 
 export default StyleSheet.create({
   containter: {
+    position: 'relative',
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -23,12 +25,29 @@ export default StyleSheet.create({
   },
   createAccountLink: {
     fontSize: 20,
-    color: '#3e3f3c',
+    borderColor: colors.primaryGreen,
+    borderWidth: 1,
+    color: colors.primaryGreen,
+    backgroundColor: colors.white,
     textAlign: 'center',
     marginTop: 20,
     marginBottom: 20,
     marginLeft: 40,
     marginRight: 40,
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
+  loginLink: {
+    fontSize: 20,
+    color: colors.white,
+    backgroundColor: colors.primaryGreen,
+    textAlign: 'center',
+    marginTop: 20,
+    marginBottom: 20,
+    marginLeft: 40,
+    marginRight: 40,
+    paddingTop: 10,
+    paddingBottom: 10,
   },
   headingCentral: {
       marginTop: 60,
@@ -40,8 +59,9 @@ export default StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
     marginLeft: 40,
+    paddingLeft: 10,
     height: 40,
-    borderColor: 'gray',
+    borderColor: colors.darkGray,
     borderWidth: 1,
     marginRight: 40,
    },

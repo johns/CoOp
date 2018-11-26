@@ -24,9 +24,10 @@ export default class CustomHeader extends Component {
     if (logo) {
       middleText = (
         <Image
-          source={require('../../../assets/logoGreen.png')}
+          source={require('../../../assets/logoWhite.png')}
           tintColor='#ffffff'
-          style={{    flex: 1,
+          style={{
+            flex: 1,
             width: 100,
             height: 100,
             resizeMode: 'contain'}}
