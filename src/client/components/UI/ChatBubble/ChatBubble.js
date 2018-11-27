@@ -9,7 +9,8 @@ import {
     View,
     Text,
     Button,
-} from 'react-native'
+} from 'react-native';
+import colors from '../../../lib/colors';
 import Dimensions from 'Dimensions';
 
 
@@ -37,7 +38,7 @@ class ChatBubble extends Component {
                 marginRight: 5,
             },
             bubble: {
-                backgroundColor: isSelf ? 'green' : 'white',
+                backgroundColor: isSelf ? colors.primaryGreen : 'white',
                 alignItems: 'stretch',
                 paddingTop: 10,
                 paddingBottom: 10,
