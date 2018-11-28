@@ -3,7 +3,7 @@ import colors from '../../lib/colors';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: colors.lightGray,
+    backgroundColor: colors.smokeWhite,
     flex: 1,
   },
   chatArea: {
@@ -48,7 +48,8 @@ export default StyleSheet.create({
      justifyContent: 'center',
    },
    icons: {
-     height: 40,
-     width: 40,
+     height: 30,
+     width: 30,
+
    },
 });

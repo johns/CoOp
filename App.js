@@ -2,13 +2,14 @@ import React, {Component} from "react";
 import { AppRegistry } from "react-native";
 import Setup from "./src/client/config/setup";
 import {
-    Text, Button
+    Text, Button, Image,
 } from 'react-native';
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import Icon from 'react-native-vector-icons/AntDesign/';
 import Home from "./src/client/screens/Home/Home";
 import Login from "./src/client/screens/Login/Login";
 import CreateAccount from "./src/client/screens/CreateAccount/CreateAccount";
+import AccountSettings from "./src/client/screens/AccountSettings/AccountSettings";
 import CreateChat from "./src/client/screens/CreateChat/CreateChat";
 import ChatRoom from "./src/client/screens/ChatRoom/ChatRoom";
 import colors from './src/client/lib/colors/';
@@ -31,7 +32,13 @@ const RootStack = createStackNavigator(
     Home: {
       screen: Home,
       navigationOptions: ({navigation}) => ({
-        title: 'BetterWe',
+        title: 'CoOp',
+        headerTitle: (
+            <Image
+              style={{width: 60, height: 30}}
+              source={require('./src/client/assets/logoSm.png')}
+            />
+        ),
         headerVisible: true,
         headerRight: (
           <Icon
@@ -47,7 +54,7 @@ const RootStack = createStackNavigator(
               size={30}
               color={colors.primaryBlue}
               style={{marginLeft: 10, marginRight: 10}}
-              onPress={() =>  alert("Account Settings Incomplete")}
+              onPress={() => navigation.navigate('AccountSettings')}
             /> )
       }),
     },
@@ -107,6 +114,22 @@ const RootStack = createStackNavigator(
             color={colors.primaryBlue}
             style={{marginLeft: 10, marginRight: 10}}
             onPress={() => alert("Chat Info Incomplete")}
+          /> )
+      }),
+    },
+    AccountSettings: {
+      screen: AccountSettings,
+      navigationOptions: ({navigation}) => ({
+        title: 'Account Settings',
+        headerVisible: true,
+        headerLeft: null,
+        headerRight: (
+          <Icon
+            name="arrowright"
+            size={30}
+            color={colors.primaryBlue}
+            style={{marginLeft: 10, marginRight: 10}}
+            onPress={() => navigation.goBack()}
           /> )
       }),
     },

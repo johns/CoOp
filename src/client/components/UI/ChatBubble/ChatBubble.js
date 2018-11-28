@@ -36,18 +36,24 @@ class ChatBubble extends Component {
                 marginTop: 5,
                 marginLeft: 5,
                 marginRight: 5,
+                color: colors.darkGray,
             },
             bubble: {
-                backgroundColor: isSelf ? colors.primaryBlue : 'white',
+                backgroundColor: isSelf ? colors.primaryBlue : colors.lightGray,
+                color: isSelf ? colors.primaryBlue : 'white',
                 alignItems: 'stretch',
                 paddingTop: 10,
                 paddingBottom: 10,
-                paddingLeft: 5,
-                paddingRight: 5,
+                paddingLeft: 10,
+                paddingRight: 10,
                 borderRadius: 15,
                 marginTop: 2,
                 marginBottom: 5,
-            },
+          },
+          chatText: {
+            color: isSelf ? 'white' : 'black',
+            textAlign: isSelf ? 'right' : 'left',
+          }
         });
 
         return (
@@ -56,7 +62,7 @@ class ChatBubble extends Component {
                     <Text style={styles.user}>{user}</Text>
                 </View>
                 <View style={styles.bubble}>
-                    <Text>{content}</Text>
+                    <Text style={styles.chatText}>{content}</Text>
                 </View>
             </View>
 

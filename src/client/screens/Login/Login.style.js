@@ -10,14 +10,14 @@ export default StyleSheet.create({
   },
   usernameInput: {
     height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
+    borderBottomColor: 'gray',
+    borderBottomWidth: 1,
     margin: 30
   },
   passwordInput: {
     height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
+    borderBottomColor: 'gray',
+    borderBottomWidth: 1,
     margin: 30
   },
   loginButton: {
@@ -59,8 +59,8 @@ export default StyleSheet.create({
     marginLeft: 40,
     paddingLeft: 10,
     height: 40,
-    borderColor: colors.darkGray,
-    borderWidth: 1,
+    borderBottomColor: colors.lightGray,
+    borderBottomWidth: 1,
     marginRight: 40,
    },
 

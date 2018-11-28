@@ -9,7 +9,11 @@ import {
 } from 'react-native';
 import CustomHeader from '../../components/UI/Header/Header';
 import styles from './ChatRoom.style.js';
+import colors from '../../lib/colors';
+
 import ChatBubble from '../../components/UI/ChatBubble/ChatBubble';
+import Icon from 'react-native-vector-icons/Feather/';
+
 
 export default class ChatRoom extends Component {
   constructor(props) {
@@ -29,8 +33,10 @@ export default class ChatRoom extends Component {
         </ScrollView>
         <View style={styles.chatBar}>
           <View style={styles.goalsIcon}>
-            <Image
-              source={require('../../assets/taskIcon.png')}
+            <Icon
+              name="check-square"
+              size={25}
+              color={colors.primaryBlue}
               style={styles.icons}
             />
           </View>
@@ -41,10 +47,11 @@ export default class ChatRoom extends Component {
             value={this.state.message}
           />
           <View style={styles.sendIcon}>
-            <Image
-              source={require('../../assets/sendIcon.png')}
+            <Icon
+              name="send"
+              size={25}
+              color={colors.primaryBlue}
               style={styles.icons}
-              tintColor={this.state.message === '' ? 'gray' : '#000000'}
             />
           </View>
 
