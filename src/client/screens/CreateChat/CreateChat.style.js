@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import colors from '../../lib/colors';
 
 export default StyleSheet.create({
   containter: {
@@ -23,7 +24,7 @@ export default StyleSheet.create({
   },
   createAccountLink: {
     fontSize: 20,
-    color: '#3e3f3c',
+    color: colors.darkGray,
     textAlign: 'center',
     marginTop: 20,
     marginBottom: 20,
@@ -46,26 +47,16 @@ export default StyleSheet.create({
     marginRight: 40,
    },
 
-   uploadImageButton: {
-     // marginTop: 10,
-     // marginBottom: 10,
-     // marginLeft: 40,
-     // height: 10,
-     // width: 20,
-     // borderColor: 'gray',
-     borderWidth: 1,
-     // marginRight: 40,
-     // color: '#841584',
-     backgroundColor: '#94ad9a',
-     // paddingLeft: 20,
-     // paddingRight: 20,
-     // flex: 1,
+   createButton: {
+     paddingLeft: 20,
+     paddingRight: 20,
+     marginTop: 20,
+     backgroundColor: colors.primaryBlue,
+     color: colors.white,
     },
 
     uploadImageContainer: {
-      width: '40%',
-      flex: 1,
-      flexDirection: 'column',
+
       alignSelf:'center',
       marginTop: 20,
       marginBottom: 20,

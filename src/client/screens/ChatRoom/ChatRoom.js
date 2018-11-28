@@ -1,68 +1,19 @@
 import React, { Component } from "react";
 import {
     View,
+    ScrollView,
     Text,
     Button,
     TextInput,
     Image,
 } from 'react-native';
 import CustomHeader from '../../components/UI/Header/Header';
+import styles from './ChatRoom.style.js';
+import colors from '../../lib/colors';
+
 import ChatBubble from '../../components/UI/ChatBubble/ChatBubble';
+import Icon from 'react-native-vector-icons/Feather/';
 
-import { StyleSheet } from "react-native";
-
-
-const styles = StyleSheet.create ({
-  container: {
-    backgroundColor: '#94ad9a',
-    flex: 1,
-  },
-  chatArea: {
-    marginLeft: 7,
-    marginRight: 7,
-    flex: 1,
-    flexDirection: 'column'
-  },
-  chatBar: {
-     justifyContent: 'space-between',
-     height: 60,
-     flexDirection: 'row',
-     borderTopWidth: 1,
-     borderTopColor: 'black',
-     flex: 1,
-     position: 'absolute',
-     bottom: 0,
-     left: 0,
-     right: 0,
-     backgroundColor: '#eeeeee',
-   },
-   goalsIcon: {
-     height: 60,
-     paddingLeft: 7,
-
-     justifyContent: 'flex-end',
-     justifyContent: 'center',
-   },
-   userInput: {
-     justifyContent: 'center',
-     borderBottomWidth: 1,
-     borderBottomColor: 'black',
-     flex: 1,
-     marginLeft: 7,
-     marginRight: 7,
-     marginBottom: 3,
-    },
-   sendIcon: {
-     height: 60,
-     paddingRight:7,
-     justifyContent: 'flex-end',
-     justifyContent: 'center',
-   },
-   icons: {
-     height: 40,
-     width: 40,
-   },
-});
 
 export default class ChatRoom extends Component {
   constructor(props) {
@@ -76,16 +27,16 @@ export default class ChatRoom extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <CustomHeader text = {this.state.chatName} leftIcon = 'keyboard-arrow-left' rightIcon = 'info'/>
-        <View style={styles.chatArea}>
+        <ScrollView style={styles.chatArea}>
           <ChatBubble content="AIIGHT" user={"YEP"} isSelf={false}></ChatBubble>
-
           <ChatBubble content="HELP" user={"SAM"} isSelf={true}></ChatBubble>
-        </View>
+        </ScrollView>
         <View style={styles.chatBar}>
           <View style={styles.goalsIcon}>
-            <Image
-              source={require('../../assets/taskIcon.png')}
+            <Icon
+              name="check-square"
+              size={25}
+              color={colors.primaryBlue}
               style={styles.icons}
             />
           </View>
@@ -96,10 +47,11 @@ export default class ChatRoom extends Component {
             value={this.state.message}
           />
           <View style={styles.sendIcon}>
-            <Image
-              source={require('../../assets/sendIcon.png')}
+            <Icon
+              name="send"
+              size={25}
+              color={colors.primaryBlue}
               style={styles.icons}
-              tintColor={this.state.message === '' ? 'gray' : '#000000'}
             />
           </View>
 

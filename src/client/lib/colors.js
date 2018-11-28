@@ -1,13 +1,15 @@
-        const colors = {
-            primaryGreen: '#70e74e',
-            darkGreen: '#938151',
-            lightGreen: '#94ad9a',
-            darkGray: '#3e3f3c',
-            white: '#f5f0f4s',
-            black: '#ffffff',
-        };
+const colors = {
+    primaryBlue: '#019FF4',
+    taskOrange: '#FAB000',
+    lightBlue: '#07F2FE',
+    lightGray: '#d3d3d3',
+    darkGray: '#3A3B48',
+    white: '#ffffff',
+    smokeWhite: '#f5f5f5',
+    black: '#000000',
+};
 
-        export default colors;
+export default colors;
 
 
         /*
