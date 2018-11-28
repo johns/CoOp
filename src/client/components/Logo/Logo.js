@@ -15,12 +15,12 @@ export default class Logo extends Component {
     // let srcPath = primary ? 'Green' : 'White';
 
     return (
-      <View style={{flex: 1, alignItems:'center', flexDirection:'column', paddingBottom: 200}}>
+      <View style={{flex: 1, alignItems:'center', flexDirection:'column', paddingBottom: 275}}>
         <Image
-          source={require(`../../assets/logoGreen.png`)}
+          source={require(`../../assets/logo.png`)}
           style={{
-            width: 200,
-            height: 200,
+            width: 350,
+            height: 350,
             resizeMode: 'contain'}}
         />
       </View>

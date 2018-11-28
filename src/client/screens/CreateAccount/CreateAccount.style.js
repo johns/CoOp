@@ -25,6 +25,6 @@ export default StyleSheet.create({
    goButton: {
      paddingLeft: 20,
      paddingRight: 20,
-     backgroundColor: colors.primaryGreen,
+     backgroundColor: colors.primaryBlue,
    },
 });

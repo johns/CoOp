@@ -25,12 +25,11 @@ export default StyleSheet.create({
   },
   createAccountLink: {
     fontSize: 20,
-    borderColor: colors.primaryGreen,
+    borderColor: colors.primaryBlue,
     borderWidth: 1,
-    color: colors.primaryGreen,
+    color: colors.primaryBlue,
     backgroundColor: colors.white,
     textAlign: 'center',
-    marginTop: 20,
     marginBottom: 20,
     marginLeft: 40,
     marginRight: 40,
@@ -40,10 +39,10 @@ export default StyleSheet.create({
   loginLink: {
     fontSize: 20,
     color: colors.white,
-    backgroundColor: colors.primaryGreen,
+    backgroundColor: colors.primaryBlue,
     textAlign: 'center',
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 70,
+    marginBottom: 30,
     marginLeft: 40,
     marginRight: 40,
     paddingTop: 10,
@@ -56,8 +55,7 @@ export default StyleSheet.create({
       fontSize: 32
    },
   userInput: {
-    marginTop: 20,
-    marginBottom: 20,
+    marginBottom: 30,
     marginLeft: 40,
     paddingLeft: 10,
     height: 40,

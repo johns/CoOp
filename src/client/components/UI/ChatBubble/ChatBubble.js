@@ -38,7 +38,7 @@ class ChatBubble extends Component {
                 marginRight: 5,
             },
             bubble: {
-                backgroundColor: isSelf ? colors.primaryGreen : 'white',
+                backgroundColor: isSelf ? colors.primaryBlue : 'white',
                 alignItems: 'stretch',
                 paddingTop: 10,
                 paddingBottom: 10,

@@ -37,14 +37,16 @@ const RootStack = createStackNavigator(
           <Icon
             name="plus"
             size={30}
-            color={colors.primaryGreen}
+            color={colors.primaryBlue}
+            style={{marginLeft: 10, marginRight: 10}}
             onPress={() => navigation.navigate('CreateChat')}
           /> ),
           headerLeft: (
             <Icon
               name="user"
               size={30}
-              color={colors.primaryGreen}
+              color={colors.primaryBlue}
+              style={{marginLeft: 10, marginRight: 10}}
               onPress={() =>  alert("Account Settings Incomplete")}
             /> )
       }),
@@ -52,8 +54,7 @@ const RootStack = createStackNavigator(
     Login: {
       screen: Login,
       navigationOptions: () => ({
-        title: 'BetterWe',
-        headerVisible: true,
+        header: null,
       }),
     },
     CreateAccount: {
@@ -65,7 +66,8 @@ const RootStack = createStackNavigator(
           <Icon
             name="arrowleft"
             size={30}
-            color={colors.primaryGreen}
+            color={colors.primaryBlue}
+            style={{marginLeft: 10, marginRight: 10}}
             onPress={() => navigation.navigate('Login')}
           /> )
       }),
@@ -79,7 +81,8 @@ const RootStack = createStackNavigator(
           <Icon
             name="arrowleft"
             size={30}
-            color={colors.primaryGreen}
+            color={colors.primaryBlue}
+            style={{marginLeft: 10, marginRight: 10}}
             onPress={() => navigation.navigate('Home')}
           /> )
       }),
@@ -93,14 +96,16 @@ const RootStack = createStackNavigator(
           <Icon
             name="arrowleft"
             size={30}
-            color={colors.primaryGreen}
+            color={colors.primaryBlue}
+            style={{marginLeft: 10, marginRight: 10}}
             onPress={() => navigation.navigate('Home')}
           /> ),
         headerRight: (
           <Icon
             name="infocirlceo"
             size={30}
-            color={colors.primaryGreen}
+            color={colors.primaryBlue}
+            style={{marginLeft: 10, marginRight: 10}}
             onPress={() => alert("Chat Info Incomplete")}
           /> )
       }),
