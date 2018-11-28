@@ -11,6 +11,7 @@ import Login from "./src/client/screens/Login/Login";
 import CreateAccount from "./src/client/screens/CreateAccount/CreateAccount";
 import AccountSettings from "./src/client/screens/AccountSettings/AccountSettings";
 import CreateChat from "./src/client/screens/CreateChat/CreateChat";
+import ChatDetails from "./src/client/screens/ChatDetails/ChatDetails";
 import ChatRoom from "./src/client/screens/ChatRoom/ChatRoom";
 import colors from './src/client/lib/colors/';
 
@@ -113,7 +114,7 @@ const RootStack = createStackNavigator(
             size={30}
             color={colors.primaryBlue}
             style={{marginLeft: 10, marginRight: 10}}
-            onPress={() => alert("Chat Info Incomplete")}
+            onPress={() => navigation.navigate('ChatDetails')}
           /> )
       }),
     },
@@ -126,6 +127,21 @@ const RootStack = createStackNavigator(
         headerRight: (
           <Icon
             name="arrowright"
+            size={30}
+            color={colors.primaryBlue}
+            style={{marginLeft: 10, marginRight: 10}}
+            onPress={() => navigation.goBack()}
+          /> )
+      }),
+    },
+    ChatDetails: {
+      screen: ChatDetails,
+      navigationOptions: ({navigation}) => ({
+        title: 'Details',
+        headerVisible: true,
+        headerLeft:  (
+          <Icon
+            name="arrowleft"
             size={30}
             color={colors.primaryBlue}
             style={{marginLeft: 10, marginRight: 10}}
