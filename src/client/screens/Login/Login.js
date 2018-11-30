@@ -7,12 +7,15 @@ import Logo from '../../components/Logo/Logo';
 import styles from './Login.style.js';
 import { StyleSheet } from "react-native";
 import { getNavigationBase } from "../../config/routes"
+import SocketIOClient from 'socket.io-client';
 
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = { usernameText: '', passwordText: '' };
+    // Creating the socket-client instance will automatically connect to the server.
+    this.socket = SocketIOClient('http://localhost:3000');
   }
 
 
@@ -22,6 +25,7 @@ export default class Login extends Component {
 
 
   render() {
+
     const {navigate} = this.props.navigation;
     return (
       <View>
