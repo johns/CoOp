@@ -5,8 +5,10 @@ import {
     TextInput,
     KeyboardAvoidingView,
     AppRegistry,
+    Image,
+    Picker,
 } from 'react-native';
-import { Button } from 'react-native-elements'
+import { Header, Button } from 'react-native-elements'
 import CustomHeader from '../../components/UI/Header/Header';
 import { getNavigationBase } from "../../config/routes";
 import Slider from "react-native-slider";
@@ -29,20 +31,25 @@ export default class CreateTask extends Component {
     return (
       <KeyboardAvoidingView behavior="padding" enabled>
         <TextInput
-          placeholder='Task'
+          placeholder='Task Name'
           style={styles.userInput}
           onChangeText={(task) => this.setState({task})}
           value={this.state.task}
         />
-        <View style={styles.container}>
-            <Text style={styles.titleText} onPress={this.onPressTitle}>
-              {this.state.minimumDateText}{'\n'}{'\n'}
-            </Text>
-            <Slider
-              style={styles.slider}
-              value={this.state.sliderValue}
-              onValueChange={value => this.setState({ value })}
-                    />
+        <Picker
+          selectedValue={this.state.language}
+          style={{ height: 50, width: 100, marginTop: 20, marginBottom: 20, }}
+          onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
+          <Picker.Item label="Single" value="single" />
+          <Picker.Item label="Ongoing" value="ongoing" />
+        </Picker>
+        <TextInput
+          placeholder='Task Number Range'
+          style={styles.userInput}
+          onChangeText={(task) => this.setState({task})}
+          value={this.state.task}
+        />
+        <View style={styles.inputList}>
             <Text numberOfLines={5}>
               {this.state.maximumDateText}{'\n'}{'\n'}
             </Text>
@@ -51,10 +58,13 @@ export default class CreateTask extends Component {
               value={this.state.sliderValue}
               onValueChange={value => this.setState({ value })}
                     />
+            <Button
+              buttonStyle={styles.createButton}
+              onPress={navigate.bind(this, 'ChatRoom')}
+              title="Create Task"
+            />
           </View>
-          <Text style={styles.confirmButton} onPress={navigate.bind(this, 'Home')}>
-            Create Task
-          </Text>
+
       </KeyboardAvoidingView>
     );
   }
