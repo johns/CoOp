@@ -43,7 +43,7 @@ export default StyleSheet.create({
      marginLeft: 40,
      marginRight: 40,
      alignItems: "stretch",
-     justifyContent: "center"
+     justifyContent: "center",
    },
 
    inputList: {
@@ -51,6 +51,26 @@ export default StyleSheet.create({
      marginBottom: 20,
     flexDirection: 'column',
     justifyContent: 'space-around',
-   }
+  },
+
+  picker: {
+    height: 50,
+    width: 100,
+    marginTop: 20,
+    marginBottom: 20,
+    marginLeft: 80,
+  },
+
+  mainView: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
+
+  checkBox: {
+    flex: 1,
+    padding: 10,
+
+  }
 
 });
