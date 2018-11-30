@@ -13,6 +13,7 @@ import AccountSettings from "./src/client/screens/AccountSettings/AccountSetting
 import CreateChat from "./src/client/screens/CreateChat/CreateChat";
 import ChatDetails from "./src/client/screens/ChatDetails/ChatDetails";
 import ChatRoom from "./src/client/screens/ChatRoom/ChatRoom";
+import CreateTask from "./src/client/screens/CreateTask/CreateTask"
 import colors from './src/client/lib/colors/';
 
 
@@ -95,6 +96,21 @@ const RootStack = createStackNavigator(
           /> )
       }),
     },
+    CreateTask: {
+      screen: CreateTask,
+      navigationOptions: ({navigation}) => ({
+        title: 'Create New Task',
+        headerVisible: true,
+        headerLeft: (
+          <Icon
+            name="arrowleft"
+            size={30}
+            color={colors.primaryBlue}
+            style={{marginLeft: 10, marginRight: 10}}
+            onPress={() => navigation.navigate('Home')}
+          />  )
+      })
+    },
     ChatRoom: {
       screen: ChatRoom,
       navigationOptions: ({navigation}) => ({
@@ -151,7 +167,7 @@ const RootStack = createStackNavigator(
     },
   },
   {
-    initialRouteName: "Login",
+    initialRouteName: "Login", /////////////change that back
   }
 )
 

@@ -9,6 +9,7 @@ import CreateChat from "../screens/CreateChat/CreateChat";
 import CreateAccount from "../screens/CreateAccount/CreateAccount";
 import Home from "../screens/Home/Home";
 import Login from "../screens/Login/Login";
+import CreateTask from "../screens/CreateTask/CreateTask"
 
 export default class Setup extends Component {
   render() {
