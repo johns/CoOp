@@ -11,7 +11,7 @@ class TaskBox extends Component {
   static propTypes = {
       name: PropTypes.string.isRequired,
       user: PropTypes.string.isRequired,
-      tracking: PropTypes.boolean,
+      tracking: PropTypes.bool,
       start: PropTypes.number,
       end: PropTypes.number,
       current: PropTypes.number,

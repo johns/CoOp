@@ -26,7 +26,11 @@ export default class MemberList extends Component {
         </View>
         <View style={styles.separator} />
         <ScrollView>
-</ScrollView>
+          <TaskBox name="Tracking Complete" user="Sam" start={1} end={4} current={4} tracking={true} />
+          <TaskBox name="Tracking Incomplete" user="Jimmy" start={1} end={4} current={1} tracking={true} />
+          <TaskBox name="No Tracking Complete" user="Sam" start={0} end={1} current={1} tracking={false} />
+          <TaskBox name="No Tracking Incomplete" user="John" start={0} end={7} current={1} tracking={false} />
+        </ScrollView>
       </View>
 
     );
