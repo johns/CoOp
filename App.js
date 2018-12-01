@@ -12,6 +12,7 @@ import CreateAccount from "./src/client/screens/CreateAccount/CreateAccount";
 import AccountSettings from "./src/client/screens/AccountSettings/AccountSettings";
 import CreateChat from "./src/client/screens/CreateChat/CreateChat";
 import ChatDetails from "./src/client/screens/ChatDetails/ChatDetails";
+import MemberList from "./src/client/screens/MemberList/MemberList";
 import ChatRoom from "./src/client/screens/ChatRoom/ChatRoom";
 import CreateTask from "./src/client/screens/CreateTask/CreateTask"
 import colors from './src/client/lib/colors/';
@@ -132,6 +133,13 @@ const RootStack = createStackNavigator(
             style={{marginLeft: 10, marginRight: 10}}
             onPress={() => navigation.navigate('ChatDetails')}
           /> )
+      }),
+    },
+    MemberList: {
+      screen: MemberList,
+      navigationOptions: ({navigation}) => ({
+        title: 'Members',
+        headerVisible: true,
       }),
     },
     AccountSettings: {

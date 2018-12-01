@@ -23,20 +23,31 @@ export default StyleSheet.create({
     marginRight: 20,
   },
   groupName: {
-    width: 80,
+    width: 250,
     height: 20,
     textAlign: 'left',
     fontWeight: 'bold',
   },
   groupMessageTime: {
-    width: 50,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    flex:1,
     height: 20,
     color: colors.lightGray,
+    textAlign: 'right',
   },
   groupMiddle: {
     paddingTop: 15,
     paddingBottom: 20,
     paddingLeft: 30,
     paddingRight: 50,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flex: 1,
+  },
+  notification: {
+    width: 15,
+    height: 15,
+    borderRadius: 50,
   },
 });
