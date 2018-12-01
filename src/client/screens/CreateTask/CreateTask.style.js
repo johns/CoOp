@@ -3,16 +3,31 @@ import colors from '../../lib/colors';
 
 export default StyleSheet.create({
   userInput: {
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 40,
     marginLeft: 40,
     paddingLeft: 10,
     height: 40,
-    borderColor: colors.darkGray,
+    borderColor: colors.lightGray,
     borderWidth: 1,
     marginRight: 40,
-   },
-
+  },
+  trackRow: {
+    marginTop: 30,
+    marginBottom: 30,
+    flex: 1,
+    flexDirection: 'row',
+  },
+  askText: {
+    marginLeft: 40,
+    color: colors.darkGray,
+    fontSize: 22,
+    width: 220,
+    height: 40,
+  },
+  switch: {
+    width: 50,
+    height: 50,
+  },
   buttonBox: {
     marginTop: 20,
     marginBottom: 20,
@@ -26,12 +41,12 @@ export default StyleSheet.create({
   },
 
    goButton: {
-     marginTop: 20,
+     marginTop: 90,
      marginBottom: 20,
      height: 40,
-     paddingLeft: 20,
-     paddingRight: 20,
-     backgroundColor: colors.primaryBlue,
+     marginLeft: 22,
+     marginRight: 22,
+     backgroundColor: colors.taskOrange,
      color: colors.white,
    },
 

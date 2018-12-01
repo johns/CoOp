@@ -6,6 +6,7 @@ import {
     KeyboardAvoidingView,
     AppRegistry,
     Image,
+    Picker,
     Switch,
 } from 'react-native';
 import { Header, Button, CheckBox } from 'react-native-elements'
@@ -31,6 +32,7 @@ export default class CreateTask extends Component {
 
     return (
       <KeyboardAvoidingView behavior="padding" enabled>
+
       <View style={styles.mainView}>
         <TextInput
           placeholder='Task Name'
@@ -38,13 +40,25 @@ export default class CreateTask extends Component {
           onChangeText={(task) => this.setState({task})}
           value={this.state.task}
         />
-        <Switch
-          style={{marginLeft: 20}}
-          onValueChange={ (value) => this.setState({ toggled: value })}
-          value={ this.state.toggled }
+        <View style={styles.trackRow}>
+          <Text style={styles.askText}>Track Progress?</Text>
+          <Switch
+            style={styles.switch}
+            onValueChange={ (value) => this.setState({ toggled: value })}
+            value={ this.state.toggled }
+            onTintColor={colors.taskOrange}
+          />
+        </View>
+        <TextInput
+          placeholder='Starting Point'
+          editable= 'false'
+          keyboardType = 'numeric'
+          style={styles.userInput}
+          onChangeText={(amount) => this.setState({amount})}
+          value={this.state.task}
         />
         <TextInput
-          placeholder='Task Number Range'
+          placeholder='Ending Point'
           editable= 'false'
           keyboardType = 'numeric'
           style={styles.userInput}
