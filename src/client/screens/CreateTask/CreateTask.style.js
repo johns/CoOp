@@ -28,26 +28,14 @@ export default StyleSheet.create({
     width: 50,
     height: 50,
   },
-  buttonBox: {
-    marginTop: 20,
-    marginBottom: 20,
-    height: 40,
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 
    goButton: {
-     marginTop: 90,
+     marginTop: 250,
      marginBottom: 20,
      height: 40,
      marginLeft: 22,
      marginRight: 22,
      backgroundColor: colors.taskOrange,
-     color: colors.white,
    },
 
    slider: {
@@ -60,21 +48,6 @@ export default StyleSheet.create({
      alignItems: "stretch",
      justifyContent: "center",
    },
-
-   inputList: {
-     marginTop: 20,
-     marginBottom: 20,
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-  },
-
-  picker: {
-    height: 50,
-    width: 100,
-    marginTop: 20,
-    marginBottom: 20,
-    marginLeft: 80,
-  },
 
   mainView: {
     flex: 1,

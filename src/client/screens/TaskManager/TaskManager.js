@@ -7,7 +7,7 @@ import {
     KeyboardAvoidingView,
 } from 'react-native';
 import styles from './TaskManager.style.js';
-import MemberBox from '../../components/UI/MemberBox/MemberBox';
+import TaskBox from '../../components/UI/TaskBox/TaskBox';
 
 
 export default class MemberList extends Component {
@@ -16,18 +16,17 @@ export default class MemberList extends Component {
 
     return (
       <View>
-      <View style={styles.buttonHolder}>
-        <Text style={[styles.newTaskButton, styles.addTask]} onPress={navigate.bind(this, 'CreateTask')}>
-          New
-        </Text>
-        <Text style={[styles.newTaskButton, styles.manageTask]}>
-          Manage
-        </Text>
-      </View>
-      <View style={styles.separator} />
-      <ScrollView>
-
-      </ScrollView>
+        <View style={styles.buttonHolder}>
+          <Text style={[styles.newTaskButton, styles.addTask]} onPress={navigate.bind(this, 'CreateTask')}>
+            New
+          </Text>
+          <Text style={[styles.newTaskButton, styles.manageTask]}>
+            Manage
+          </Text>
+        </View>
+        <View style={styles.separator} />
+        <ScrollView>
+</ScrollView>
       </View>
 
     );
