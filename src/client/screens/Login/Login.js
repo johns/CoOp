@@ -7,26 +7,31 @@ import Logo from '../../components/Logo/Logo';
 import styles from './Login.style.js';
 import { StyleSheet } from "react-native";
 import { getNavigationBase } from "../../config/routes"
-import SocketIOClient from 'socket.io-client';
+import socketIOClient  from 'socket.io-client';
 
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = { usernameText: '', passwordText: '' };
-    // Creating the socket-client instance will automatically connect to the server.
-    this.socket = SocketIOClient('http://localhost:3000');
+    this.state = {
+      endpoint: "http://192.168.0.3:3000" // this is where we are connecting to with sockets
+    }
   }
-
 
   settingsPress() {
     alert('The settings button has been pressed');
   }
 
+  loginButtonPress = () => {
+    let socket= new socketIOClient.connect(this.state.endpoint,{'forceNew':true});
+    data = {username: this.state.usernameText, password: this.state.passwordText};
+    socket.emit('loginInfo', data);
+    this.props.navigation.navigate('Home');
+  }
 
   render() {
-
     const {navigate} = this.props.navigation;
+
     return (
       <View>
         <Logo primary={true} />
@@ -46,7 +51,7 @@ export default class Login extends Component {
             placeholder= "Password"
 
           />
-          <Text style={styles.loginLink} onPress={navigate.bind(this, 'Home')}>
+          <Text style={styles.loginLink} onPress={this.loginButtonPress}>
             Login
           </Text>
           <Text style={styles.createAccountLink} onPress={navigate.bind(this, 'CreateAccount')}>

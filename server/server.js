@@ -1,20 +1,38 @@
-var express = require('express');
-var http = require('http')
-var socketio = require('socket.io');
+// let express = require('express');
+// let app = express();
+// let server = require('http').createServer(app);
+// let socketio = require('socket.io').listen(server);
+//
+// connections = [];
+//
+// // var websocket = socketio(server);
+// server.listen(3000, () => console.log('listening on *:3000'));
+//
+// // The event will be called when a client is connected.
+// socketio.on('connection', (socket) => {
+//   console.log('A client just joined on', socket.id);
+//   socket.on('loginInfo', (loginInfo) => onMessageReceived(loginInfo, socket));
+// });
 
-var app = express();
-var server = http.Server(app);
-var websocket = socketio(server);
-server.listen(3000, () => console.log('listening on *:3000'));
+// create a GET route
+// app.get('/express_backend', (req, res) => {
+//   res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+// });
 
-// The event will be called when a client is connected.
-websocket.on('connection', (socket) => {
-  console.log('A client just joined on', socket.id);
-});
+// socketio.sockets.on('connection', function(socket){
+//   connections.push(socket);
+//   console.log('Connected: % sockets connected', connections.length);
+//
+//   // Disconnect
+//   socket.on('disconnect', function(data) {
+//     connections.splice(connections.indexOf(socket), 1);
+//     console.log('Disconnected: % sockets connected', connections.length);
+//   });
+// });
 
-
-
-
+// socketio.on('username', data => {
+//   console.log('Incoming login info:',data)
+// });
 
 
 
@@ -51,3 +69,44 @@ websocket.on('connection', (socket) => {
 // app.listen(port, function () {
 //   console.log("Server is running on "+ port +" port");
 // });
+
+
+const express = require('express')
+const http = require('http')
+const socketIO = require('socket.io')
+// const db = require('../db/models/index.js');
+// import models from '../../db/models';
+// const models = require('../db/models/index.js');
+
+// our localhost port
+const port = 3000
+
+const app = express()
+
+// our server instance
+const server = http.createServer(app)
+
+// This creates our socket using the instance of the server
+const io = socketIO(server)
+
+// models.sequelize.sync().then(() => {
+//   console.log(`Database & tables created!`)
+// });
+
+// This is what the socket.io syntax is like, we will work this later
+io.on('connection', function(socket) {
+  console.log('User connected')
+
+  socket.on('loginInfo', (data) => {
+    // once we get a 'change color' event from one of our clients, we will send it to the rest of the clients
+    // we make use of the socket.emit method again with the argument given to use from the callback function above
+    console.log('LoginInfoRecieved: ', data)
+    // io.sockets.emit('loginInfo', data)
+  })
+
+  socket.on('disconnect', () => {
+    console.log('user disconnected')
+  })
+});
+
+server.listen(port, () => console.log(`Listening on port ${port}`))

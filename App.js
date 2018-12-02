@@ -14,6 +14,7 @@ import CreateChat from "./src/client/screens/CreateChat/CreateChat";
 import ChatDetails from "./src/client/screens/ChatDetails/ChatDetails";
 import ChatRoom from "./src/client/screens/ChatRoom/ChatRoom";
 import colors from './src/client/lib/colors/';
+import socketIOClient from 'socket.io-client';
 
 
 // static navigationOptions = {
