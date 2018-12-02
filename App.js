@@ -15,6 +15,7 @@ import ChatDetails from "./src/client/screens/ChatDetails/ChatDetails";
 import MemberList from "./src/client/screens/MemberList/MemberList";
 import ChatRoom from "./src/client/screens/ChatRoom/ChatRoom";
 import CreateTask from "./src/client/screens/CreateTask/CreateTask"
+import TaskManager from "./src/client/screens/TaskManager/TaskManager"
 import colors from './src/client/lib/colors/';
 
 
@@ -171,6 +172,12 @@ const RootStack = createStackNavigator(
             style={{marginLeft: 10, marginRight: 10}}
             onPress={() => navigation.goBack()}
           /> )
+      }),
+    },
+    TaskManager: {
+      screen: TaskManager,
+      navigationOptions: ({navigation}) => ({
+        title: 'Tasks',
       }),
     },
   },

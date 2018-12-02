@@ -26,6 +26,7 @@ export default class ChatRoom extends Component {
   }
 
   render() {
+    const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.chatArea}>
@@ -42,6 +43,7 @@ export default class ChatRoom extends Component {
               size={25}
               color={colors.primaryBlue}
               style={styles.icons}
+              onPress={navigate.bind(this, 'TaskManager')}
             />
           </View>
           <TextInput

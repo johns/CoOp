@@ -20,15 +20,38 @@ export default class CreateTask extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      minimumDateText: "Beginning of task",
-      maximumDateText: "Deadline of task",
-      ongoingTask: "Ongoing Task?",
-      sliderValue: 0.2,
+      taskName: '',
+      startingPoint: 0,
+      endingPoint: 1,
+      trackProgress: false,
       };
   }
 
   render() {
-    const {navigate} = this.props.navigation;
+    const {navigate, goBack} = this.props.navigation;
+    let progress;
+
+    if(this.state.trackProgress) {
+      progress =( <View>
+        <TextInput
+          placeholder='Starting Point'
+          keyboardType = 'numeric'
+          style={styles.userInput}
+          onChangeText={(amount) => this.setState({startingPoint: amount})}
+          value={this.state.startingPoint}
+          maxLength={3}
+        />
+        <TextInput
+          placeholder='Ending Point'
+          keyboardType = 'numeric'
+          style={styles.userInput}
+          onChangeText={(amount) => this.setState({endingPoint: amount})}
+          value={this.state.endingPoint}
+          maxLength={3}
+        />
+        </View>
+      )
+    }
 
     return (
       <KeyboardAvoidingView behavior="padding" enabled>
@@ -37,42 +60,25 @@ export default class CreateTask extends Component {
         <TextInput
           placeholder='Task Name'
           style={styles.userInput}
-          onChangeText={(task) => this.setState({task})}
+          onChangeText={(task) => this.setState({taskName: task})}
           value={this.state.task}
         />
         <View style={styles.trackRow}>
           <Text style={styles.askText}>Track Progress?</Text>
           <Switch
             style={styles.switch}
-            onValueChange={ (value) => this.setState({ toggled: value })}
-            value={ this.state.toggled }
+            onValueChange={ (value) => this.setState({ trackProgress: value })}
+            value={ this.state.trackProgress}
             onTintColor={colors.taskOrange}
           />
         </View>
-        <TextInput
-          placeholder='Starting Point'
-          editable= 'false'
-          keyboardType = 'numeric'
-          style={styles.userInput}
-          onChangeText={(amount) => this.setState({amount})}
-          value={this.state.task}
+        {progress}
+        <Button
+          buttonStyle={styles.goButton}
+          color='white'
+          onPress={() => goBack()}
+          title="Create Task"
         />
-        <TextInput
-          placeholder='Ending Point'
-          editable= 'false'
-          keyboardType = 'numeric'
-          style={styles.userInput}
-          onChangeText={(amount) => this.setState({amount})}
-          value={this.state.task}
-        />
-        <Text numberOfLines={5}>
-          {this.state.maximumDateText}{'\n'}{'\n'}
-        </Text>
-          <Button
-            buttonStyle={styles.goButton}
-            onPress={navigate.bind(this, 'ChatRoom')}
-            title="Create Task"
-          />
       </View>
       </KeyboardAvoidingView>
     );
