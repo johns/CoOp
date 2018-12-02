@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Event_Notifications = .define('event_notifications', {
+  const Event_Notifications = sequelize.define('event_notifications', {
     event_id: {
       type: DataTypes.INTEGER,
       primaryKey: true

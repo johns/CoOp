@@ -1,16 +1,16 @@
 {
   "development": {
     "username": "postgres",
-    "password": "postgres",
-    "database": "community-dev",
+    "password": "Kellogs75",
+    "database": "test_db",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
-    "password": "postgres",
-    "database": "community-test",
+    "password": "Kellogs75",
+    "database": "test_db",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres"

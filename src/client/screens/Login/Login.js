@@ -24,7 +24,7 @@ export default class Login extends Component {
 
   loginButtonPress = () => {
     let socket= new socketIOClient.connect(this.state.endpoint,{'forceNew':true});
-    data = {username: this.state.usernameText, password: this.state.passwordText};
+    data = {email: this.state.usernameText, password: this.state.passwordText};
     socket.emit('loginInfo', data);
     this.props.navigation.navigate('Home');
   }
