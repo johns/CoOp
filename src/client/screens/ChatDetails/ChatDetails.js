@@ -35,6 +35,9 @@ export default class ChatDetails extends Component {
             [GROUP NAME]
           </Text>
         </View>
+        <Text style={styles.sidePanel} onPress={navigate.bind(this, 'InviteUsers')}>
+          Invite
+        </Text>
         <Text style={styles.sidePanel} onPress={navigate.bind(this, 'MemberList')}>
           Members (#)
         </Text>
