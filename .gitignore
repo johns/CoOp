@@ -56,4 +56,4 @@ buck-out/
 *.jsbundle
 
 # Ignore the file that has login info for the db
-*/server/config/config.js
+*/src/server/config/config.json
