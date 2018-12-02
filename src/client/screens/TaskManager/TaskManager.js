@@ -10,7 +10,7 @@ import styles from './TaskManager.style.js';
 import TaskBox from '../../components/UI/TaskBox/TaskBox';
 
 
-export default class MemberList extends Component {
+export default class TaskManager extends Component {
   render() {
     const {navigate} = this.props.navigation;
 
