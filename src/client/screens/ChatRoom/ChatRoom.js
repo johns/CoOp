@@ -12,6 +12,7 @@ import styles from './ChatRoom.style.js';
 import colors from '../../lib/colors';
 
 import ChatBubble from '../../components/UI/ChatBubble/ChatBubble';
+import NotificationBubble from '../../components/UI/NotificationBubble/NotificationBubble';
 import Icon from 'react-native-vector-icons/Feather/';
 
 
@@ -25,11 +26,15 @@ export default class ChatRoom extends Component {
   }
 
   render() {
+    const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.chatArea}>
           <ChatBubble content="AIIGHT" user={"YEP"} isSelf={false}></ChatBubble>
           <ChatBubble content="HELP" user={"SAM"} isSelf={true}></ChatBubble>
+          <NotificationBubble content="has completed the task." user={"Sham"}></NotificationBubble>
+          <NotificationBubble content="has left the group." user={"Sham"}></NotificationBubble>
+
         </ScrollView>
         <View style={styles.chatBar}>
           <View style={styles.goalsIcon}>
@@ -38,6 +43,7 @@ export default class ChatRoom extends Component {
               size={25}
               color={colors.primaryBlue}
               style={styles.icons}
+              onPress={navigate.bind(this, 'TaskManager')}
             />
           </View>
           <TextInput

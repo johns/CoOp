@@ -28,17 +28,20 @@ export default class ChatDetails extends Component {
           <View>
             <Image
               source={{uri: 'https://i.imgur.com/VhqvEBn.jpg'}}
-              style={styles.groupPicture} 
+              style={styles.groupPicture}
             />
           </View>
           <Text style={styles.groupHeader}>
             [GROUP NAME]
           </Text>
         </View>
-        <Text style={styles.sidePanel}>
+        <Text style={styles.sidePanel} onPress={navigate.bind(this, 'InviteUsers')}>
+          Invite
+        </Text>
+        <Text style={styles.sidePanel} onPress={navigate.bind(this, 'MemberList')}>
           Members (#)
         </Text>
-        <Text style={styles.sidePanel}>
+        <Text style={styles.sidePanel} onPress={navigate.bind(this, 'TaskManager')}>
           Tasks (#)
         </Text>
         <Text style={styles.confirmButton} onPress={navigate.bind(this, 'Home')}>

@@ -12,7 +12,11 @@ import CreateAccount from "./src/client/screens/CreateAccount/CreateAccount";
 import AccountSettings from "./src/client/screens/AccountSettings/AccountSettings";
 import CreateChat from "./src/client/screens/CreateChat/CreateChat";
 import ChatDetails from "./src/client/screens/ChatDetails/ChatDetails";
+import MemberList from "./src/client/screens/MemberList/MemberList";
 import ChatRoom from "./src/client/screens/ChatRoom/ChatRoom";
+import CreateTask from "./src/client/screens/CreateTask/CreateTask"
+import InviteUsers from "./src/client/screens/InviteUsers/InviteUsers"
+import TaskManager from "./src/client/screens/TaskManager/TaskManager"
 import colors from './src/client/lib/colors/';
 import socketIOClient from 'socket.io-client';
 
@@ -96,6 +100,21 @@ const RootStack = createStackNavigator(
           /> )
       }),
     },
+    CreateTask: {
+      screen: CreateTask,
+      navigationOptions: ({navigation}) => ({
+        title: 'Create New Task',
+        headerVisible: true,
+        headerLeft: (
+          <Icon
+            name="arrowleft"
+            size={30}
+            color={colors.primaryBlue}
+            style={{marginLeft: 10, marginRight: 10}}
+            onPress={() => navigation.navigate('Home')}
+          />  )
+      })
+    },
     ChatRoom: {
       screen: ChatRoom,
       navigationOptions: ({navigation}) => ({
@@ -117,6 +136,13 @@ const RootStack = createStackNavigator(
             style={{marginLeft: 10, marginRight: 10}}
             onPress={() => navigation.navigate('ChatDetails')}
           /> )
+      }),
+    },
+    MemberList: {
+      screen: MemberList,
+      navigationOptions: ({navigation}) => ({
+        title: 'Members',
+        headerVisible: true,
       }),
     },
     AccountSettings: {
@@ -150,9 +176,21 @@ const RootStack = createStackNavigator(
           /> )
       }),
     },
+    TaskManager: {
+      screen: TaskManager,
+      navigationOptions: ({navigation}) => ({
+        title: 'Tasks',
+      }),
+    },
+    InviteUsers: {
+      screen: InviteUsers,
+      navigationOptions: ({navigation}) => ({
+        title: 'Invite',
+      }),
+    },
   },
   {
-    initialRouteName: "Login",
+    initialRouteName: "Login", /////////////change that back
   }
 )
 

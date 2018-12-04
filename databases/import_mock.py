@@ -57,8 +57,6 @@ with open(path + "user_profile.csv") as f:
 print("Table: user_profile populated.")
 
 
-
-
 con.commit()
 
 con.close()
