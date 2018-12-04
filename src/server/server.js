@@ -4,9 +4,8 @@ const socketIO = require('socket.io')
 const config = require('./config/config.json')
 const initOptions = {/* options as documented below */};
 const pgp = require('pg-promise')(initOptions);
-// const db = require('../db/models/index.js');
 // import models from './models';
-// const db = require('./models/index');
+// const sdb = require('./models/index');
 const cn = {
     host: config.host,
     port: config.port,
@@ -46,6 +45,15 @@ let createAccount = function(data) {
   })
 };
 
+// Loads the necessary data on the page to
+// let getDetailedUserInfo(data) = function(data) {
+//   db.none('select (user_email, display_name, password, profile_picture) from user_profiles where user_email = ${email}', data)
+//   .then(function(db_response) {
+//     console.log('detailed user info', db_response);
+//     io.sockets.emit('getDetailedUserInfoResponse', db_response);
+//   })
+// };
+
 io.on('connection', function(socket) {
   console.log('User connected')
 
@@ -57,6 +65,11 @@ io.on('connection', function(socket) {
   socket.on('createAccountInfo', (data) => {
     console.log('CreateAccountInfoRecieved: ', data);
     createAccount(data);
+  })
+
+  socket.on('getDetailedUserInfo', (data) => {
+    console.log('getDetailedUserInfoRecieved: ', data)
+    getUserDetailedInfo(data);
   })
 
   socket.on('disconnect', () => {

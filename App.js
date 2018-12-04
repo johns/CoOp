@@ -4,7 +4,7 @@ import Setup from "./src/client/config/setup";
 import {
     Text, Button, Image,
 } from 'react-native';
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { createStackNavigator, createAppContainer, withNavigation } from "react-navigation";
 import Icon from 'react-native-vector-icons/AntDesign/';
 import Home from "./src/client/screens/Home/Home";
 import Login from "./src/client/screens/Login/Login";

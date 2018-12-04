@@ -27,12 +27,15 @@ export default class CreateAccount extends Component {
     let socket= new socketIOClient.connect(this.state.endpoint,{'forceNew':true});
     data = {email: this.state.email, username: this.state.username, password: this.state.password};
     if (data.email !== '' && data.username !== '' && data.password !== '') {
-      socket.emit('createAccountInfo', data);
-      this.props.navigation.navigate('Home');
+      if (data.password == this.state.passwordConfirm) {
+        socket.emit('createAccountInfo', data);
+        this.props.navigation.navigate('Home', {User: {email: this.state.email}});
+      }else {
+        alert ('your passwords do not match');
+      }
     } else {
       alert ('can\'t have any empty fields');
     }
-
   }
 
   render() {
@@ -63,7 +66,7 @@ export default class CreateAccount extends Component {
           placeholder='Confirm Password'
           style={styles.userInput}
           onChangeText={(passwordConfirm) => this.setState({passwordConfirm})}
-          value={this.state.password}
+          value={this.state.passwordConfirm}
           secureTextEntry
         />
         <View style={styles.buttonBox}>

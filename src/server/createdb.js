@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize');
-var connection = new Sequelize ('database_name', 'username', 'password', {
+var connection = new Sequelize ('test_db', 'postgres', 'password', {
   dialect: 'postgres'
 });
  var User_Profile = connection.define('user_profile', {

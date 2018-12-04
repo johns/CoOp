@@ -28,12 +28,11 @@ export default class Login extends Component {
     socket.emit('loginInfo', data);
     socket.on('loginInfoResponse', (data) => {
       if (data[0].exists) {
-        this.props.navigation.navigate('Home');
+        this.props.navigation.navigate('Home', {User: {email: this.state.email}});
       } else {
         alert('Wrong login information');
       }
     });
-    // this.props.navigation.navigate('Home');
   }
 
   render() {
