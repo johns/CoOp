@@ -11,6 +11,7 @@ import CustomHeader from '../../components/UI/Header/Header';
 import { getNavigationBase } from "../../config/routes"
 import styles from './AccountSettings.style.js';
 import colors from '../../lib/colors';
+import socketIOClient  from 'socket.io-client';
 
 export default class AccountSettings extends Component {
   constructor(props) {
@@ -20,8 +21,22 @@ export default class AccountSettings extends Component {
       username: '',
       password: '',
       passwordConfirm: '',
+      endpoint: "http://192.168.0.3:3000" // this is where we are connecting to with sockets
       };
   }
+
+  // loadAccountSettingsInfo = () => {
+  //   let socket= new socketIOClient.connect(this.state.endpoint,{'forceNew':true});
+  //   data = {email: this.props.navigation.state.params.User.email};
+  //   socket.emit('getDetailedUserInfo', data);
+  //   socket.on('getDetailedUserInfoResponse', (data) => {
+  //     if (data[0].exists) {
+  //       this.props.navigation.navigate('Home', {User: {email: this.state.email}});
+  //     } else {
+  //       alert('Wrong login information');
+  //     }
+  //   });
+  // }
 
   render() {
     const {navigate} = this.props.navigation;

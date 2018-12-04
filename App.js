@@ -4,7 +4,7 @@ import Setup from "./src/client/config/setup";
 import {
     Text, Button, Image,
 } from 'react-native';
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { createStackNavigator, createAppContainer, withNavigation } from "react-navigation";
 import Icon from 'react-native-vector-icons/AntDesign/';
 import Home from "./src/client/screens/Home/Home";
 import Login from "./src/client/screens/Login/Login";
@@ -18,6 +18,7 @@ import CreateTask from "./src/client/screens/CreateTask/CreateTask"
 import InviteUsers from "./src/client/screens/InviteUsers/InviteUsers"
 import TaskManager from "./src/client/screens/TaskManager/TaskManager"
 import colors from './src/client/lib/colors/';
+import socketIOClient from 'socket.io-client';
 
 
 // static navigationOptions = {
