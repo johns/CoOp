@@ -13,7 +13,7 @@ export default class Home extends Component {
   render() {
     return (
       <ScrollView>
-        <GroupBox groupName="Test" messageTime="3:40pm" description={this.props.navigation.state.params.User.email} />
+        <GroupBox groupName="Test" messageTime="3:40pm" description={'FILLER'} />
       </ScrollView>
     );
   }
