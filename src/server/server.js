@@ -34,7 +34,15 @@ let checkLoginInfo = function(data) {
   db.any('select exists(select 1 from user_profiles where user_email=${email} and password=${password})', data)
   .then(function(db_response) {
     console.log('login verified', db_response);
-    io.sockets.emit('loginInfo', db_response);
+    io.sockets.emit('loginInfoResponse', db_response);
+  })
+};
+
+let createAccount = function(data) {
+  db.none('insert into user_profiles (user_email, display_name, password) values (${email}, ${username}, ${password})', data)
+  .then(function(db_response) {
+    console.log('account creation status', db_response);
+    // io.sockets.emit('loginInfoResponse', db_response);
   })
 };
 
@@ -44,6 +52,11 @@ io.on('connection', function(socket) {
   socket.on('loginInfo', (data) => {
     console.log('LoginInfoRecieved: ', data);
     checkLoginInfo(data);
+  })
+
+  socket.on('createAccountInfo', (data) => {
+    console.log('CreateAccountInfoRecieved: ', data);
+    createAccount(data);
   })
 
   socket.on('disconnect', () => {

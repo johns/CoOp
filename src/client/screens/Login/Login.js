@@ -24,9 +24,16 @@ export default class Login extends Component {
 
   loginButtonPress = () => {
     let socket= new socketIOClient.connect(this.state.endpoint,{'forceNew':true});
-    data = {email: this.state.usernameText, password: this.state.passwordText};
+    data = {email: this.state.email, password: this.state.password};
     socket.emit('loginInfo', data);
-    this.props.navigation.navigate('Home');
+    socket.on('loginInfoResponse', (data) => {
+      if (data[0].exists) {
+        this.props.navigation.navigate('Home');
+      } else {
+        alert('Wrong login information');
+      }
+    });
+    // this.props.navigation.navigate('Home');
   }
 
   render() {
@@ -38,15 +45,15 @@ export default class Login extends Component {
         <View style={styles.container}>
           <TextInput
             style={styles.userInput}
-            onChangeText={(usernameText) => this.setState({usernameText})}
-            value= {this.state.usernameText}
+            onChangeText={(email) => this.setState({email})}
+            value= {this.state.email}
             placeholder= "Email"
           />
 
           <TextInput
             style={styles.userInput}
-            onChangeText={(passwordText) => this.setState({passwordText})}
-            value= {this.state.passwordText}
+            onChangeText={(password) => this.setState({password})}
+            value= {this.state.password}
             secureTextEntry={true}
             placeholder= "Password"
 
