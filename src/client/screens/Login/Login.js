@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, AppRegistry, Button, TextInput, View } from 'react-native'
+import { Text, AppRegistry, Button, TextInput, View, AsyncStorage } from 'react-native'
 import { Header } from 'react-native-elements'
 import CustomButton from "../../components/UI/Button/Button";
 import CustomHeader from '../../components/UI/Header/Header';
@@ -15,7 +15,16 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      endpoint: "http://192.168.87.199:3000" // this is where we are connecting to with sockets
+      email: '',
+      password: ''
+    }
+  }
+
+  async saveEmail(email) {
+    try {
+      await AsyncStorage.setItem('user_email', email);
+    } catch (error) {
+      console.log("Error saving data" + error);
     }
   }
 
@@ -32,6 +41,7 @@ export default class Login extends Component {
       socket.on('loginInfoResponse', (data) => {
         // return data[0].exist;
         if (data[0].exists) {
+          this.saveEmail(this.state.email);
           this.props.navigation.navigate('Home', {User: {email: this.state.email}});
         } else {
           alert('Wrong login information');
