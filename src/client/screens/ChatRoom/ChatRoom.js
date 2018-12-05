@@ -25,6 +25,14 @@ export default class ChatRoom extends Component {
     };
   }
 
+  componentDidMount() {
+     this.props.navigation.setParams({
+         chatRoom: {
+             title: this.props.navigation.getParam('groupName', ''),
+         }
+     });
+   }
+
   render() {
     const {navigate} = this.props.navigation;
     return (

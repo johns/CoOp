@@ -118,7 +118,7 @@ const RootStack = createStackNavigator(
     ChatRoom: {
       screen: ChatRoom,
       navigationOptions: ({navigation}) => ({
-        title: '[ROOM NAME]',
+        title:navigation.getParam('chatRoom', {title: 'New Room'}).title,
         headerVisible: true,
         headerLeft: (
           <Icon
