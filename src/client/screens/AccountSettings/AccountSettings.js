@@ -11,6 +11,8 @@ import CustomHeader from '../../components/UI/Header/Header';
 import { getNavigationBase } from "../../config/routes"
 import styles from './AccountSettings.style.js';
 import colors from '../../lib/colors';
+import createNewPassword from '../../../store/CreateNewPassword';
+
 
 export default class AccountSettings extends Component {
   constructor(props) {
@@ -23,15 +25,28 @@ export default class AccountSettings extends Component {
       };
   }
 
-  confirmChanges = () => {
-    const data = {email: this.state.email, username: this.state.username, password: this.state.password};
-    if (createAccount(data)) {
-      this.props.navigation.navigate('Home');
-    } else {
-      alert ('can\'t have any empty fields');
+  handlePress = () => {
+    const data = {email: this.state.email, username: this.state.username, password: this.state.password, passwordConfirm: this.state.passwordConfirm};
+    if (this.state.password !== '' && this.state.password == this.state.passwordConfirm) {
+      if (createNewPassword(data)) {
+        this.props.navigation.navigate('Home');
+      } else {
+        alert ('can\'t have any empty fields');
+      }
     }
   }
-
+  // loadAccountSettingsInfo = () => {
+  //   let socket= new socketIOClient.connect(this.state.endpoint,{'forceNew':true});
+  //   data = {email: this.props.navigation.state.params.User.email};
+  //   socket.emit('getDetailedUserInfo', data);
+  //   socket.on('getDetailedUserInfoResponse', (data) => {
+  //     if (data[0].exists) {
+  //       this.props.navigation.navigate('Home', {User: {email: this.state.email}});
+  //     } else {
+  //       alert('Wrong login information');
+  //     }
+  //   });
+  // }
 
   render() {
     const {navigate} = this.props.navigation;
@@ -54,13 +69,6 @@ export default class AccountSettings extends Component {
           value={this.state.username}
         />
         <TextInput
-          placeholder='Previous Password'
-          style={styles.passwordInput}
-          onChangeText={(password) => this.setState({password})}
-          value={this.state.password}
-          secureTextEntry
-        />
-        <TextInput
           placeholder='New Password'
           style={styles.passwordInput}
           onChangeText={(password) => this.setState({password})}
@@ -71,10 +79,10 @@ export default class AccountSettings extends Component {
           placeholder='Confirm New Password'
           style={styles.passwordInput}
           onChangeText={(passwordConfirm) => this.setState({passwordConfirm})}
-          value={this.state.password}
+          value={this.state.passwordConfirm}
           secureTextEntry
         />
-        <Text style={styles.confirmButton} onPress={navigate.bind(this, 'Home')}>
+        <Text style={styles.confirmButton} onPress={this.handlePress}>
           Confirm Changes
         </Text>
 
