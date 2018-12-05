@@ -46,8 +46,18 @@ let createAccount = function(data) {
 };
 
 let createGroup = function(data) {
+  let email = data.email;
   db.none('insert into rooms (name, description) values (${groupName}, ${activityType})', data)
   .then(function(db_response) {
+    db.any('select * from rooms where name = $(groupName) and description = $(activityType)', data)
+    .then(function(db_response2) {
+      db_response2[0].email = email;
+      console.log('group info', db_response2);
+      db.none('insert into group_members (user_email, room_id) values (${email}, ${room_id})', db_response2[0])
+      .then(function(db_response3) {
+        console.log('group member status', db_response3);
+      })
+    })
     console.log('group creation status', db_response);
   })
 };
@@ -65,6 +75,14 @@ let createNewPassword = function(data) {
   .then(function(db_response) {
     console.log('group member status', db_response);
     // io.sockets.emit('loginInfoResponse', db_response);
+  })
+};
+
+let getGroupInfo = function(data) {
+  db.any('select * from rooms where name = $(groupName) and description = $(activityType)', data)
+  .then(function(db_response) {
+    console.log('group info', db_response);
+    io.sockets.emit('getGroupInfoResponse', db_response);
   })
 };
 
@@ -99,10 +117,15 @@ io.on('connection', function(socket) {
     console.log('createNewPasswordReceived: ', data);
     createNewPassword(data);
   })
-  
+
   socket.on('createGroupInfo', (data) => {
     console.log('createGroupInfoRecieved: ', data);
     createGroup(data);
+  })
+
+  socket.on('getGroupInfo', (data) => {
+    console.log('getGroupInfoRecieved: ', data);
+    getGroupInfo(data);
   })
 
   socket.on('getDetailedUserInfo', (data) => {
