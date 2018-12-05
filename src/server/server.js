@@ -56,7 +56,6 @@ let addGroupMember = function(data) {
   db.none('insert into group_members (user_email, room_id) values (${memberEmail}, ${roomID})', data)
   .then(function(db_response) {
     console.log('group member status', db_response);
-    // io.sockets.emit('loginInfoResponse', db_response);
   })
 };
 
@@ -64,7 +63,14 @@ let createNewPassword = function(data) {
   db.none('UPDATE user_profiles SET (password) = (${password}) WHERE (user_email in user_profiles) = ${user_email}', data)
   .then(function(db_response) {
     console.log('group member status', db_response);
-    // io.sockets.emit('loginInfoResponse', db_response);
+  })
+};
+
+let getAllGroups = function(data) {
+  db.any('select name, room_id from rooms where room_id in (select room_id from group_members where user_email = ${email})', data)
+  .then(function(db_response) {
+    console.log('groups verified', db_response);
+    io.sockets.emit('allGroupsResponse', db_response);
   })
 };
 
@@ -99,10 +105,15 @@ io.on('connection', function(socket) {
     console.log('createNewPasswordReceived: ', data);
     createNewPassword(data);
   })
-  
+
   socket.on('createGroupInfo', (data) => {
     console.log('createGroupInfoRecieved: ', data);
     createGroup(data);
+  })
+
+  socket.on('getAllGroups', (data) => {
+    console.log('getAllGroupsReceived: ', data);
+    getAllGroups(data);
   })
 
   socket.on('getDetailedUserInfo', (data) => {
