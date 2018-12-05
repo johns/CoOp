@@ -45,6 +45,14 @@ let createAccount = function(data) {
   })
 };
 
+let addGroupMember = function(data) {
+  db.none('insert into group_member (user_email, room_id) values (${memberEmail}, ${roomID}', data)
+  .then(function(db_response) {
+    console.log('group member status', db_response);
+    // io.sockets.emit('loginInfoResponse', db_response);
+  })
+};
+
 // Loads the necessary data on the page to
 // let getDetailedUserInfo(data) = function(data) {
 //   db.none('select (user_email, display_name, password, profile_picture) from user_profiles where user_email = ${email}', data)
@@ -65,6 +73,11 @@ io.on('connection', function(socket) {
   socket.on('createAccountInfo', (data) => {
     console.log('CreateAccountInfoRecieved: ', data);
     createAccount(data);
+  })
+
+  socket.on('addGroupMember', (data) => {
+    console.log('addGroupMemberReceived: ', data);
+    addGroupMember(data);
   })
 
   socket.on('getDetailedUserInfo', (data) => {

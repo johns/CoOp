@@ -12,11 +12,32 @@ export default StyleSheet.create ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
+  userInput: {
+    marginBottom: 30,
+    marginLeft: 40,
+    paddingLeft: 10,
+    height: 40,
+    borderBottomColor: colors.lightGray,
+    borderBottomWidth: 1,
+    marginRight: 40,
+   },
    goButton: {
      paddingLeft: 20,
      paddingRight: 20,
      flex: 1,
+   },
+   createAccountLink: {
+     fontSize: 20,
+     borderColor: colors.primaryBlue,
+     borderWidth: 1,
+     color: colors.primaryBlue,
+     backgroundColor: colors.white,
+     textAlign: 'center',
+     marginBottom: 20,
+     marginLeft: 40,
+     marginRight: 40,
+     paddingTop: 10,
+     paddingBottom: 10,
    },
 
    memberButton: {
