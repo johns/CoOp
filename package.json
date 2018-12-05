@@ -11,6 +11,7 @@
     "babel-eslint": "^10.0.1",
     "express": "^4.16.4",
     "merge": "^1.2.1",
+    "node-gyp": "^3.8.0",
     "react": "16.5.0",
     "react-native": "0.57.1",
     "react-native-check-box": "^2.1.6",
@@ -20,9 +21,10 @@
     "react-native-vector-icons": "^6.1.0",
     "react-navigation": "git+https://github.com/react-community/react-navigation.git",
     "react-navigation-header-buttons": "^2.1.1",
-    "socket.io-client": "^2.2.0",
     "react-redux": "^5.1.1",
-    "redux": "^4.0.1"
+    "rebuild": "^0.1.2",
+    "redux": "^4.0.1",
+    "socket.io-client": "^2.2.0"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",

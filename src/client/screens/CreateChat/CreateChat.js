@@ -3,6 +3,7 @@ import { Text, AppRegistry, TextInput, View, Image } from 'react-native'
 import { Header, Button } from 'react-native-elements'
 import styles from './CreateChat.style.js';
 import CustomHeader from "../../components/UI/Header/Header";
+import createGroup from '../../../store/CreateGroup';
 
 export default class CreateChat extends Component {
 
@@ -11,8 +12,18 @@ export default class CreateChat extends Component {
     this.state = { groupNameText: '', activityTypeText: '' };
   }
 
+  createGroupButtonPress = () => {
+    const data = {groupName: this.state.groupNameText, activityType: this.state.activityTypeText};
+    if (createGroup(data)) {
+        this.props.navigation.navigate('ChatRoom');
+    } else {
+      alert('cant have empty fields');
+    }
+  }
+
   render() {
     const {navigate} = this.props.navigation;
+
     return (
       <View style={styles.mainView}>
         <View>
@@ -37,7 +48,7 @@ export default class CreateChat extends Component {
 
         <Button
           buttonStyle={styles.createButton}
-          onPress={navigate.bind(this, 'ChatRoom')}
+          onPress={this.createGroupButtonPress}
           title="Create Group"
           accessibilityLabel="This is an upload image button"
         />
