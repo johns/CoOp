@@ -35,7 +35,7 @@ export default class CreateAccount extends Component {
     const data = {email: this.state.email, username: this.state.username, password: this.state.password};
     if (createAccount(data)) {
       if (data.password == this.state.passwordConfirm) {
-        saveEmail(data.email);
+        this.saveEmail(data.email);
         this.props.navigation.navigate('Home');
       } else {
         alert('passwords do not match');
