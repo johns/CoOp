@@ -1,6 +1,7 @@
 const express = require('express')
 const http = require('http')
 const socketIO = require('socket.io')
+
 const config = require('./config/config.json')
 const initOptions = {/* options as documented below */};
 const pgp = require('pg-promise')(initOptions);
@@ -41,7 +42,13 @@ let createAccount = function(data) {
   db.none('insert into user_profiles (user_email, display_name, password) values (${email}, ${username}, ${password})', data)
   .then(function(db_response) {
     console.log('account creation status', db_response);
-    // io.sockets.emit('loginInfoResponse', db_response);
+  })
+};
+
+let createGroup = function(data) {
+  db.none('insert into rooms (name, description) values (${groupName}, ${activityType})', data)
+  .then(function(db_response) {
+    console.log('group creation status', db_response);
   })
 };
 
@@ -91,6 +98,11 @@ io.on('connection', function(socket) {
   socket.on('createNewPassword', (data) => {
     console.log('createNewPasswordReceived: ', data);
     createNewPassword(data);
+  })
+  
+  socket.on('createGroupInfo', (data) => {
+    console.log('createGroupInfoRecieved: ', data);
+    createGroup(data);
   })
 
   socket.on('getDetailedUserInfo', (data) => {

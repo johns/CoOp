@@ -13,6 +13,7 @@ import styles from './AccountSettings.style.js';
 import colors from '../../lib/colors';
 import createNewPassword from '../../../store/CreateNewPassword';
 
+
 export default class AccountSettings extends Component {
   constructor(props) {
     super(props);
