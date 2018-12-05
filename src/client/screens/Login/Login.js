@@ -7,7 +7,8 @@ import Logo from '../../components/Logo/Logo';
 import styles from './Login.style.js';
 import { StyleSheet } from "react-native";
 import { getNavigationBase } from "../../config/routes"
-import socketIOClient  from 'socket.io-client';
+import checkLogin from '../../../store/CheckLogin';
+import socketIOClient from 'socket.io-client';
 
 
 export default class Login extends Component {
@@ -23,16 +24,20 @@ export default class Login extends Component {
   }
 
   loginButtonPress = () => {
-    let socket= new socketIOClient.connect(this.state.endpoint,{'forceNew':true});
     data = {email: this.state.email, password: this.state.password};
-    socket.emit('loginInfo', data);
-    socket.on('loginInfoResponse', (data) => {
-      if (data[0].exists) {
-        this.props.navigation.navigate('Home', {User: {email: this.state.email}});
-      } else {
-        alert('Wrong login information');
-      }
-    });
+    const endpoint= "http://192.168.0.3:3000"; // this is where we are connecting to with sockets
+    let socket = new socketIOClient.connect(endpoint,{'forceNew':true});
+    if (data.email !== '' && data.password !== '') {
+      socket.emit('loginInfo', data);
+      socket.on('loginInfoResponse', (data) => {
+        // return data[0].exist;
+        if (data[0].exists) {
+          this.props.navigation.navigate('Home', {User: {email: this.state.email}});
+        } else {
+          alert('Wrong login information');
+        }
+      });
+    }
   }
 
   render() {

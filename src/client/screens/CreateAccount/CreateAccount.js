@@ -25,7 +25,12 @@ export default class CreateAccount extends Component {
   createAccountButtonPress = () => {
     const data = {email: this.state.email, username: this.state.username, password: this.state.password};
     if (createAccount(data)) {
-      this.props.navigation.navigate('Home');
+      if (data.password == this.state.passwordConfirm) {
+        this.props.navigation.navigate('Home');
+      } else {
+        alert('passwords do not match');
+      }
+
     } else {
       alert ('can\'t have any empty fields');
     }
