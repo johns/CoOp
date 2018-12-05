@@ -4,6 +4,7 @@ import {
     Text,
     TextInput,
     KeyboardAvoidingView,
+    AsyncStorage
 } from 'react-native';
 import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/AntDesign/';
@@ -23,6 +24,16 @@ export default class AccountSettings extends Component {
       password: '',
       passwordConfirm: '',
       };
+  }
+
+  async getEmail() {
+    try {
+      const value = await AsyncStorage.getItem('user_email');
+      this.setState({email: value});
+      // alert(this.state.emai);
+    } catch (error) {
+      console.log("Error retrieving data" + error);
+    }
   }
 
   handlePress = () => {
@@ -64,12 +75,14 @@ export default class AccountSettings extends Component {
 
         <TextInput
           placeholder='CURRENT DISPLAY NAME'
+          onFocus={this.getEmail.bind(this)}
           style={styles.usernameInput}
           onChangeText={(username) => this.setState({username})}
           value={this.state.username}
         />
         <TextInput
           placeholder='New Password'
+          onFocus={this.getEmail.bind(this)}
           style={styles.passwordInput}
           onChangeText={(password) => this.setState({password})}
           value={this.state.password}
