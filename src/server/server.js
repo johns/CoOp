@@ -54,7 +54,7 @@ let addGroupMember = function(data) {
 };
 
 let createNewPassword = function(data) {
-  db.none('UPDATE user_profiles SET (password) = (${password}) WHERE user_email = ${user_email}', data)
+  db.none('UPDATE user_profiles SET (password) = (${password}) WHERE (user_email in user_profiles) = ${user_email}', data)
   .then(function(db_response) {
     console.log('group member status', db_response);
     // io.sockets.emit('loginInfoResponse', db_response);
