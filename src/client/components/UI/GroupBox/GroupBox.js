@@ -20,6 +20,7 @@ class GroupBox extends Component {
       messageTime,
       description,
       notification,
+      room,
     } = this.props;
 
     let notificationColor = 'white';
@@ -33,7 +34,7 @@ class GroupBox extends Component {
     return (
       <TouchableOpacity
         style={styles.buttonBox}
-        onPress={() => { this.props.navigation.navigate('ChatRoom')}}
+        onPress={() => { this.props.navigation.navigate('ChatRoom', {roomID: room, groupName: groupName})}}
       >
         <View style={styles.groupHeader}>
           <Text style={styles.groupName}>

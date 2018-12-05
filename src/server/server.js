@@ -61,12 +61,17 @@ let createGroup = function(data) {
     console.log('group creation status', db_response);
   })
 };
+let createTask = function(data) {
+  db.none('INSERT INTO tasks (user_email, room_id, task_name, start_point, progress, end_point) VALUES (${email},${roomID},${taskName},${startingPoint},0,${endingPoint})', data)
+  .then(function(db_response) {
+    console.log('task creation status', db_response);
+  })
+};
 
 let addGroupMember = function(data) {
   db.none('insert into group_members (user_email, room_id) values (${memberEmail}, ${roomID})', data)
   .then(function(db_response) {
     console.log('group member status', db_response);
-    // io.sockets.emit('loginInfoResponse', db_response);
   })
 };
 
@@ -74,7 +79,14 @@ let createNewPassword = function(data) {
   db.none('UPDATE user_profiles SET (password) = (${password}) WHERE (user_email in user_profiles) = ${user_email}', data)
   .then(function(db_response) {
     console.log('group member status', db_response);
-    // io.sockets.emit('loginInfoResponse', db_response);
+  })
+};
+
+let getAllGroups = function(data) {
+  db.any('select name, room_id from rooms where room_id in (select room_id from group_members where user_email = ${email})', data)
+  .then(function(db_response) {
+    console.log('groups verified', db_response);
+    io.sockets.emit('allGroupsResponse', db_response);
   })
 };
 
@@ -107,6 +119,10 @@ io.on('connection', function(socket) {
     console.log('CreateAccountInfoRecieved: ', data);
     createAccount(data);
   })
+  socket.on('createTask', (data) => {
+    console.log('CreateTaskInfoReceived: ', data);
+    createTask(data);
+  })
 
   socket.on('addGroupMember', (data) => {
     console.log('addGroupMemberReceived: ', data);
@@ -123,6 +139,10 @@ io.on('connection', function(socket) {
     createGroup(data);
   })
 
+  socket.on('getAllGroups', (data) => {
+    console.log('getAllGroupsReceived: ', data);
+    getAllGroups(data);
+  })
   socket.on('getGroupInfo', (data) => {
     console.log('getGroupInfoRecieved: ', data);
     getGroupInfo(data);
