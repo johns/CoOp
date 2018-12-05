@@ -46,7 +46,7 @@ let createAccount = function(data) {
 };
 
 let addGroupMember = function(data) {
-  db.none('insert into group_member (user_email, room_id) values (${memberEmail}, ${roomID}', data)
+  db.none('insert into group_members (user_email, room_id) values (${memberEmail}, ${roomID})', data)
   .then(function(db_response) {
     console.log('group member status', db_response);
     // io.sockets.emit('loginInfoResponse', db_response);

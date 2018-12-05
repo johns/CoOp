@@ -14,7 +14,7 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      endpoint: "http://192.168.0.3:3000" // this is where we are connecting to with sockets
+      endpoint: "http://192.168.87.199:3000" // this is where we are connecting to with sockets
     }
   }
 
