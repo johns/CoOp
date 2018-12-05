@@ -111,7 +111,7 @@ const RootStack = createStackNavigator(
             size={30}
             color={colors.primaryBlue}
             style={{marginLeft: 10, marginRight: 10}}
-            onPress={() => navigation.navigate('Home')}
+            onPress={() => navigation.goBack()}
           />  )
       })
     },

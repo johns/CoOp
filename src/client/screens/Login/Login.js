@@ -34,7 +34,7 @@ export default class Login extends Component {
 
   loginButtonPress = () => {
     data = {email: this.state.email, password: this.state.password};
-    const endpoint= "http://192.168.0.3:3000"; // this is where we are connecting to with sockets
+    const endpoint= "http://10.27.230.45:3000"; // this is where we are connecting to with sockets
     let socket = new socketIOClient.connect(endpoint,{'forceNew':true});
     if (data.email !== '' && data.password !== '') {
       socket.emit('loginInfo', data);
@@ -42,7 +42,7 @@ export default class Login extends Component {
         // return data[0].exist;
         if (data[0].exists) {
           this.saveEmail(this.state.email);
-          this.props.navigation.navigate('Home', {User: {email: this.state.email}});
+          this.props.navigation.navigate('Home', {email: this.state.email});
         } else {
           alert('Wrong login information');
         }

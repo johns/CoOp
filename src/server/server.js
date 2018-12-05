@@ -83,7 +83,7 @@ let createNewPassword = function(data) {
 };
 
 let getAllGroups = function(data) {
-  db.any('select name, room_id from rooms where room_id in (select room_id from group_members where user_email = ${email})', data)
+  db.any('select name, description, room_id from rooms where room_id in (select room_id from group_members where user_email = ${email})', data)
   .then(function(db_response) {
     console.log('groups verified', db_response);
     io.sockets.emit('allGroupsResponse', db_response);

@@ -5,6 +5,7 @@ import {
     Button,
     ScrollView,
     KeyboardAvoidingView,
+    AsyncStorage,
 } from 'react-native';
 import styles from './Home.style.js';
 import GroupBox from '../../components/UI/GroupBox/GroupBox';
@@ -20,7 +21,7 @@ export default class Home extends Component {
       };
 
       const groupListData = {email: this.props.navigation.getParam('email', '')}
-      const endpoint= "http://192.168.87.199:3000"; // this is where we are connecting to with sockets
+      const endpoint= "http://10.27.230.45:3000"; // this is where we are connecting to with sockets
       let socket = new socketIOClient.connect(endpoint,{'forceNew':true});
       if (groupListData.email !== '') {
         socket.emit('getAllGroups', groupListData);
@@ -33,7 +34,7 @@ export default class Home extends Component {
   render() {
     let groups = undefined
     if (this.state.groups.constructor === Array) {
-      groups = this.state.groups.map((obj) => <GroupBox groupName={obj.name} room={obj.room_id} messageTime="3:40pm" description={'FILLER'} />)
+      groups = this.state.groups.map((obj) => <GroupBox groupName={obj.name} room={obj.room_id} messageTime="3:40pm" description={obj.description} />)
     }
     return (
       <ScrollView>
