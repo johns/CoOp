@@ -51,6 +51,12 @@ let createGroup = function(data) {
     console.log('group creation status', db_response);
   })
 };
+let createTask = function(data) {
+  db.none('INSERT INTO tasks (user_email, room_id, task_name, start_point, progress, end_point) VALUES (${email},${roomID},${taskName},${startingPoint},0,${endingPoint})', data)
+  .then(function(db_response) {
+    console.log('task creation status', db_response);
+  })
+};
 
 let addGroupMember = function(data) {
   db.none('insert into group_members (user_email, room_id) values (${memberEmail}, ${roomID})', data)
@@ -94,6 +100,10 @@ io.on('connection', function(socket) {
   socket.on('createAccountInfo', (data) => {
     console.log('CreateAccountInfoRecieved: ', data);
     createAccount(data);
+  })
+  socket.on('createTask', (data) => {
+    console.log('CreateTaskInfoReceived: ', data);
+    createTask(data);
   })
 
   socket.on('addGroupMember', (data) => {

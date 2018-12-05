@@ -15,6 +15,7 @@ import { getNavigationBase } from "../../config/routes";
 import Slider from "react-native-slider";
 import styles from './CreateTask.style.js';
 import colors from '../../lib/colors';
+import createTask from '../../../store/CreateTask';
 
 export default class CreateTask extends Component {
   constructor(props) {
@@ -25,6 +26,21 @@ export default class CreateTask extends Component {
       endingPoint: 1,
       trackProgress: false,
       };
+  }
+
+  createTaskButtonPress = () => {
+    const data = {
+      email: 'FILLER EMAIL',
+      roomID: 1,
+      taskName: this.state.taskName,
+      startingPoint: this.state.startingPoint,
+      endingPoint: this.state.endingPoint
+    };
+    if (createTask(data)) {
+      this.props.navigation.goBack();
+    } else {
+      alert ('can\'t have any empty fields');
+    }
   }
 
   render() {
@@ -76,7 +92,7 @@ export default class CreateTask extends Component {
         <Button
           buttonStyle={styles.goButton}
           color='white'
-          onPress={() => goBack()}
+          onPress={this.createTaskButtonPress}
           title="Create Task"
         />
       </View>
