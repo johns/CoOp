@@ -1,4 +1,7 @@
 {
+  "env": {
+    "amd": true
+},
   "parser":
     "babel-eslint"
     ,
