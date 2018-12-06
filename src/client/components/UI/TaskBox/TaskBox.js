@@ -40,19 +40,24 @@ class TaskBox extends Component {
     }
 
     return (
-      <View style={styles.taskCol}>
-        <View style={styles.taskOutside}>
-          <Text style={[styles.taskName, progressStyling]}>
-            {name}
-          </Text>
-          <Text style={[styles.taskProgress, progressStyling]}>
-            {progress}
+      <TouchableOpacity
+        style={styles.buttonBox}
+        onPress={() => { this.props.navigation.navigate('TaskEditor', {taskName: name, startingPoint: start, currentPoint: current, endingPoint: end})}}
+      >
+        <View style={styles.taskCol}>
+          <View style={styles.taskOutside}>
+            <Text style={[styles.taskName, progressStyling]}>
+              {name}
+            </Text>
+            <Text style={[styles.taskProgress, progressStyling]}>
+              {progress}
+            </Text>
+          </View>
+          <Text style={[styles.user, progressStyling]}>
+            {user}
           </Text>
         </View>
-        <Text style={[styles.user, progressStyling]}>
-          {user}
-        </Text>
-      </View>
+      </TouchableOpacity>
 
     );
   }
