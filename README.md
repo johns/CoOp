@@ -9,15 +9,19 @@ co-op is a messaging app created for groups who aim to complete certain tasks an
 ##  Setup
 ### Creating a database
 To create a co-op database, navigate to `src/database` and run the following commands:
-> $ pip3 install psycopg2
-> $ python3 create_local_db.py <USERNAME> <PASSWORD> <PREFERRED DB NAME>
+```
+$ pip3 install psycopg2
+$ python3 create_local_db.py <USERNAME> <PASSWORD> <PREFERRED DB NAME>
+```
 
 ### Configuring the DB and Server.
 To pick a host and assign to a database, access the config-example.json within `src/server/config/`. Make a new file within the config/ directory and fill in with your information.
-  "username": Your Postgres User name
-  "password": Postgres Password. If you have no password, fill with ""
-  "database": Your Postgres Database
-  "serverEndpoint": This is your Local IP
+```
+  username: Your Postgres User name
+  password: Postgres Password. If you have no password, fill with ""
+  database: Your Postgres Database
+  serverEndpoint: This is your Local IP
+```
 
 ###  MacOS:
 ```
