@@ -6,7 +6,6 @@ import {
     AsyncStorage,
 } from 'react-native';
 import { Button } from 'react-native-elements'
-import { getNavigationBase } from "../../config/routes"
 import styles from './CreateAccount.style.js';
 import createAccount from '../../../store/CreateAccount';
 

@@ -27,10 +27,14 @@ $ react-native run-android
 ```
 $ npm install
 ```
-Navigate to the android studio directory and run `studio.sh`:
+Navigate to the android studio directory and open `studio.sh`
 ```
 $ cd android-studio/bin
 $ ./studio.sh
+```
+Create a file called `local.properties` under android/, and include the path to your Android Sdk
+```
+sdk.dir = /home/<USERNAME>/Android/Sdk
 ```
 Open Android Studio -> Android Device Manager -> React Native Configured Emulator
 ```
@@ -74,12 +78,11 @@ We chose to use PostgreSQL for our database because it seems like a good choice 
     *  client
        *  assets
        *  components
-       *  config
        *  lib
        *  screens
     *  database
-       *  models
     *  server
+       * config
     *  store
 
 ###  Database Layout

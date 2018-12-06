@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Text, TextInput, View, AsyncStorage } from 'react-native'
 import Logo from '../../components/Logo/Logo';
 import styles from './Login.style.js';
-import { getNavigationBase } from "../../config/routes"
 import checkLogin from '../../../store/CheckLogin';
 import socketIOClient from 'socket.io-client';
 

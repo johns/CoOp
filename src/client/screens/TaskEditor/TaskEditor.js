@@ -6,7 +6,6 @@ import {
   Slider,
 } from 'react-native';
 import {Button} from 'react-native-elements';
-import { getNavigationBase } from "../../config/routes";
 import styles from './TaskEditor.style.js';
 import colors from '../../lib/colors';
 import taskEditor from '../../../store/TaskEditor';

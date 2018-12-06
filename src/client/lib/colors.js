@@ -11,17 +11,15 @@ const colors = {
 
 export default colors;
 
+/*
+To use:
 
-        /*
+import colors from ........
 
-        To use:
+Example:
+  button: {
+    color: colors.white,
+    backgroundColor: colors.black,
+  }
 
-        import colors from ........
-
-        Example:
-          button: {
-            color: colors.white,
-            backgroundColor: colors.black
-          }
-
-        */
+*/
