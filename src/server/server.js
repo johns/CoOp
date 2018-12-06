@@ -82,6 +82,20 @@ let createNewPassword = function(data) {
   })
 };
 
+let changeDisplayName = function(data) {
+  db.none('UPDATE user_profiles SET display_name=${username} WHERE user_email=${email}', data)
+  .then(function(db_response) {
+    console.log('group member status', db_response);
+  })
+};
+
+let sendGroupMessage = function(data) {
+  db.none('insert into messages (room_id, user_email, message_content) values (${roomID}, ${email}, ${message})', data)
+  .then(function(db_response) {
+    console.log('message sent status', db_response);
+  })
+};
+
 let getAllGroups = function(data) {
   db.any('select name, description, room_id from rooms where room_id in (select room_id from group_members where user_email = ${email})', data)
   .then(function(db_response) {
@@ -132,6 +146,16 @@ io.on('connection', function(socket) {
   socket.on('createNewPassword', (data) => {
     console.log('createNewPasswordReceived: ', data);
     createNewPassword(data);
+  })
+
+  socket.on('changeDisplayName', (data) => {
+    console.log('changeDisplayNameRecieved: ', data);
+    changeDisplayName(data);
+  })
+
+  socket.on('sendGroupMessage', (data) => {
+    console.log('sendGroupMessageRecieved: ', data);
+    sendGroupMessage(data);
   })
 
   socket.on('createGroupInfo', (data) => {

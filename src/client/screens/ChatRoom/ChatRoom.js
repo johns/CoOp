@@ -6,6 +6,7 @@ import {
     Button,
     TextInput,
     Image,
+    AsyncStorage,
 } from 'react-native';
 import CustomHeader from '../../components/UI/Header/Header';
 import styles from './ChatRoom.style.js';
@@ -14,6 +15,7 @@ import colors from '../../lib/colors';
 import ChatBubble from '../../components/UI/ChatBubble/ChatBubble';
 import NotificationBubble from '../../components/UI/NotificationBubble/NotificationBubble';
 import Icon from 'react-native-vector-icons/Feather/';
+import sendGroupMessage from '../../../store/SendGroupMessage';
 
 
 export default class ChatRoom extends Component {
@@ -29,8 +31,24 @@ export default class ChatRoom extends Component {
      this.props.navigation.setParams({
          chatRoom: {
              title: this.props.navigation.getParam('groupName', ''),
+             roomID: this.props.navigation.getParam('roomID', ''),
          }
      });
+   }
+
+   async getEmail() {
+     try {
+       const value = await AsyncStorage.getItem('user_email');
+       this.setState({email: value});
+       // alert(this.state.emai);
+     } catch (error) {
+       console.log("Error retrieving data" + error);
+     }
+   }
+
+   sendMessageButtonPress = () => {
+     let data = {email: this.state.email, roomID: this.props.navigation.getParam('roomID', ''), message: this.state.message};
+     sendGroupMessage(data);
    }
 
   render() {
@@ -59,6 +77,7 @@ export default class ChatRoom extends Component {
             style={styles.userInput}
             onChangeText={(message) => this.setState({message})}
             value={this.state.message}
+            onFocus={this.getEmail.bind(this)}
           />
           <View style={styles.sendIcon}>
             <Icon
@@ -66,6 +85,7 @@ export default class ChatRoom extends Component {
               size={25}
               color={colors.primaryBlue}
               style={styles.icons}
+              onPress={this.sendMessageButtonPress}
             />
           </View>
 
