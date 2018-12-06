@@ -24,13 +24,13 @@ export default class ChatRoom extends Component {
   }
 
   componentDidMount() {
-     this.props.navigation.setParams({
-         chatRoom: {
-             title: this.props.navigation.getParam('groupName', ''),
-             roomID: this.props.navigation.getParam('roomID', ''),
-         }
-     });
-   }
+    this.props.navigation.setParams({
+      chatRoom: {
+        title: this.props.navigation.getParam('groupName', ''),
+        roomID: this.props.navigation.getParam('roomID', ''),
+      }
+    });
+  }
 
    async getEmail() {
      try {
@@ -44,7 +44,9 @@ export default class ChatRoom extends Component {
 
    sendMessageButtonPress = () => {
      let data = {email: this.state.email, roomID: this.props.navigation.getParam('roomID', ''), message: this.state.message};
-     sendGroupMessage(data);
+     if (sendGroupMessage(data)) {
+       this.setState({message:''});
+     }
    }
 
   render() {

@@ -9,16 +9,18 @@ import { withNavigation } from 'react-navigation';
 
 class TaskBox extends Component {
   static propTypes = {
-      name: PropTypes.string.isRequired,
-      user: PropTypes.string.isRequired,
-      tracking: PropTypes.bool,
-      start: PropTypes.number,
-      end: PropTypes.number,
-      current: PropTypes.number,
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    user: PropTypes.string.isRequired,
+    tracking: PropTypes.bool,
+    start: PropTypes.number,
+    end: PropTypes.number,
+    current: PropTypes.number,
   }
 
   render () {
     const {
+      id,
       name,
       user,
       tracking,
@@ -42,7 +44,7 @@ class TaskBox extends Component {
     return (
       <TouchableOpacity
         style={styles.buttonBox}
-        onPress={() => { this.props.navigation.navigate('TaskEditor', {taskName: name, startingPoint: start, currentPoint: current, endingPoint: end})}}
+        onPress={() => { this.props.navigation.navigate('TaskEditor', {taskID: id, taskName: name, startingPoint: start, currentPoint: current, endingPoint: end})}}
       >
         <View style={styles.taskCol}>
           <View style={styles.taskOutside}>

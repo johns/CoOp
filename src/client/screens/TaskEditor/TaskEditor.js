@@ -8,7 +8,7 @@ import {
 import {Button} from 'react-native-elements';
 import styles from './TaskEditor.style.js';
 import colors from '../../lib/colors';
-import taskEditor from '../../../store/TaskEditor';
+import editTask from '../../../store/EditTask';
 
 export default class TaskEditor extends Component {
   constructor(props) {
@@ -25,11 +25,13 @@ export default class TaskEditor extends Component {
     const data = {
       email: 'FILLER EMAIL',
       roomID: 1,
+      taskID: this.props.navigation.getParam('taskID', ''),
       taskName: this.state.taskName,
       startingPoint: this.state.startingPoint,
+      currentPoint: this.state.currentPoint,
       endingPoint: this.state.endingPoint
     };
-    if (taskEditor(data)) {
+    if (editTask(data)) {
       this.props.navigation.goBack();
     } else {
       alert ('can\'t have any empty fields');

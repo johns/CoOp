@@ -96,6 +96,13 @@ let sendGroupMessage = function(data) {
   })
 };
 
+let editTask = function(data) {
+  db.none('UPDATE tasks SET progress=${currentPoint} where task_id=${taskID}', data)
+  .then(function(db_response) {
+    console.log('group member status', db_response);
+  })
+};
+
 let getAllGroups = function(data) {
   db.any('select name, description, room_id from rooms where room_id in (select room_id from group_members where user_email = ${email})', data)
   .then(function(db_response) {
@@ -105,7 +112,7 @@ let getAllGroups = function(data) {
 };
 
 let getAllGroupTasks = function(data) {
-  db.any('SELECT task_name, user_email, start_point, progress, end_point FROM tasks WHERE room_id = ${roomID}', data)
+  db.any('SELECT task_id, task_name, user_email, start_point, progress, end_point FROM tasks WHERE room_id = ${roomID}', data)
   .then(function(db_response) {
     console.log('groups verified', db_response);
     io.sockets.emit('getAllGroupTasksResponse', db_response);
@@ -159,6 +166,11 @@ io.on('connection', function(socket) {
   socket.on('changeDisplayName', (data) => {
     console.log('changeDisplayNameRecieved: ', data);
     changeDisplayName(data);
+  })
+
+  socket.on('editTask', (data) => {
+    console.log('editTaskReceived: ', data);
+    editTask(data);
   })
 
   socket.on('sendGroupMessage', (data) => {

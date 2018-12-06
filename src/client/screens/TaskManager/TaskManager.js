@@ -19,7 +19,7 @@ export default class TaskManager extends Component {
     };
   }
 
-  componentDidMount() {
+  handleChange() {
     const taskListData = {roomID: 1}
     const endpoint = config.serverEndpoint; // this is where we are connecting to with sockets
     let socket = new socketIOClient.connect(endpoint,{'forceNew':true});
@@ -35,9 +35,9 @@ export default class TaskManager extends Component {
     const {navigate} = this.props.navigation;
     let tasks = undefined
     if (this.state.tasks.constructor === Array) {
-      tasks = this.state.tasks.map((task, i) => {
+      tasks = this.state.tasks.reverse().map((task, i) => {
         return (
-          <TaskBox key={i} name={task.task_name} user={task.user_email} start={task.start_point} current={task.progress} end={task.end_point} tracking={true} />
+          <TaskBox key={i} id={task.task_id} name={task.task_name} user={task.user_email} start={task.start_point} current={task.progress} end={task.end_point} tracking={true} />
         )}
       )
     }
@@ -55,6 +55,9 @@ export default class TaskManager extends Component {
         <View style={styles.separator} />
           <View style={{height: Dimensions.get('window').height - 150}}>
             <ScrollView>
+              <NavigationEvents
+                onDidFocus={this.handleChange.bind(this)}
+              />
               {tasks}
             </ScrollView>
           </View>
