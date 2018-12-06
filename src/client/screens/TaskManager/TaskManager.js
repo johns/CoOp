@@ -9,6 +9,7 @@ import styles from './TaskManager.style.js';
 import TaskBox from '../../components/UI/TaskBox/TaskBox';
 import socketIOClient from 'socket.io-client';
 import { NavigationEvents } from 'react-navigation';
+const config = require('../../../server/config/config.json')
 
 export default class TaskManager extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ export default class TaskManager extends Component {
 
   componentDidMount() {
     const taskListData = {roomID: 1}
-    const endpoint= "http://10.27.134.192:3000"; // this is where we are connecting to with sockets
+    const endpoint = config.serverEndpoint; // this is where we are connecting to with sockets
     let socket = new socketIOClient.connect(endpoint,{'forceNew':true});
     if (taskListData.roomID !== '') {
       socket.emit('getAllGroupTasks', taskListData);

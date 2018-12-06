@@ -7,10 +7,23 @@ co-op is a messaging app created for groups who aim to complete certain tasks an
 
 
 ##  Setup
+### Creating a database
+To create a co-op database, navigate to `src/database` and run the following commands:
+> $ pip3 install psycopg2
+> $ python3 create_local_db.py <USERNAME> <PASSWORD> <PREFERRED DB NAME>
+
+### Configuring the DB and Server.
+To pick a host and assign to a database, access the config-example.json within `src/server/config/`. Make a new file within the config/ directory and fill in with your information.
+  "username": Your Postgres User name
+  "password": Postgres Password. If you have no password, fill with ""
+  "database": Your Postgres Database
+  "serverEndpoint": This is your Local IP
+
 ###  MacOS:
 ```
 $ npm install
-$ react-native run-ios
+$ npm run client-ios (or react-native run-ios)
+$ npm run server
 ```
 
 ###  Windows:
@@ -20,21 +33,27 @@ $ npm install
 ```
 Open Android Studio -> Android Device Manager -> React Native Configured Emulator
 ```
-$ react-native run-android
+$ npm run client-android (or react-native run-android)
+$ npm run server
 ```
 
 ###  Ubuntu:
 ```
 $ npm install
 ```
-Navigate to the android studio directory and run `studio.sh`:
+Navigate to the android studio directory and open `studio.sh`
 ```
 $ cd android-studio/bin
 $ ./studio.sh
 ```
+Create a file called `local.properties` under android/, and include the path to your Android Sdk
+```
+sdk.dir = /home/<USERNAME>/Android/Sdk
+```
 Open Android Studio -> Android Device Manager -> React Native Configured Emulator
 ```
-$ react-native run-android
+$ npm run client-android (or react-native run-android)
+$ npm run server
 ```
 
 
@@ -74,12 +93,11 @@ We chose to use PostgreSQL for our database because it seems like a good choice 
     *  client
        *  assets
        *  components
-       *  config
        *  lib
        *  screens
     *  database
-       *  models
     *  server
+       * config
     *  store
 
 ###  Database Layout

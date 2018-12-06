@@ -6,6 +6,7 @@ import GroupBox from '../../components/UI/GroupBox/GroupBox';
 import getAllGroups from '../../../store/GetAllGroups';
 import socketIOClient from 'socket.io-client';
 import {NavigationEvents} from 'react-navigation';
+const config = require('../../../server/config/config.json')
 
 export default class Home extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ export default class Home extends Component {
 
   handleChange() {
     const groupListData = {email: this.props.navigation.getParam('email', '')}
-    const endpoint= "http://10.27.134.192:3000"; // this is where we are connecting to with sockets
+    const endpoint = config.serverEndpoint; // this is where we are connecting to with sockets
     let socket = new socketIOClient.connect(endpoint,{'forceNew':true});
     if (groupListData.email !== '') {
       socket.emit('getAllGroups', groupListData);

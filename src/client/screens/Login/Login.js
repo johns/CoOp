@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Text, TextInput, View, AsyncStorage } from 'react-native'
 import Logo from '../../components/Logo/Logo';
 import styles from './Login.style.js';
-import { getNavigationBase } from "../../config/routes"
 import checkLogin from '../../../store/CheckLogin';
 import socketIOClient from 'socket.io-client';
 
@@ -25,8 +24,9 @@ export default class Login extends Component {
   }
 
   loginButtonPress = () => {
+    const config = require('../../../server/config/config.json')
     const data = {email: this.state.email, password: this.state.password};
-    const endpoint= "http://10.27.134.192:3000"; // this is where we are connecting to with sockets
+    const endpoint = config.serverEndpoint; // this is where we are connecting to with sockets
     let socket = new socketIOClient.connect(endpoint,{'forceNew':true});
     if (data.email !== '' && data.password !== '') {
       socket.emit('loginInfo', data);

@@ -7,7 +7,6 @@ import {
     Switch,
 } from 'react-native';
 import { Button } from 'react-native-elements'
-import { getNavigationBase } from "../../config/routes";
 import styles from './CreateTask.style.js';
 import colors from '../../lib/colors';
 import createTask from '../../../store/CreateTask';
