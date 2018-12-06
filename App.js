@@ -1,10 +1,7 @@
-import React, {Component} from "react";
+import React from "react";
 import { AppRegistry } from "react-native";
-import Setup from "./src/client/config/setup";
-import {
-    Text, Button, Image,
-} from 'react-native';
-import { createStackNavigator, createAppContainer, withNavigation } from "react-navigation";
+import { Image } from 'react-native';
+import { createStackNavigator, createAppContainer } from "react-navigation";
 import Icon from 'react-native-vector-icons/AntDesign/';
 import Home from "./src/client/screens/Home/Home";
 import Login from "./src/client/screens/Login/Login";
@@ -18,27 +15,13 @@ import CreateTask from "./src/client/screens/CreateTask/CreateTask"
 import InviteUsers from "./src/client/screens/InviteUsers/InviteUsers"
 import TaskManager from "./src/client/screens/TaskManager/TaskManager"
 import colors from './src/client/lib/colors/';
-import socketIOClient from 'socket.io-client';
-
-
-// static navigationOptions = {
-// headerTitle: <LogoTitle />,
-// headerRight: (
-//   <Button
-//     onPress={() => alert('This is a button!')}
-//     title="Info"
-//     color="#fff"
-//   />
-// ),
-// };
-// ^^ Meant for specific pages / Header
 
 const RootStack = createStackNavigator(
   {
     Home: {
       screen: Home,
       navigationOptions: ({navigation}) => ({
-        title: 'CoOp',
+        title: 'co-op',
         headerTitle: (
             <Image
               style={{width: 60, height: 30}}
@@ -178,13 +161,13 @@ const RootStack = createStackNavigator(
     },
     TaskManager: {
       screen: TaskManager,
-      navigationOptions: ({navigation}) => ({
+      navigationOptions: () => ({
         title: 'Tasks',
       }),
     },
     InviteUsers: {
       screen: InviteUsers,
-      navigationOptions: ({navigation}) => ({
+      navigationOptions: () => ({
         title: 'Invite',
       }),
     },
