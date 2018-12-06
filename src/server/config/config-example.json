@@ -4,5 +4,6 @@
   "database": "",
   "host": "localhost",
   "port": 5432,
-  "dialect": "postgres"
+  "dialect": "postgres",
+  "serverEndpoint": "http://[ENDPOINT HERE]:3000",
 }

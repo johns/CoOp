@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "server": ""
+    "client-ios": "react-native run-ios",
+    "client-android": "react-native run-android",
+    "server": "node src/server/server.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
