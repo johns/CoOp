@@ -13,6 +13,7 @@ import { getNavigationBase } from "../../config/routes"
 import styles from './AccountSettings.style.js';
 import colors from '../../lib/colors';
 import createNewPassword from '../../../store/CreateNewPassword';
+import changeDisplayName from '../../../store/ChangeDisplayName';
 
 
 export default class AccountSettings extends Component {
@@ -38,12 +39,19 @@ export default class AccountSettings extends Component {
 
   handlePress = () => {
     const data = {email: this.state.email, username: this.state.username, password: this.state.password, passwordConfirm: this.state.passwordConfirm};
-    if (this.state.password !== '' && this.state.password == this.state.passwordConfirm) {
+    if (this.state.password !== '' && this.state.passwordConfirm !== '' && this.state.password == this.state.passwordConfirm) {
+      if (this.state.username !== '') {
+        changeDisplayName(data);
+      }
       if (createNewPassword(data)) {
         this.props.navigation.navigate('Home');
       } else {
         alert ('can\'t have any empty fields');
       }
+    } else if (this.state.username !== '') {
+      changeDisplayName(data);
+    } else if (this.state.password !== '' || this.state.passwordConfirm !== '') {
+      alert ('must fill out both password fields to change password');
     }
   }
   // loadAccountSettingsInfo = () => {

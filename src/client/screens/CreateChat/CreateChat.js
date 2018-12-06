@@ -4,8 +4,6 @@ import { Header, Button } from 'react-native-elements'
 import styles from './CreateChat.style.js';
 import CustomHeader from "../../components/UI/Header/Header";
 import createGroup from '../../../store/CreateGroup';
-import addGroupMember from '../../../store/AddGroupMember';
-import getGroupInformation from '../../../store/GetGroupInformation';
 
 export default class CreateChat extends Component {
 
