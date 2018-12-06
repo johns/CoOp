@@ -14,6 +14,7 @@ import ChatRoom from "./src/client/screens/ChatRoom/ChatRoom";
 import CreateTask from "./src/client/screens/CreateTask/CreateTask"
 import InviteUsers from "./src/client/screens/InviteUsers/InviteUsers"
 import TaskManager from "./src/client/screens/TaskManager/TaskManager"
+import TaskEditor from "./src/client/screens/TaskEditor/TaskEditor"
 import colors from './src/client/lib/colors/';
 
 const RootStack = createStackNavigator(
@@ -163,6 +164,21 @@ const RootStack = createStackNavigator(
       screen: TaskManager,
       navigationOptions: () => ({
         title: 'Tasks',
+      }),
+    },
+    TaskEditor: {
+      screen: TaskEditor,
+      navigationOptions: () => ({
+        title: 'Tasks',
+        headerVisible: true,
+        headerLeft:  (
+          <Icon
+            name="arrowleft"
+            size={30}
+            color={colors.primaryBlue}
+            style={{marginLeft: 10, marginRight: 10}}
+            onPress={() => navigation.goBack()}
+          /> )
       }),
     },
     InviteUsers: {

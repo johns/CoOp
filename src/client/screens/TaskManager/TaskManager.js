@@ -8,7 +8,7 @@ import {
 import styles from './TaskManager.style.js';
 import TaskBox from '../../components/UI/TaskBox/TaskBox';
 import socketIOClient from 'socket.io-client';
-import {NavigationEvents} from 'react-navigation';
+import { NavigationEvents } from 'react-navigation';
 
 export default class TaskManager extends Component {
   constructor(props) {

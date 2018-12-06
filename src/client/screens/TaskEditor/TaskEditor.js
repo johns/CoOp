@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import {
-    View,
-    Text,
-    KeyboardAvoidingView,
-    Slider,
+  View,
+  Text,
+  KeyboardAvoidingView,
+  Slider,
 } from 'react-native';
+import {Button} from 'react-native-elements';
 import { getNavigationBase } from "../../config/routes";
 import styles from './TaskEditor.style.js';
 import colors from '../../lib/colors';
@@ -47,14 +48,14 @@ export default class TaskEditor extends Component {
         </View>
         <View style={styles.sliderBox}>
           <Slider
-              style={styles.slider}
-              minimumValue={this.state.startingPoint}
-              minimumTrackTintColor={colors.taskOrange}
-              maximumValue={this.state.endingPoint}
-              onValueChange={(value) => this.setState({ currentPoint: value })}
-              step={1}
-              value={this.state.currentPoint}
-            />
+            style={styles.slider}
+            minimumValue={this.state.startingPoint}
+            minimumTrackTintColor={colors.taskOrange}
+            maximumValue={this.state.endingPoint}
+            onValueChange={(value) => this.setState({ currentPoint: value })}
+            step={1}
+            value={this.state.currentPoint}
+          />
           <Text style={styles.askText}>
             Current Progress: {this.state.currentPoint}
           </Text>

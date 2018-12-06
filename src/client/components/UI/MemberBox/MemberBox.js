@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { StyleSheet } from "react-native";
 import PropTypes from "prop-types";
-import { View, Image, TouchableOpacity, Text, Button } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign/';
 import colors from '../../../lib/colors';
 import styles from './MemberBox.style.js';

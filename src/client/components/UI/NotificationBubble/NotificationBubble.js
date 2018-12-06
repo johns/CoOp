@@ -1,17 +1,7 @@
-import React, {
-  Component
-} from "react";
-import {
-  StyleSheet
-} from "react-native";
-import PropTypes from "prop-types";
-import {
-  View,
-  Text,
-  Button,
-} from 'react-native';
-import colors from '../../../lib/colors';
-import Dimensions from 'Dimensions';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { View, Text } from 'react-native';
+import styles from './NotificationBubble.style.js';
 
 class NotificationBubble extends Component {
   static propTypes = {
@@ -24,26 +14,6 @@ class NotificationBubble extends Component {
       user,
       content,
     } = this.props;
-
-
-    const styles = StyleSheet.create({
-      bubble: {
-        backgroundColor: colors.taskOrange,
-        alignItems: 'stretch',
-        paddingTop: 10,
-        paddingBottom: 10,
-        paddingLeft: 10,
-        paddingRight: 10,
-        borderRadius: 15,
-        marginTop: 2,
-        marginBottom: 5,
-      },
-      chatText: {
-        textAlign: 'center',
-        color: 'white',
-        fontWeight: 'bold',
-      }
-    });
 
     return (
     <View style={styles.container}>

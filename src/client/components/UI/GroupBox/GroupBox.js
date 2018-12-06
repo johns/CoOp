@@ -14,7 +14,6 @@ class GroupBox extends Component {
       notification: PropTypes.string,
   }
   render () {
-
     const {
       groupName,
       messageTime,
