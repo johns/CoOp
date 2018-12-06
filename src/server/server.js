@@ -90,6 +90,14 @@ let getAllGroups = function(data) {
   })
 };
 
+let getAllGroupTasks = function(data) {
+  db.any('SELECT task_name, user_email, start_point, progress, end_point FROM tasks WHERE room_id = ${roomID}', data)
+  .then(function(db_response) {
+    console.log('groups verified', db_response);
+    io.sockets.emit('getAllGroupTasksResponse', db_response);
+  })
+};
+
 let getGroupInfo = function(data) {
   db.any('select * from rooms where name = $(groupName) and description = $(activityType)', data)
   .then(function(db_response) {
@@ -142,6 +150,10 @@ io.on('connection', function(socket) {
   socket.on('getAllGroups', (data) => {
     console.log('getAllGroupsReceived: ', data);
     getAllGroups(data);
+  })
+  socket.on('getAllGroupTasks', (data) => {
+    console.log('getAllGroupTasksReceived: ', data);
+    getAllGroupTasks(data);
   })
   socket.on('getGroupInfo', (data) => {
     console.log('getGroupInfoRecieved: ', data);

@@ -40,8 +40,10 @@ export default class Home extends Component {
     }
     return (
       <ScrollView>
-      <NavigationEvents onDidFocus={() => this.handleChange()} />
-      {groups}
+        <NavigationEvents
+          onDidFocus={this.handleChange.bind(this)}
+        />
+        {groups}
       </ScrollView>
     );
   }
