@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import {
     View,
     Text,
-    Button,
     ScrollView,
-    KeyboardAvoidingView,
     Dimensions,
 } from 'react-native';
 import styles from './TaskManager.style.js';
@@ -22,7 +20,7 @@ export default class TaskManager extends Component {
 
   componentDidMount() {
     const taskListData = {roomID: 1}
-    const endpoint= "http://10.27.230.45:3000"; // this is where we are connecting to with sockets
+    const endpoint= "http://10.27.134.192:3000"; // this is where we are connecting to with sockets
     let socket = new socketIOClient.connect(endpoint,{'forceNew':true});
     if (taskListData.roomID !== '') {
       socket.emit('getAllGroupTasks', taskListData);

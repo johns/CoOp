@@ -4,15 +4,10 @@ import {
     Text,
     TextInput,
     KeyboardAvoidingView,
-    AppRegistry,
-    Image,
-    Picker,
     Switch,
 } from 'react-native';
-import { Header, Button, CheckBox } from 'react-native-elements'
-import CustomHeader from '../../components/UI/Header/Header';
+import { Button } from 'react-native-elements'
 import { getNavigationBase } from "../../config/routes";
-import Slider from "react-native-slider";
 import styles from './CreateTask.style.js';
 import colors from '../../lib/colors';
 import createTask from '../../../store/CreateTask';

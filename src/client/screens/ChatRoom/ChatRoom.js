@@ -2,13 +2,9 @@ import React, { Component } from "react";
 import {
     View,
     ScrollView,
-    Text,
-    Button,
     TextInput,
-    Image,
     AsyncStorage,
 } from 'react-native';
-import CustomHeader from '../../components/UI/Header/Header';
 import styles from './ChatRoom.style.js';
 import colors from '../../lib/colors';
 

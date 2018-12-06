@@ -2,16 +2,9 @@ import React, { Component } from "react";
 import {
     View,
     Text,
-    TextInput,
     KeyboardAvoidingView,
-    AppRegistry,
-    Image,
-    Picker,
-    Switch,
     Slider,
 } from 'react-native';
-import { Header, Button, CheckBox } from 'react-native-elements'
-import CustomHeader from '../../components/UI/Header/Header';
 import { getNavigationBase } from "../../config/routes";
 import styles from './TaskEditor.style.js';
 import colors from '../../lib/colors';

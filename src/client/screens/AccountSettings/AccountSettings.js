@@ -6,10 +6,7 @@ import {
     KeyboardAvoidingView,
     AsyncStorage
 } from 'react-native';
-import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/AntDesign/';
-import CustomHeader from '../../components/UI/Header/Header';
-import { getNavigationBase } from "../../config/routes"
 import styles from './AccountSettings.style.js';
 import colors from '../../lib/colors';
 import createNewPassword from '../../../store/CreateNewPassword';
@@ -46,12 +43,12 @@ export default class AccountSettings extends Component {
       if (createNewPassword(data)) {
         this.props.navigation.navigate('Home');
       } else {
-        alert ('can\'t have any empty fields');
+        alert('can\'t have any empty fields');
       }
     } else if (this.state.username !== '') {
       changeDisplayName(data);
     } else if (this.state.password !== '' || this.state.passwordConfirm !== '') {
-      alert ('must fill out both password fields to change password');
+      alert('must fill out both password fields to change password');
     }
   }
   // loadAccountSettingsInfo = () => {

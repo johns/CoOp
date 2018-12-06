@@ -3,13 +3,10 @@ import {
     View,
     Text,
     TextInput,
-    Button,
     ScrollView,
-    KeyboardAvoidingView,
 } from 'react-native';
 import styles from './InviteUsers.style.js';
 import MemberBox from '../../components/UI/MemberBox/MemberBox';
-import { SearchBar } from 'react-native-elements';
 import addGroupMember from '../../../store/AddGroupMember';
 
 export default class InviteUsers extends Component {
@@ -30,11 +27,6 @@ export default class InviteUsers extends Component {
   }
 
   render() {
-    const {navigate} = this.props.navigation;
-
-    let someMethod = () => {
-      'hi'
-    }
     return (
       <View>
       <TextInput

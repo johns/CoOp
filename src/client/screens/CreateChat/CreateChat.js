@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Text, AppRegistry, TextInput, View, Image, AsyncStorage } from 'react-native'
-import { Header, Button } from 'react-native-elements'
+import { Text, TextInput, View, AsyncStorage } from 'react-native'
+import { Button } from 'react-native-elements'
 import styles from './CreateChat.style.js';
-import CustomHeader from "../../components/UI/Header/Header";
 import createGroup from '../../../store/CreateGroup';
 
 export default class CreateChat extends Component {
@@ -32,8 +31,6 @@ export default class CreateChat extends Component {
   }
 
   render() {
-    const {navigate} = this.props.navigation;
-
     return (
       <View style={styles.mainView}>
         <View>

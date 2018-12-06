@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import {
     View,
-    Text,
     TextInput,
     KeyboardAvoidingView,
     AsyncStorage,
 } from 'react-native';
 import { Button } from 'react-native-elements'
-import CustomHeader from '../../components/UI/Header/Header';
 import { getNavigationBase } from "../../config/routes"
 import styles from './CreateAccount.style.js';
 import createAccount from '../../../store/CreateAccount';
@@ -40,15 +38,12 @@ export default class CreateAccount extends Component {
       } else {
         alert('passwords do not match');
       }
-
     } else {
       alert ('can\'t have any empty fields');
     }
   }
 
   render() {
-    const {navigate} = this.props.navigation;
-
     return (
       <KeyboardAvoidingView behavior="padding" enabled>
         <TextInput

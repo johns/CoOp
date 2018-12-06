@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import {
-    View,
-    Text,
-    Button,
     ScrollView,
-    KeyboardAvoidingView,
 } from 'react-native';
 import styles from './MemberList.style.js';
 import MemberBox from '../../components/UI/MemberBox/MemberBox';
