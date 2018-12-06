@@ -168,7 +168,7 @@ const RootStack = createStackNavigator(
     },
     TaskEditor: {
       screen: TaskEditor,
-      navigationOptions: () => ({
+      navigationOptions: ({navigation}) => ({
         title: 'Tasks',
         headerVisible: true,
         headerLeft:  (
@@ -177,7 +177,7 @@ const RootStack = createStackNavigator(
             size={30}
             color={colors.primaryBlue}
             style={{marginLeft: 10, marginRight: 10}}
-            onPress={() => navigation.goBack()}
+            onPress={(n) => navigation.goBack()}
           /> )
       }),
     },
