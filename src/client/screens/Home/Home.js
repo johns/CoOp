@@ -11,7 +11,7 @@ import styles from './Home.style.js';
 import GroupBox from '../../components/UI/GroupBox/GroupBox';
 import getAllGroups from '../../../store/GetAllGroups';
 import socketIOClient from 'socket.io-client';
-
+import {NavigationEvents} from 'react-navigation';
 
 export default class Home extends Component {
   constructor(props) {
@@ -19,26 +19,31 @@ export default class Home extends Component {
       this.state = {
         groups: 'no groups yet'
       };
+  }
 
-      const groupListData = {email: this.props.navigation.getParam('email', '')}
-      const endpoint= "http://192.168.0.3:3000"; // this is where we are connecting to with sockets
-      let socket = new socketIOClient.connect(endpoint,{'forceNew':true});
-      if (groupListData.email !== '') {
-        socket.emit('getAllGroups', groupListData);
-        socket.on('allGroupsResponse', (data) => {
-          this.setState({groups: data})
-        });
-      }
+  handleChange() {
+    const groupListData = {email: this.props.navigation.getParam('email', '')}
+    const endpoint= "http://10.27.230.45:3000"; // this is where we are connecting to with sockets
+    let socket = new socketIOClient.connect(endpoint,{'forceNew':true});
+    if (groupListData.email !== '') {
+      socket.emit('getAllGroups', groupListData);
+      socket.on('allGroupsResponse', (data) => {
+        this.setState({groups: data})
+      });
     }
+  }
 
   render() {
     let groups = undefined
     if (this.state.groups.constructor === Array) {
-      groups = this.state.groups.map((obj) => <GroupBox groupName={obj.name} room={obj.room_id} messageTime="3:40pm" description={obj.description} />)
+      groups = this.state.groups.map((obj, i) => <GroupBox key={i} groupName={obj.name} room={obj.room_id} messageTime="3:40pm" description={obj.description} />)
     }
     return (
       <ScrollView>
-      {groups}
+        <NavigationEvents
+          onDidFocus={this.handleChange.bind(this)}
+        />
+        {groups}
       </ScrollView>
     );
   }
