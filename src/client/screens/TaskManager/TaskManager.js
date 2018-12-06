@@ -5,6 +5,7 @@ import {
     Button,
     ScrollView,
     KeyboardAvoidingView,
+    Dimensions,
 } from 'react-native';
 import styles from './TaskManager.style.js';
 import TaskBox from '../../components/UI/TaskBox/TaskBox';
@@ -42,7 +43,6 @@ export default class TaskManager extends Component {
       )
     }
 
-
     return (
       <View>
         <View style={styles.buttonHolder}>
@@ -54,9 +54,11 @@ export default class TaskManager extends Component {
           </Text>
         </View>
         <View style={styles.separator} />
-          <ScrollView>
-            {tasks}
-          </ScrollView>
+          <View style={{height: Dimensions.get('window').height - 150}}>
+            <ScrollView>
+              {tasks}
+            </ScrollView>
+          </View>
       </View>
 
     );
