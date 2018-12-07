@@ -57,7 +57,7 @@ export default class ChatRoom extends Component {
      const messageData = {roomID: this.props.navigation.getParam('roomID', '')}
      const endpoint = config.serverEndpoint; // this is where we are connecting to with sockets
      let socket = new socketIOClient.connect(endpoint,{'forceNew':true});
-     if (messageData.roomIO !== '') {
+     if (messageData.roomID !== '') {
        socket.emit('getGroupMessages', messageData);
        socket.on('getGroupMessagesResponse', (data) => {
          this.setState({messages: data})
