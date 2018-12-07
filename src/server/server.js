@@ -120,9 +120,9 @@ let getAllGroupTasks = function(data) {
 };
 
 let getGroupInfo = function(data) {
-  db.any('select * from rooms where name = $(groupName) and description = $(activityType)', data)
+  db.any('select * from rooms where name = ${room_id}', data)
   .then(function(db_response) {
-    console.log('group info', db_response);
+    console.log('groupInfo', db_response);
     io.sockets.emit('getGroupInfoResponse', db_response);
   })
 };
