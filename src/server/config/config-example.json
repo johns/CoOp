@@ -5,5 +5,5 @@
   "host": "localhost",
   "port": 5432,
   "dialect": "postgres",
-  "serverEndpoint": "http://[ENDPOINT HERE]:3000",
+  "serverEndpoint": "http://[ENDPOINT HERE]:3000"
 }
