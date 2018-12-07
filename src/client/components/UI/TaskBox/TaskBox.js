@@ -31,10 +31,21 @@ class TaskBox extends Component {
 
     let progress;
     let progressStyling = {};
+    let onPressAction = () => {
+      this.props.navigation.navigate('TaskEditor',
+        { taskID: id,
+          taskName: name,
+          startingPoint: start,
+          currentPoint: current,
+          endingPoint: end
+        }
+      )
+    };
 
     if (current === end) {
       progress = "Complete";
       progressStyling = {fontStyle: 'italic', color: colors.lightGray}
+      onPressAction = undefined;
     } else if (tracking) {
       progress = `${current} / ${end}`;
     } else {
@@ -44,7 +55,7 @@ class TaskBox extends Component {
     return (
       <TouchableOpacity
         style={styles.buttonBox}
-        onPress={() => { this.props.navigation.navigate('TaskEditor', {taskID: id, taskName: name, startingPoint: start, currentPoint: current, endingPoint: end})}}
+        onPress={onPressAction}
       >
         <View style={styles.taskCol}>
           <View style={styles.taskOutside}>
