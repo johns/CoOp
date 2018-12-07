@@ -26,13 +26,14 @@ export default class ChatRoom extends Component {
   }
 
   componentDidMount() {
-    this.getEmail();
     this.props.navigation.setParams({
       chatRoom: {
         title: this.props.navigation.getParam('groupName', ''),
         roomID: this.props.navigation.getParam('roomID', ''),
       }
     });
+    this.getEmail();
+
   }
 
    async getEmail() {

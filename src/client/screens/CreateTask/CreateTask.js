@@ -15,6 +15,7 @@ export default class CreateTask extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      email: 'FILLER NAME',
       taskName: '',
       startingPoint: 0,
       endingPoint: 1,
@@ -22,10 +23,26 @@ export default class CreateTask extends Component {
       };
   }
 
-  createTaskButtonPress = () => {
+  async getEmail() {
+    try {
+      const value = await AsyncStorage.getItem('user_email');
+      this.setState({email: value});
+      // alert(this.state.emai);
+    } catch (error) {
+      console.log("Error retrieving data" + error);
+    }
+  }
+
+  componentDidMount() {
+    this.getEmail();
+  }
+
+
+
+  createTaskButtonPress = (id) => {
     const data = {
-      email: 'FILLER EMAIL',
-      roomID: 1,
+      email: this.state.email,
+      roomID: id,
       taskName: this.state.taskName,
       startingPoint: this.state.startingPoint,
       endingPoint: this.state.endingPoint
@@ -86,7 +103,7 @@ export default class CreateTask extends Component {
         <Button
           buttonStyle={styles.goButton}
           color='white'
-          onPress={this.createTaskButtonPress}
+          onPress={this.createTaskButtonPress.bind(this, this.props.navigation.getParam('id', ''))}
           title="Create Task"
         />
       </View>

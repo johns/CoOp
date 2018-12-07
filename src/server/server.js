@@ -31,7 +31,7 @@ const server = http.createServer(app)
 const io = socketIO(server)
 
 let checkLoginInfo = function(data) {
-  db.any('select display_name from user_profiles where exists(select 1 from user_profiles where user_email=${email} and password=${password})', data)
+  db.any('select display_name from user_profiles where user_email=${email} and exists(select 1 from user_profiles where user_email=${email} and password=${password})', data)
   .then(function(db_response) {
     console.log('login verified', db_response);
     io.sockets.emit('loginInfoResponse', db_response);

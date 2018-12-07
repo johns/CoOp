@@ -15,12 +15,12 @@ export default class TaskManager extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: 'no tasks yet'
+      tasks: 'no tasks yet',
     };
   }
 
-  handleChange() {
-    const taskListData = {roomID: 1}
+  handleChange(id) {
+    const taskListData = {roomID: id}
     const endpoint = config.serverEndpoint; // this is where we are connecting to with sockets
     let socket = new socketIOClient.connect(endpoint,{'forceNew':true});
     if (taskListData.roomID !== '') {
@@ -45,7 +45,7 @@ export default class TaskManager extends Component {
     return (
       <View>
         <View style={styles.buttonHolder}>
-          <Text style={[styles.newTaskButton, styles.addTask]} onPress={navigate.bind(this, 'CreateTask')}>
+          <Text style={[styles.newTaskButton, styles.addTask]} onPress={navigate.bind(this, 'CreateTask', {id: this.props.navigation.getParam('id', '')})}>
             New
           </Text>
           <Text style={[styles.newTaskButton, styles.manageTask]}>
@@ -56,7 +56,7 @@ export default class TaskManager extends Component {
           <View style={{height: Dimensions.get('window').height - 150}}>
             <ScrollView>
               <NavigationEvents
-                onDidFocus={this.handleChange.bind(this)}
+                onDidFocus={this.handleChange.bind(this, this.props.navigation.getParam('id', ''))}
               />
               {tasks}
             </ScrollView>
