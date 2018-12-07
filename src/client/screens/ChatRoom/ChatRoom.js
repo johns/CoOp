@@ -32,6 +32,8 @@ export default class ChatRoom extends Component {
         roomID: this.props.navigation.getParam('roomID', ''),
       }
     });
+    this.getEmail();
+
   }
 
    async getEmail() {
@@ -55,7 +57,7 @@ export default class ChatRoom extends Component {
      const messageData = {roomID: this.props.navigation.getParam('roomID', '')}
      const endpoint = config.serverEndpoint; // this is where we are connecting to with sockets
      let socket = new socketIOClient.connect(endpoint,{'forceNew':true});
-     if (messageData.roomIO !== '') {
+     if (messageData.roomID !== '') {
        socket.emit('getGroupMessages', messageData);
        socket.on('getGroupMessagesResponse', (data) => {
          this.setState({messages: data})
@@ -64,7 +66,6 @@ export default class ChatRoom extends Component {
    }
 
   render() {
-    this.getEmail();
     let messages = undefined;
     if (this.state.messages.constructor === Array) {
       messages = this.state.messages.map((obj, i) => <ChatBubble key={i} user={obj.user_email} content={obj.message_content} isSelf={obj.user_email === this.state.email} time="date_sent" />)
@@ -93,7 +94,6 @@ export default class ChatRoom extends Component {
             style={styles.userInput}
             onChangeText={(message) => this.setState({message})}
             value={this.state.message}
-            onFocus={this.getEmail.bind(this)}
           />
           <View style={styles.sendIcon}>
             <Icon

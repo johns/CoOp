@@ -24,7 +24,7 @@ export default class CreateChat extends Component {
   createGroupButtonPress = () => {
     const data = {groupName: this.state.groupNameText, activityType: this.state.activityTypeText, email: this.state.email};
     if (createGroup(data)) {
-        this.props.navigation.navigate('ChatRoom');
+        this.props.navigation.navigate('ChatRoom', {groupName: this.state.groupNameText});
     } else {
       alert('cant have empty fields');
     }

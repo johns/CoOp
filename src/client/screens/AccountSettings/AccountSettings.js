@@ -34,6 +34,20 @@ export default class AccountSettings extends Component {
     }
   }
 
+  async getDisplayName() {
+    try {
+      const value = await AsyncStorage.getItem('display_name');
+      this.setState({username: value});
+      // alert(this.state.emai);
+    } catch (error) {
+      console.log("Error retrieving data" + error);
+    }
+  }
+
+  componentDidMount() {
+    this.getDisplayName();
+  }
+
   handlePress = () => {
     const data = {email: this.state.email, username: this.state.username, password: this.state.password, passwordConfirm: this.state.passwordConfirm};
     if (this.state.password !== '' && this.state.passwordConfirm !== '' && this.state.password == this.state.passwordConfirm) {
@@ -79,7 +93,7 @@ export default class AccountSettings extends Component {
         </View>
 
         <TextInput
-          placeholder='CURRENT DISPLAY NAME'
+          placeholder={this.state.username}
           onFocus={this.getEmail.bind(this)}
           style={styles.usernameInput}
           onChangeText={(username) => this.setState({username})}

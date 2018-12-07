@@ -17,12 +17,13 @@ export default class InviteUsers extends Component {
       roomID: 42,
     }
   }
-  inviteOnPress = () => {
-    const data = {memberEmail: this.state.email, roomID: this.state.roomID};
+
+  inviteOnPress = (id) => {
+    const data = {memberEmail: this.state.email, roomID: id};
     if (addGroupMember(data)) {
-      this.props.navigation.navigate('Home');
+      this.props.navigation.goBack();
     } else {
-      alert ('can\'t have any empty fields');
+      alert ('SERVER DOWN');
     }
   }
 
@@ -35,7 +36,7 @@ export default class InviteUsers extends Component {
         value= {this.state.email}
         placeholder= "Email"
       />
-      <Text style={styles.createAccountLink} onPress={this.inviteOnPress}>
+      <Text style={styles.createAccountLink} onPress={this.inviteOnPress.bind(this, this.props.navigation.getParam('id', ''))}>
         Add
       </Text>
 
