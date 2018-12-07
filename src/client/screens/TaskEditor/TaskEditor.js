@@ -43,11 +43,10 @@ export default class TaskEditor extends Component {
       <KeyboardAvoidingView behavior="padding" enabled>
 
       <View style={styles.mainView}>
-        <Text style={styles.askText}>{this.state.taskName}</Text>
-        <View style={styles.trackRow}>
-          <Text style={styles.askText}>Made Progress?</Text>
-        </View>
         <View style={styles.sliderBox}>
+          <View style={styles.trackRow}>
+            <Text style={styles.askText}>Made Progress on {this.state.taskName}?</Text>
+          </View>
           <Slider
             style={styles.slider}
             minimumValue={this.state.startingPoint}
@@ -57,9 +56,9 @@ export default class TaskEditor extends Component {
             step={1}
             value={this.state.currentPoint}
           />
-          <Text style={styles.askText}>
-            Current Progress: {this.state.currentPoint}
-          </Text>
+          <View style={styles.trackRow}>
+            <Text style={styles.askText}>Current Progress: {this.state.currentPoint}</Text>
+          </View>
         </View>
         <Button
           buttonStyle={styles.goButton}
