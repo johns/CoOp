@@ -90,7 +90,7 @@ let changeDisplayName = function(data) {
 };
 
 let sendGroupMessage = function(data) {
-  db.none('insert into messages (room_id, user_email, message_content) values (${roomID}, ${email}, ${message})', data)
+  db.none('insert into messages (room_id, user_email, message_content, date_sent) values (${roomID}, ${email}, ${message}, now())', data)
   .then(function(db_response) {
     console.log('message sent status', db_response);
   })
@@ -126,6 +126,15 @@ let getGroupInfo = function(data) {
     io.sockets.emit('getGroupInfoResponse', db_response);
   })
 };
+
+let getGroupMessages = function(data) {
+  db.any('select user_email, message_content, date_sent from messages where room_id = ${roomID} order by date_sent desc;', data)
+  .then(function(db_response) {
+    console.log('group info', db_response);
+    io.sockets.emit('getGroupMessagesResponse', db_response);
+  })
+};
+
 
 // Loads the necessary data on the page to
 // let getDetailedUserInfo(data) = function(data) {
@@ -199,6 +208,11 @@ io.on('connection', function(socket) {
   socket.on('getDetailedUserInfo', (data) => {
     console.log('getDetailedUserInfoRecieved: ', data)
     getUserDetailedInfo(data);
+  })
+
+  socket.on('getGroupMessages', (data) => {
+    console.log('getGroupMessagesReceived: ', data)
+    getGroupMessages(data);
   })
 
   socket.on('disconnect', () => {

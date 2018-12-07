@@ -7,12 +7,13 @@ import {
 } from 'react-native';
 import styles from './ChatRoom.style.js';
 import colors from '../../lib/colors';
-
 import ChatBubble from '../../components/UI/ChatBubble/ChatBubble';
 import NotificationBubble from '../../components/UI/NotificationBubble/NotificationBubble';
 import Icon from 'react-native-vector-icons/Feather/';
 import sendGroupMessage from '../../../store/SendGroupMessage';
-
+import socketIOClient from 'socket.io-client';
+import { NavigationEvents } from 'react-navigation';
+const config = require('../../../server/config/config.json')
 
 export default class ChatRoom extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ export default class ChatRoom extends Component {
     this.state = {
       chatName: '[FILLER CHATNAME]',
       message: '',
+      messages: '',
     };
   }
 
@@ -49,16 +51,32 @@ export default class ChatRoom extends Component {
      }
    }
 
+   handleChange() {
+     const messageData = {roomID: this.props.navigation.getParam('roomID', '')}
+     const endpoint = config.serverEndpoint; // this is where we are connecting to with sockets
+     let socket = new socketIOClient.connect(endpoint,{'forceNew':true});
+     if (messageData.roomIO !== '') {
+       socket.emit('getGroupMessages', messageData);
+       socket.on('getGroupMessagesResponse', (data) => {
+         this.setState({messages: data})
+       });
+     }
+   }
+
   render() {
+    this.getEmail();
+    let messages = undefined;
+    if (this.state.messages.constructor === Array) {
+      messages = this.state.messages.map((obj, i) => <ChatBubble key={i} user={obj.user_email} content={obj.message_content} isSelf={obj.user_email === this.state.email} time="date_sent" />)
+    }
     const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.chatArea}>
-          <ChatBubble content="AIIGHT" user={"YEP"} isSelf={false}></ChatBubble>
-          <ChatBubble content="HELP" user={"SAM"} isSelf={true}></ChatBubble>
-          <NotificationBubble content="has completed the task." user={"Sham"}></NotificationBubble>
-          <NotificationBubble content="has left the group." user={"Sham"}></NotificationBubble>
-
+          <NavigationEvents
+            onDidFocus={this.handleChange.bind(this)}
+          />
+          {messages}
         </ScrollView>
         <View style={styles.chatBar}>
           <View style={styles.goalsIcon}>
