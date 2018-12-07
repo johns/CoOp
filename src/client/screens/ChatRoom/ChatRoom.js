@@ -26,6 +26,7 @@ export default class ChatRoom extends Component {
   }
 
   componentDidMount() {
+    this.getEmail();
     this.props.navigation.setParams({
       chatRoom: {
         title: this.props.navigation.getParam('groupName', ''),
@@ -64,7 +65,6 @@ export default class ChatRoom extends Component {
    }
 
   render() {
-    this.getEmail();
     let messages = undefined;
     if (this.state.messages.constructor === Array) {
       messages = this.state.messages.map((obj, i) => <ChatBubble key={i} user={obj.user_email} content={obj.message_content} isSelf={obj.user_email === this.state.email} time="date_sent" />)
@@ -93,7 +93,6 @@ export default class ChatRoom extends Component {
             style={styles.userInput}
             onChangeText={(message) => this.setState({message})}
             value={this.state.message}
-            onFocus={this.getEmail.bind(this)}
           />
           <View style={styles.sendIcon}>
             <Icon

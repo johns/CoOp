@@ -24,7 +24,7 @@ export default class ChatDetails extends Component {
             />
           </View>
           <Text style={styles.groupHeader}>
-            [GROUP NAME]
+            {this.props.navigation.getParam('roomID', '')}
           </Text>
         </View>
         <Text style={styles.sidePanel} onPress={navigate.bind(this, 'InviteUsers')}>

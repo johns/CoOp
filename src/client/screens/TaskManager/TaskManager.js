@@ -37,7 +37,7 @@ export default class TaskManager extends Component {
     if (this.state.tasks.constructor === Array) {
       tasks = this.state.tasks.reverse().map((task, i) => {
         return (
-          <TaskBox key={i} id={task.task_id} name={task.task_name} user={task.user_email} start={task.start_point} current={task.progress} end={task.end_point} tracking={true} />
+          <TaskBox key={i} id={task.task_id} name={task.task_name} user={task.user_email} start={task.start_point} current={task.progress} end={task.end_point} tracking={task.end_point > 1} />
         )}
       )
     }

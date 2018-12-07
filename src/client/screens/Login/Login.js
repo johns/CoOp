@@ -15,9 +15,10 @@ export default class Login extends Component {
     }
   }
 
-  async saveEmail(email) {
+  async saveEmail(email, name) {
     try {
       await AsyncStorage.setItem('user_email', email);
+      await AsyncStorage.setItem('display_name', name);
     } catch (error) {
       console.log("Error saving data" + error);
     }
@@ -32,8 +33,8 @@ export default class Login extends Component {
       socket.emit('loginInfo', data);
       socket.on('loginInfoResponse', (data) => {
         // return data[0].exist;
-        if (data[0].exists) {
-          this.saveEmail(this.state.email);
+        if (data[0]) {
+          this.saveEmail(this.state.email, data[0].display_name);
           this.props.navigation.navigate('Home', {email: this.state.email});
         } else {
           alert('Wrong login information');
