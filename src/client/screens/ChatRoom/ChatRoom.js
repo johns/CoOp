@@ -86,7 +86,7 @@ export default class ChatRoom extends Component {
               size={25}
               color={colors.primaryBlue}
               style={styles.icons}
-              onPress={navigate.bind(this, 'TaskManager')}
+              onPress={navigate.bind(this, 'TaskManager', {id: this.props.navigation.getParam('roomID', '')})}
             />
           </View>
           <TextInput
