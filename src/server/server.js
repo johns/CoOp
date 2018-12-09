@@ -62,7 +62,7 @@ let createGroup = function(data) {
   })
 };
 let createTask = function(data) {
-  db.none('INSERT INTO tasks (user_email, room_id, task_name, start_point, progress, end_point) VALUES (${email},${roomID},${taskName},${startingPoint},0,${endingPoint})', data)
+  db.none('INSERT INTO tasks (user_email, room_id, task_name, start_point, progress, end_point) VALUES (${email},${roomID},${taskName},${startingPoint},${startingPoint},${endingPoint})', data)
   .then(function(db_response) {
     console.log('task creation status', db_response);
   })
