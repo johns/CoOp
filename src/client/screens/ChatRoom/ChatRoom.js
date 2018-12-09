@@ -33,7 +33,6 @@ export default class ChatRoom extends Component {
       }
     });
     this.getEmail();
-
   }
 
    async getEmail() {

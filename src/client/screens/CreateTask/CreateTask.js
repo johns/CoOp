@@ -5,6 +5,7 @@ import {
     TextInput,
     KeyboardAvoidingView,
     Switch,
+    AsyncStorage
 } from 'react-native';
 import { Button } from 'react-native-elements'
 import styles from './CreateTask.style.js';
@@ -27,7 +28,6 @@ export default class CreateTask extends Component {
     try {
       const value = await AsyncStorage.getItem('user_email');
       this.setState({email: value});
-      // alert(this.state.emai);
     } catch (error) {
       console.log("Error retrieving data" + error);
     }
@@ -36,7 +36,6 @@ export default class CreateTask extends Component {
   componentDidMount() {
     this.getEmail();
   }
-
 
 
   createTaskButtonPress = (id) => {

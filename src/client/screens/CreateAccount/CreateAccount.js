@@ -20,9 +20,10 @@ export default class CreateAccount extends Component {
       };
   }
 
-  async saveEmail(email) {
+  async saveEmail(email, username) {
     try {
       await AsyncStorage.setItem('user_email', email);
+      await AsyncStorage.setItem('display_name', username);
     } catch (error) {
       console.log("Error saving data" + error);
     }
@@ -32,7 +33,7 @@ export default class CreateAccount extends Component {
     const data = {email: this.state.email, username: this.state.username, password: this.state.password};
     if (createAccount(data)) {
       if (data.password == this.state.passwordConfirm) {
-        this.saveEmail(data.email);
+        this.saveEmail(data.email, data.username);
         this.props.navigation.navigate('Home');
       } else {
         alert('passwords do not match');
