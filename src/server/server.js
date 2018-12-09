@@ -119,6 +119,14 @@ let getAllGroupTasks = function(data) {
   })
 };
 
+let getAllGroupMembers = function(data) {
+  db.any('SELECT group_members.user_email, user_profiles.display_name, user_profiles.profile_picture FROM group_members INNER JOIN user_profiles ON group_members.user_email = user_profiles.user_email WHERE room_id = ${roomID}', data)
+  .then(function(db_response) {
+    console.log('groups members verified', db_response);
+    io.sockets.emit('getAllGroupMembersResponse', db_response);
+  })
+};
+
 let getGroupInfo = function(data) {
   db.any('select * from rooms where name = ${room_id}', data)
   .then(function(db_response) {
@@ -203,6 +211,11 @@ io.on('connection', function(socket) {
   socket.on('getGroupInfo', (data) => {
     console.log('getGroupInfoRecieved: ', data);
     getGroupInfo(data);
+  })
+
+  socket.on('getAllGroupMembers', (data) => {
+    console.log('getGroupInfoRecieved: ', data);
+    getAllGroupMembers(data);
   })
 
   socket.on('getDetailedUserInfo', (data) => {

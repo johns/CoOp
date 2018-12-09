@@ -29,13 +29,13 @@ export default class ChatDetails extends Component {
             {this.props.navigation.getParam('room', '').title}
           </Text>
         </View>
-        <Text style={styles.sidePanel} onPress={navigate.bind(this, 'InviteUsers')}>
+        <Text style={styles.sidePanel} onPress={navigate.bind(this, 'InviteUsers', {room: this.props.navigation.getParam('room', '').roomID})}>
           Invite
         </Text>
-        <Text style={styles.sidePanel} onPress={navigate.bind(this, 'MemberList', {id: this.props.navigation.getParam('room', '').roomID})}>
+        <Text style={styles.sidePanel} onPress={navigate.bind(this, 'MemberList', {room: this.props.navigation.getParam('room', '').roomID})}>
           Members (#)
         </Text>
-        <Text style={styles.sidePanel} onPress={navigate.bind(this, 'TaskManager', {id: this.props.navigation.getParam('room', '').roomID})}>
+        <Text style={styles.sidePanel} onPress={navigate.bind(this, 'TaskManager', {room: this.props.navigation.getParam('room', '').roomID})}>
           Tasks (#)
         </Text>
         <Text style={styles.confirmButton} onPress={navigate.bind(this, 'Home')}>
