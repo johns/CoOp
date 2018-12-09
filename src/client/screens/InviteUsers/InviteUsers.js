@@ -14,7 +14,7 @@ export default class InviteUsers extends Component {
     super(props);
     this.state = {
       email: "",
-      roomID: 42,
+      roomID: "",
     }
   }
 
@@ -36,7 +36,7 @@ export default class InviteUsers extends Component {
         value= {this.state.email}
         placeholder= "Email"
       />
-      <Text style={styles.createAccountLink} onPress={this.inviteOnPress.bind(this, this.props.navigation.getParam('id', ''))}>
+      <Text style={styles.createAccountLink} onPress={this.inviteOnPress.bind(this, this.props.navigation.getParam('room', ''))}>
         Add
       </Text>
 
