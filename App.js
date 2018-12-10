@@ -189,7 +189,7 @@ const RootStack = createStackNavigator(
     },
   },
   {
-    initialRouteName: "Login", /////////////change that back
+    initialRouteName: "Login",
   }
 )
 
