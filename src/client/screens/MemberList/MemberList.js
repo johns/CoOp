@@ -30,7 +30,6 @@ export default class MemberList extends Component {
   }
 
   render() {
-    this.handleChange();
     let groupMembers = undefined;
     if (this.state.groupMembers.constructor === Array) {
       groupMembers = this.state.groupMembers.map((obj, i) => <MemberBox memberName={obj.display_name} memberPhoto={obj.profile_picture} />)
