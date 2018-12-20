@@ -1,9 +1,9 @@
 ##  Software Design Description
 
 
-6.1  __Introduction__  --  BetterWe is an app that aims to create an environment for groups to support each other in reaching common goals. People can create groups for dieting, exercise, or any other activity. You will be able to keep track of your friends' progress and be able to hold them accountable with build in features. This will be a React Native application build for Android and iOS compatibility.
+6.1  __Introduction__  --  CoOp is an app that aims to create an environment for groups to support each other in reaching common goals. People can create groups for dieting, exercise, or any other activity. You will be able to keep track of your friends' progress and be able to hold them accountable with build in features. This will be a React Native application build for Android and iOS compatibility.
 
-6.1.1  __System Objectives__  --  The BetterWe app will be an all inclusive experience for users who are striving towards goal with groups of others. The user will be able to create group activities, or tasks, that they can add group members to. The main communication of the app will be through group messaging. The group messaging page is where users can check on the progress of their group members and use the app specific features to keep their friends accountable for striving towards their collective goal.
+6.1.1  __System Objectives__  --  The CoOp app will be an all inclusive experience for users who are striving towards goal with groups of others. The user will be able to create group activities, or tasks, that they can add group members to. The main communication of the app will be through group messaging. The group messaging page is where users can check on the progress of their group members and use the app specific features to keep their friends accountable for striving towards their collective goal.
 
 6.1.2  __Hardware, Software, and Human Interfaces__  
 
@@ -13,7 +13,7 @@
 
 6.1.2.2.1  __Front-end__  --  The front-end of the application will be created with React Native. React Native is a derivative of Javascript created by Facebook, so it has a lot of functionality and documentation online. Our react native code will be organized and modularized to make it easier to work with.
 
-6.1.2.2.2  __Back-end__  --  The back-end of BetterWe will be our two PostgreSQL databases. One database will hold all of the information on the tasks that the groups have created. Another database will be used to store the chat information within each group. Both of the databases will hold user information relating to who are in the task groups, who the messages are from, progress on the tasks, and other necessary information.
+6.1.2.2.2  __Back-end__  --  The back-end of CoOp will be our two PostgreSQL databases. One database will hold all of the information on the tasks that the groups have created. Another database will be used to store the chat information within each group. Both of the databases will hold user information relating to who are in the task groups, who the messages are from, progress on the tasks, and other necessary information.
 
 6.1.2.3  __Human Interface__  --  The human interface is an app with basic menu structures. Below are mockups for the user interface.
 ![User Interface Mockups](images/component-diagram.png)
@@ -41,7 +41,7 @@
 ![Architectural Design Diagram](images/architecture-diagram.png)
 
 
-6.3.  __CSC and CSU Descriptions__ -- The components of BetterWe consist of mainly front end pages. They will be split up into reusable components and page views.
+6.3.  __CSC and CSU Descriptions__ -- The components of CoOp consist of mainly front end pages. They will be split up into reusable components and page views.
 
 6.3.1  __Class Descriptions__
 

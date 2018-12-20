@@ -4,9 +4,9 @@ __What follows is an example of Requirements Specification structure__
 
 1.1  __Introduction__
 
-BetterWe is a React Native application built to run on iOS and Android systems. It's purpose is to provide groups of people with a platform where they can keep each other accountable for activities they are doing together. Each user will make an account and be able to keep track of the groups that they are in. The main page for an activity will have the core functionality of a group messaging application. Added on to the messaging interface will be accountability features. Some of these features include checking in on your friend's progress, having your friend prove their check-ins, waging money for competing towards a goal, etc.
+CoOp is a React Native application built to run on iOS and Android systems. It's purpose is to provide groups of people with a platform where they can keep each other accountable for activities they are doing together. Each user will make an account and be able to keep track of the groups that they are in. The main page for an activity will have the core functionality of a group messaging application. Added on to the messaging interface will be accountability features. Some of these features include checking in on your friend's progress, having your friend prove their check-ins, waging money for competing towards a goal, etc.
 
-1.2  __CSCI Component Breakdown__ -- CSCI BetterWe is composed of the following CSCs:
+1.2  __CSCI Component Breakdown__ -- CSCI CoOp is composed of the following CSCs:
 
 1.2.1 __GUI Client CSC__ -- The GUI Client will be a home screen displaying all of the user's groups. From there, the user can navigate to Chat pages, Goal Managers, and Group Finders.
 
@@ -39,7 +39,7 @@ A Simple Mockup of our current CSCI is shown below.
 
 1.4  __Performance Requirements by CSC__
 
-1.4.1  __Logging in or Registering__ -- Logging in and registering for a BetterWe account should be integrated into Facebook or Google for a seamless login. The user should log in once and not have to worry about logging in ever again. The user should only see the registration/login menu if they are not logged in on that device.
+1.4.1  __Logging in or Registering__ -- Logging in and registering for a CoOp account should be integrated into Facebook or Google for a seamless login. The user should log in once and not have to worry about logging in ever again. The user should only see the registration/login menu if they are not logged in on that device.
 
 1.4.2 __Creating a New Activity__ -- When creating an activity, the user will be able to select the accountability features that they want to use for their activity. It is also important to be able to invite friends to your group from your contacts.
 

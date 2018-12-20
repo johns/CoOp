@@ -8,7 +8,7 @@
 
 1.1.  Project description, database engine used, potential users, maybe some other stuff
 
->  The project is to create and manage a database that can take care of data for the real-time group chat aspects of the BetterWe mobile app. We plan on using PostgreSQL to manage our database system since it is very stable, easy to manage cross-platform, and compatible with GUI and admin tools. Expected potential users are individuals or groups of friends looking to motivate themselves and keep track of their progress to a set goal. For example, a group of friends who agree to keep themselves accountable for their own individual weight loss goals.
+>  The project is to create and manage a database that can take care of data for the real-time group chat aspects of the CoOp mobile app. We plan on using PostgreSQL to manage our database system since it is very stable, easy to manage cross-platform, and compatible with GUI and admin tools. Expected potential users are individuals or groups of friends looking to motivate themselves and keep track of their progress to a set goal. For example, a group of friends who agree to keep themselves accountable for their own individual weight loss goals.
 
 1.2.  Data description, generally what type of data will be stored
 

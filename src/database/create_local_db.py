@@ -7,7 +7,7 @@ Once set up, run the program with your
 postgres username, password, and preferred DB name of choice.
 
 then run:
-python3 betterWe_local_db.py <USERNAME> <PASSWORD> <DB NAME>
+python3 coop_local_db.py <USERNAME> <PASSWORD> <DB NAME>
 
 Upon success, enter your db with the "psql <DB NAME>" command.
 '''
