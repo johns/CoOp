@@ -7,16 +7,16 @@ Once set up, run the program with your
 postgres username, password, and preferred DB name of choice.
 
 then run:
-python3 coop_local_db.py <USERNAME> <PASSWORD> <DB NAME>
+python3 create_local_db.py <USERNAME> <PASSWORD> <DB NAME>
 
 Upon success, enter your db with the "psql <DB NAME>" command.
 '''
 
-import psycopg2
 import sys
+import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
-if (len(sys.argv) < 4):
+if len(sys.argv) < 4:
     print("Not enough arguments. <USERNAME, PASSWORD, NEW DATABASE NAME>")
     sys.exit()
 
