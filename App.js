@@ -22,7 +22,7 @@ const RootStack = createStackNavigator(
     Home: {
       screen: Home,
       navigationOptions: ({navigation}) => ({
-        title: 'co-op',
+        title: 'CoOp',
         headerTitle: (
             <Image
               style={{width: 60, height: 30}}
@@ -200,4 +200,4 @@ const AppContainer = createAppContainer(RootStack);
 export default AppContainer;
 
 
-AppRegistry.registerComponent("BetterWe", () => App);
+AppRegistry.registerComponent("CoOp", () => App);
