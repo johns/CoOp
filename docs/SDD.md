@@ -1,9 +1,9 @@
 ##  Software Design Description
 
 
-6.1  __Introduction__  --  CoOp is an app that aims to create an environment for groups to support each other in reaching common goals. People can create groups for dieting, exercise, or any other activity. You will be able to keep track of your friends' progress and be able to hold them accountable with build in features. This will be a React Native application build for Android and iOS compatibility.
+6.1  __Introduction__  --  CoOp is a mobile application that aims to create an environment for groups to support each other in reaching common goals. People can create groups for dieting, exercise, or any other activity. You will be able to keep track of your friends' progress and be able to hold them accountable with build in features. This will be a React Native application build for Android and iOS compatibility.
 
-6.1.1  __System Objectives__  --  The CoOp app will be an all inclusive experience for users who are striving towards goal with groups of others. The user will be able to create group activities, or tasks, that they can add group members to. The main communication of the app will be through group messaging. The group messaging page is where users can check on the progress of their group members and use the app specific features to keep their friends accountable for striving towards their collective goal.
+6.1.1  __System Objectives__  --  CoOp is an all inclusive experience for users who are striving towards goal with groups of others. The user is able to create group activities, or tasks, that they can add group members to. The main form of communivation is through its group messaging. The group messaging page is where users can check on the progress of their group members and use the app specific features to keep their friends accountable for striving towards their collective goal.
 
 6.1.2  __Hardware, Software, and Human Interfaces__  
 
