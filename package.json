@@ -30,7 +30,8 @@
     "rebuild": "^0.1.2",
     "redux": "^4.0.1",
     "socket.io": "^2.2.0",
-    "socket.io-client": "^2.2.0"
+    "socket.io-client": "^2.2.0",
+    "tar": "^4.4.8"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
